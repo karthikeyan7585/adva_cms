@@ -1,0 +1,68 @@
+<%= javascript_include_tag 'admin/order' %>
+
+<% content_for :filter do %>
+	<% form_tag admin_orders_path, :method => 'get', :id => 'order-search' do -%>
+		<label for="search" class="inline">
+		    Show Orders:
+		</label>
+		<select name="filter" id="filterlist">
+		    <%= options_for_select [['with ID',          'order_id'],
+		    						['ordered on',          'ordered_on'],
+								    ['whose shipping status is',  'shipping_status'],
+								    ['whose payment status is',  'payment_status'],
+									['with product ID',  'product_id'],
+									['whose shipping method is',  'shipping_method'],
+								    ['whose payment method is',  'payment_method']], params[:filter] %>
+		</select>
+		<% puts params[:shipping_status] %>
+		<%= text_field_tag 'query', params[:query], :id => 'query' %>
+		<%= date_select("order", "ordered_on", {}, :style => 'display: none')%>
+		<%= select_tag "shipping_status", options_for_select([["- All Orders -", ''], ["Shipped", "1"], ["Not Shipped", "0"]], params[:shipping_status]), :style => 'display: none' %>
+		<%= select_tag "payment_status", options_for_select([["- All Orders -", ''], ["Paid", "1"], ["Not Paid", "0"]], params[:payment_status]), :style => 'display: none' %>
+		<%= select_tag "shipping_method", options_for_select([["- All Methods -", '']] + @section.shipping_methods.collect{|sm| [sm.name, sm.id.to_s] }, params[:shipping_method]), :style => 'display: none' %>
+		<%= select_tag "payment_method", options_for_select([["- All Methods -", '']] + @section.payment_methods.collect{|sm| [sm.name, sm.id.to_s] }, params[:payment_method]), :style => 'display: none' %>
+		<%= submit_tag "Go", :id => "button", :style => "display: none;" %>
+	<% end -%>
+<% end -%>
+
+<% unless @orders.blank? %>
+	<p class="total">
+	    Total: <strong><%= @orders.total_entries %></strong>
+	    <%= pluralize_str @orders.total_entries, 'order' %>.
+	</p>
+	<h1>orders</h1>
+	<table class="list">
+	    <tr>
+	        <th>Order No</th>
+			<th>Date</th>
+	        <th>Ordered by</th>
+			<th>Payment Status</th>
+			<th>Shipping Status</th>
+			<th>Total Price</th>
+	    </tr>
+	    <%@orders.each do |order| %>
+	    <tr>
+	        <td><%= link_to("##{order.id}", edit_admin_order_path(@site, @section, order)) %></td>
+			<td><%= order.created_at %></td>
+	        <td> <%= order.billing_address.full_name %> </td>
+			<td><%= order.payment_status %></td>
+			<td><%= order.shipping_status %></td>
+			<td>$<%= order.total_price %></td>
+			<td><%= link_to "Shipping Paper", shipping_page_path(@site, @section, order) %></td>
+	    </tr>
+	    <%end unless @orders.blank? %>
+	    <tr>
+	        <td colspan=4 align="right">
+	            <%= will_paginate @orders, :id => 'pagination' %>
+	        </td>
+	    </tr>
+	</table>
+<% else -%>
+	<div class="empty">
+	    <% unless params[:filter] %>
+	    	There are no pending orders in <%= @section.title %>.
+	    <% else %>
+	    	There are no orders matching that criteria in <%= @section.title %>.
+		<% end %>
+	</div>
+<% end -%>

@@ -35,12 +35,10 @@ steps_for :site do
 
   Given "a site with the $engine spam filter" do |engine|
     Given "a site"
-    @site.update_attributes! :spam_options => {
-      :default => {:ham => "authenticated"}, 
-      :akismet => { :key => 'key', :url => 'http://domain.org' },
-      :defensio => { :key => 'key', :url => 'http://domain.org' },
-      :filters => [engine]
-    }
+    engine = engine.downcase.to_sym
+    options = {engine => {}}
+    options[engine].merge! :key => 'key', :url => 'http://domain.org' if [:akismet, :defensio].include?(engine)
+    @site.update_attributes! :spam_options => options
   end
   
   When "the user visits the admin sites list page" do

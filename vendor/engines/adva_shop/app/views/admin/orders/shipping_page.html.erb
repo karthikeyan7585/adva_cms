@@ -1,0 +1,215 @@
+<html>
+<head>
+	<style>
+p.total {
+	background-color: #eee;
+	text-align: center;	
+  padding: 3px 3px;
+}
+table.list {
+	width: 100%;
+	border-collapse: collapse;
+}
+table.list th {
+	padding: 8px 10px;
+	text-align: left;
+	border-bottom: 5px solid #ccc;
+}
+table.list td {
+	padding: 8px 10px;
+	border-bottom: 1px solid #eee;
+}
+
+table.list a.published {
+	padding-left: 30px;
+	background: url(/images/icons/tick.png) no-repeat;
+}
+table.list a.pending {
+	padding-left: 30px;
+	background: url(/images/icons/hourglass.png) no-repeat;
+}
+table.list a.view {
+	display: block;
+	float: left;
+	width: 16px;
+	height: 16px;	
+	margin-right: 5px;
+	text-indent: 16px;
+	overflow: hidden;
+	background: url(/images/icons/page_white_magnify.png) no-repeat;
+}
+
+/* comments list */
+
+#comments_list li {
+	padding: 15px 40px;
+	background: url(/images/icons/comment.png) no-repeat 15px 15px;
+}
+#comments_list li.highlight {
+  padding: 20px 20px 20px 55px !important;
+  padding-bottom: 3px;
+  border: 1px solid #add;
+  background-color: #eaf6f6 !important;
+  margin: 20px 0;	
+}
+#comments_list blockquote {
+	margin: 0px 0px 10px 0px;
+}
+#comments_list cite {
+	font-size: 11px;
+	font-style: normal;
+}
+
+/* cached_pages list */
+
+#cached_pages {
+	width: 100%;
+}
+#cached_pages th {
+	padding: 8px 10px;
+	text-align: left;
+	border-bottom: 5px solid #ccc;
+}
+#cached_pages td {
+	padding: 8px 10px;
+	border-bottom: 1px solid #eee;
+}
+#cached_pages tr.deleted td {
+	text-decoration: line-through;
+	color: #aaa;
+}
+#cached_pages tr.deleted a {
+	display: none;
+}
+#cached_pages tr span {
+	display: none;
+}
+#cached_pages tr.deleted span {
+	display: block;
+}
+</style>
+
+</head>
+<script>
+	function PrintPage()
+	{
+		window.print()
+	}
+</script>
+<div style="width: 70%">
+<p align="right">
+    <h2>Order #<%= @order.id %></h2>
+</p>
+<input type="button" value ="Print Page" onclick="PrintPage()">
+<table class="list">
+    <tr>
+        <th>
+            Product
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Tax Rate
+        </th>
+        <th style="text-align: right">
+            Total
+        </th>
+    </tr>
+    <% @order.order_lines.each do |order_line| %>
+    <tr>
+        <td>
+            <%= order_line.product.name %>
+        </td>
+        <td>
+            $<%= order_line.product.price %>
+        </td>
+        <td>
+            <%= order_line.quantity %>
+        </td>
+        <td>
+            <%= order_line.product.tax_rate %>
+        </td>
+        <td align="right">
+            $<%= order_line.total_price %>
+        </td>
+    </tr>
+    <% end %>
+    <tr>
+        <td colspan=4 align="right">
+            Subtotal:
+        </td>
+        <td align="right">
+            $<%= @order.total_price %>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=4 align="right">
+            Shipping (<%= @order.shipping_method.name.underscore.humanize %>):
+        </td>
+        <td align="right">
+            $<%= @order.shipping_cost %>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=4 align="right">
+            <b>Total:</b>
+        </td>
+        <td align="right">
+            <b>$<%= @order.total_cost %></b>
+        </td>
+    </tr>
+</table>
+<div style="width: 100%;">
+    <div style="width: 45%; float: left; padding-top: 10px;">
+        <div style="background: #DEDEDE; font-weight: bold;">
+            Billing Address
+        </div>
+        <div style="background: #EFEFEF;">
+            <%= @order.billing_address.full_name %>
+            <br>
+            <%= @order.billing_address.street1 %>
+            <br>
+            <%= @order.billing_address.street2 %>
+            <br>
+            <%= @order.billing_address.city %>
+            <br>
+            <%= @order.billing_address.state %>
+            <br>
+            <%= @order.billing_address.country %>
+            <br>
+            ZIP: <%= @order.billing_address.zip_code %>
+            <br>
+            Phone: <%= @order.billing_address.phone %>
+        </div>
+    </div>
+    <div style="width: 45%; float: right; padding-top: 10px;">
+        <div style="background: #DEDEDE; font-weight: bold;">
+            Shipping Address
+        </div>
+        <div style="background: #EFEFEF;">
+            <%= @order.shipping_address.full_name %>
+            <br>
+            <%= @order.shipping_address.street1 %>
+            <br>
+            <%= @order.shipping_address.street2 %>
+            <br>
+            <%= @order.shipping_address.city %>
+            <br>
+            <%= @order.shipping_address.state %>
+            <br>
+            <%= @order.shipping_address.country %>
+            <br>
+            ZIP: <%= @order.shipping_address.zip_code %>
+            <br>
+            Phone: <%= @order.shipping_address.phone %>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</html>

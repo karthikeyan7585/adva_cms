@@ -1,0 +1,30 @@
+Story: Paying the order
+  As a user
+  I want to add billing information
+  So I can pay the order
+  
+  Scenario: A user adds billing information to an order
+    Given Scenario: An anonymous user only adds a billing address to an order
+    And the page displays the cart contents including detailed price information
+    And the page displays the shipping and billing address information
+    And the page has a payment information form
+    When the user selects a payment option 
+    And the user fills in the payment information form with valid data
+    When the user clicks the "Pay order" button
+    Then the payment is processed
+
+  Scenario: An order is paid through online payment processing
+    Given online payment processing is configured properly and available
+    When the payment is processed
+    Then the user is redirected to a confirmation page
+    And the confirmation page shows the details of the paid order
+    And a confirmation email is sent to the user
+    And the confirmation email contains the details of the paid order
+
+  Scenario: An order is paid through online payment processing
+    Given online payment processing is not configured properly or not available
+    When the payment is processed
+    Then the user is redirected to a confirmation page
+    And the confirmation page shows the details of the order, payment instructions
+    And a confirmation email is sent to the user
+    And the confirmation email contains the details of the order, payment instructions

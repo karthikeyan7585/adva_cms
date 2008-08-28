@@ -1,0 +1,93 @@
+<h3>Edit Payment settings for <%= @section.type.titleize %></h3>
+
+<% form_for :shop, @section, :url => save_payment_setup_admin_shop_path(@site, @section), :html => {:method => :put} do %>
+
+	<h4>External Payment</h4>
+	<% fields_for :external_payment do |f| %>
+		<fieldset>
+			<p>
+				<%= f.label :payment_gateway %>
+				<%= f.select :payment_gateway, ExternalPayment.payment_gateways, :include_blank => false %> 
+			</p>
+			<p>
+				<%= f.label :account_email %>
+				<%= f.text_field :account_email %>
+			</p>
+		</fieldset>
+	<% end %>
+	
+	<h4>Credit Card Payment</h4>
+	<% fields_for :credit_card_payment do |f| %>
+		<fieldset>
+			<p>
+				<%= f.label :payment_gateway %>
+				<%= f.select :payment_gateway, ExternalPayment.payment_gateways, :include_blank => false %> 
+			</p>
+			<p>
+				<%= f.label :account_email %>
+				<%= f.text_field :account_email %>
+			</p>
+			<p>
+				<%= f.label :accepted_credit_cards %>
+				<table width="60%">
+					<tr>
+						<% CreditCardPayment.acceptable_credit_cards.each do |card| %>
+						<td> 
+							<%= check_box "credit_cards", "#{card}", {}, "#{card}", nil %>
+							<b><%= card.humanize %></b>				
+						</td>
+						<% end %>
+					</tr>
+				</table>
+			</p>
+		</fieldset>
+	<% end %>
+	
+	<h4>Bank Payment</h4>
+	<% fields_for :bank_payment do |f| %>
+		<fieldset>
+			<p>
+				<%= f.label :bank_name %>
+				<%= f.text_field :bank_name %> 
+			</p>
+			<p>
+				<%= f.label :account_number %>
+				<%= f.text_field :account_number %>
+			</p>
+			<p>
+				<%= f.label :payee_name %>
+				<%= f.text_field :payee_name %>
+			</p>
+			<p>
+				<%= f.label :other_details %>
+				<%= f.text_area :other_details, :class => 'fat', :rows => 8 %>
+			</p>
+		</fieldset>
+	<% end %>
+	
+	<h4>Shipping Methods</h4>
+	<% fields_for :shipping_method do |f| %>
+		<fieldset>
+			
+			<p>
+				<h3>Available Methods:</h3>
+				<% @shop.shipping_methods.each do |sm| %>
+					<%= sm.name %><br />
+				<% end %>
+			</p>
+			<p>
+				<h3>Add New:</h3>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</p>
+			<p>
+				<%= f.label :shipping_cost %>
+				<%= f.text_field :shipping_cost %>
+			</p>
+		</fieldset>
+	<% end %>
+	
+	<p class="buttons">
+	  <%= submit_tag 'Save' %>
+	</p>
+<% end %>

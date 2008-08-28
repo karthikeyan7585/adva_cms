@@ -1,0 +1,19 @@
+<% unless @order.new_record? %>
+
+<h2>Congratulations!</h2>
+<p>
+<h4>Your order has been successfully completed. Your order ID is #<%= @order.id %>. </h4>
+</p>
+
+<p>
+	Further informations will be sent to your mail.
+</p>
+<% else %>
+<h2>Sorry!</h2>
+<p>
+	<h4>Some problem occured during process.<br>
+		Go back to <%= link_to("Shop", shop_path(@section)) %>
+	</h4>
+</p>
+	
+<% end %>

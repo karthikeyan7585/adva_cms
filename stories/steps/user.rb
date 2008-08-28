@@ -65,12 +65,7 @@ steps_for :user do
   end
   
   Then "a new user account is created" do 
-    @user = User.find_by_name('a new user name')
-    @user.should_not be_nil
-  end
-  
-  Then "the user is a member of the site" do
-    @user.is_site_member?(@site).should be_true
+    User.find_by_name('a new user name').should_not be_nil
   end
   
   Then "an admin account is created" do

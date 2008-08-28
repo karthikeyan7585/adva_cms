@@ -1,0 +1,29 @@
+<% unless @addresses.blank? %>
+	<table width="100%">
+		<% @addresses.each do |address| %>
+			<tr>
+				<td valign="top">
+					<%= radio_button "selected_#{address_type}", "#{address.id}", "#{address.id}", {:name => "selected_#{address_type}", :onclick => "toggleAddress('#{address.id}', '#{address_type}_form');"} %>
+				</td>
+				<td>
+					<b><%= address.full_name %></b><br />
+					<%= address.street1 %><br />
+					<%= address.street2 %><br />
+					<%= address.city %><br />
+					<%= address.state %><br />
+					<%= address.country %><br />
+					ZIP: <%= address.zip_code %><br />
+					Phone : <%= address.phone %>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>
+				<%= radio_button "selected_#{address_type}", "new", "new", {:name => "selected_#{address_type}", :onclick => "toggleAddress('new', '#{address_type}_form');" } %>
+			</td>
+			<td>
+				Use a different <%= "#{address_type.humanize}" %>
+			</td>
+		</tr>
+	</table>
+<% end %>

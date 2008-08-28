@@ -81,3 +81,20 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
   config.active_record.observers = 'activities/article_observer', 'activities/comment_observer', 'activities/wikipage_observer'
 end
+
+
+ActiveMerchant::Billing::Base.gateway_mode = :test
+
+# Install the key
+ActiveMerchant::Billing::PaypalGateway.pem_file = File.read(File.join(RAILS_ROOT, 'config', 'paypal', 'cert_key.pem'))
+ActionMailer::Base.delivery_method = :smtp
+#ActionMailer::Base.raise_delivery_errors = true
+
+ActionMailer::Base.smtp_settings = {
+   :address => "mail.aspiresys.com",
+   :port => 25,
+   :domain => "aspiresys.com",
+   :authentication => nil,
+   :user_name => nil,
+   :password =>nil
+   }

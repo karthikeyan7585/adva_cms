@@ -1,0 +1,124 @@
+ 
+
+# 6. Process customer Order 
+# 6.1 Update customer order
+
+Story: Reviewing orders
+  As an admin
+  I want to review my orders and update their attributes
+  So I can have an overview and do necessary changes
+  
+  Scenario: An admin reviews an order's attributes
+    Given a shop with one product
+    Given a processed order
+    And the user is logged in as admin
+    When the user visits the 'Orders' tab in the admin shop section
+    Then the user sees the admin orders list page
+    And the page lists all orders that are not completed 
+    And the list has one entry
+    When the user clicks on the order link
+    Then the user sees the admin order edit page
+    And the page has an order edit form 
+    When the user fills in the order edit form with valid values
+    And the user clicks the 'Update' button
+    Then the user is redirected to the admin orders list page  
+    And the order is updated
+    
+    
+# 6.2 Receive payment for an order
+
+Story: An admin receives a payment for an order
+  As an admin
+  I want to manually receive a payment for an order in the admin area
+  So the user will receive his order
+  
+  Scenario: An admin ships a customer order
+    Given a shop with one product and one order
+    And the user is logged in as admin
+    When the user visits the 'Orders' tab in the admin shop section
+    Then the user sees the admin orders list page
+    And the page lists all orders that are not completed
+    And the listed order has a "receive payment" button
+    When the user clicks on the "receive payment" button for the order
+    Then a payment receivement email is sent to the user 
+    And the order's status set to "completed"
+    And the user is redirected back to the admin orders list page
+    And the order's "receive payment" button is removed
+    
+
+# 6.3 Shipping order
+
+Story: Printing a shipping paper
+  As an admin
+  I want to print the shipping paper in the admin area
+  So I can ship the order
+  
+  Scenario: An admin prints the shipping paper for an order
+    Given a shop with one product and one order
+    And the user is logged in as admin
+    When the user visits the 'Orders' tab in the admin shop section
+    Then the user sees the admin orders list page
+    And the page lists all orders that are not completed
+    And the listed order has a "shipping paper" link
+    When the user clicks on the "shipping paper" link for the order
+    Then the user sees the order shipping paper view page
+    And the page has a Javascript "Print" link
+    
+
+# 6.4 Shipping an order
+
+Story: Ship customer order
+  As an admin
+  I want to ship an order in the admin area
+  So the user will receive his order
+  
+  Scenario: An admin ships a customer order
+    Given a shop with one product and one order
+    And the user is logged in as admin
+    When the user visits the 'Orders' tab in the admin shop section
+    Then the user sees the admin orders list page
+    And the page lists all orders that are not completed
+    And the listed order has a "ship order" button
+    When the user clicks on the "ship order" button for the order
+    Then a shipping email is sent to the user 
+    And the order status set to "completed" 
+    And the user is redirected back to the admin orders list page
+    And the order is not listed
+
+    
+
+# 6.5 Order History Report
+
+Story: View order history
+  As an admin
+  I want to view order history in the admin area
+  So I can answer questions regarding order status to the user
+  
+  Scenario: An admin views order history
+    Given a shop with one product and one order
+    And the user is logged in as admin
+    When the user clicks the 'orders' tab
+    Then the user sees the admin orders list page
+    And the page lists all orders that are not completed
+    When the user clicks on an order link
+    Then the page shows the order details 
+    And the page shows a history order changes
+
+
+# 7. Order tracking
+# 7.1 Track order
+
+Story: User tracks an order
+  As a user
+  I want to track my order
+  So I know what happened to my purchase
+  
+  Scenario: A user tracks an order
+    Given a shop with products and a placed order
+    Then the user has an order tracking number
+    When the user goes to the shop order tracking page
+    Then the page has an order tracking form
+    When the user enters in the order tracking form with a valid order tracking number
+    And the user clicks on the 'Show' button
+    Then the page shows the order status page
+    And the page lists the order's status changes grouped by: today, yesterday, older changes

@@ -1,0 +1,86 @@
+<h2>CART</h2>
+
+<% products = get_products_in_cart %>
+
+<% unless products.blank? %>
+
+<div class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%">
+	<div>
+		<table width="100%">
+			<tr style="padding-top: 50px">
+				<th align="center" bgcolor="#CCCCCC" width="20%" >
+					<b>Name</b>
+				</th>
+				<th align="center" bgcolor="#CCCCCC" width="15%">
+					<b>Vendor</b>
+				</th>
+				<th bgcolor="#CCCCCC" width="10%">
+					<b>Quantity</b>
+				</th>
+				<th align="center" bgcolor="#CCCCCC" width="15%">
+					<b>Price</b>
+				</th>
+				<th align="center" bgcolor="#CCCCCC" width="15%">
+					<b>Total</b>
+				</th>
+					
+				<th align="center" bgcolor="#CCCCCC" width="10%">
+					<b>Remove</b>
+				</th>
+				<th align="center" bgcolor="#CCCCCC"  width="10%">
+					<b>Update</b>
+				</th>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<% products.each do |product|
+		prod_quantity = session[:products_in_cart][product.id.to_s.to_sym] || 1 
+%>
+
+	<div id="<%= dom_id product %>" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%;">
+		<div>
+			<table width="100%">
+				<tr>
+					<td align="center" width="20%">
+						<h2><%= product.name %></h2>
+						<!--
+						<% cache do %>
+						<%= link_to(image_tag(product.product_image.public_filename, :size => "50x50"), edit_admin_product_path(@site, @section, product)) %>
+						<% end %>
+						-->
+					</td>
+					<td align="center" width="15%">
+						<%= product.vendor_name %>
+					</td>
+					<% form_tag(update_cart_path(:product_id => product.id)) do %>
+						<td align="center" width="10%">
+							<%= text_field_tag("product_quantity_#{product.id}", prod_quantity, :size => 1) %>
+						</td>
+						<td align="center" width="15%">
+							<b>$<%= product.price %></b>
+						</td>
+						<td align="center" width="15%">
+							<b>$<%= (product.price+(product.price*product.tax_rate/100))* prod_quantity.to_i %></b>
+						</td>
+						<td align="center" width="10%">
+							<%= link_to(image_tag('/images/icons/delete.png', :style => "border: none"), remove_from_cart_path(:product_id => product.id)) %>
+						</td>
+						<td align="center" width="10%">
+							<%= submit_tag "Update" %>
+						</td>
+					<% end %>
+				</tr>
+			</table>
+		</div>
+	</div>
+<% end %>
+
+<% else %>
+	<p> No items in the cart. Go back to <b><%= link_to "Shop", :action => "index" %></b>. </p>
+<% end %>
+
+<p>
+	<%= button_to "Checkout", select_addresses_path %>
+</p>

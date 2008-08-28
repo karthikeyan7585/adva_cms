@@ -1,0 +1,54 @@
+<%= javascript_include_tag "checkout" %>
+
+<%= render :partial => 'cart_products' %>
+
+<div style="padding-top: 50px">
+	<% form_tag(proceed_to_payment_path) do %>
+	
+		<div id="email">
+			<%= label_tag "email" %>
+			<%= text_field_tag "email", nil, {:size => 30} %>
+		</div>
+	
+		<div id="billing_address" style="float:left; width:49%; display: block;height: auto; border: #000000;">
+			<p>
+				<h3>
+					Billing Address:
+				</h3>
+			</p>
+			<%= render :partial => 'existing_addresses', :locals => {:address_type => 'billing_address'} %>
+			
+			<div id="billing_address_form" style=<%= @addresses.blank? ? "" : "display:none" %>  >
+				<%= render :partial => 'new_address', :locals => {:address_type => 'billing_address'} %>
+			</div>
+			<br />
+			<table cellspacing="1" cellpadding="1">
+				<tr>
+					<td>
+						<%= check_box_tag "ship_to_billing_address", nil, true, {:onchange => "toggleShippingAddress(this.checked, 'shipping_address');"} %>
+						Use my billing address for shipping
+					</td>
+				</tr>
+				<tr rowspan=2 valign="bottom">
+					<td>
+						<%= submit_tag "Proceed to next step" %>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="shipping_address" style="float:right; width:49%; display: none;">
+			<p>
+				<h3>
+					Shipping Address:
+				</h3>
+			</p>
+			<%= render :partial => 'existing_addresses', :locals => {:address_type => 'shipping_address'} %>
+			
+			<div id="shipping_address_form" style=<%= @addresses.blank? ? "" : "display:none" %>  >
+				<%= render :partial => 'new_address', :locals => {:address_type => 'shipping_address'} %>
+			</div>
+		</div>
+	
+	<% end %>
+</div>

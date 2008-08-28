@@ -1,0 +1,107 @@
+Following are the updated files in adva_cms application:
+
+
+1) adva_cms\vendor\engines\adva_cms\app\controllers\admin\base_controller.rb   # Line 36
+
+  def admin_section_path_for(section)
+    case section
+      when Wiki     then admin_wikipages_path section.site, section
+      when Blog     then admin_articles_path section.site, section
+      when Forum    then admin_section_path section.site, section
+      when Shop     then admin_products_path section.site, section # Added by Aspire Systems
+      when Section  then admin_articles_path section.site, section
+      # else                 admin_articles_path section.site, section
+    end                                        
+  end
+
+2) attachment_fu.rb:  
+
+# Gets the data from the latest temp file.  This will read the file into memory.
+      def temp_data
+        if save_attachment?
+          f = File.new( temp_path )
+          f.binmode
+          return f.read
+        else
+          return nil
+        end
+#        save_attachment? ? File.read(temp_path) : nil
+      end
+
+3) /adva_cms/vendor/engines/adva_cms/app/helpers/base_helper.rb:
+
+module BaseHelper
+  def link_to_section_main_action
+    case @section
+    when Wiki
+      link_to 'Wikipages', admin_wikipages_path(@site, @section)
+    when Shop							# Added by Aspire Systems
+      link_to 'Products', admin_products_path(@site, @section)		# Added by Aspire Systems
+    when Section, Blog
+      link_to 'Articles', admin_articles_path(@site, @section)
+    end
+  end  
+
+
+4) /adva_cms/vendor/engines/adva_cms/app/views/widgets/admin/_menu_section.html.erb
+
+<% if @section %>
+  <div id="section_menu_container">
+    <ul id="section_menu" class="menu">
+      <!-- TODO instead, have the controller register the actions -->
+      <li><%= link_to_section_main_action %></li>
+	  <% if @section.instance_of?(Shop) %>
+	  	<li><%= link_to 'Orders', admin_orders_path(@site, @section) %></li>
+	  <% end %>
+      <% if @section.accept_comments? %>
+        <li><%= link_to 'Comments', admin_comments_path %></li>
+      <% end %>
+      <% if @section.instance_of?(Section) || @section.instance_of?(Blog) || @section.instance_of?(Shop) %>
+        <li><%= link_to 'Categories', admin_categories_path(@site, @section) %></li>
+      <% elsif @section.instance_of?(Forum) %>
+        <li><%= link_to 'Boards', admin_boards_path(@site, @section) %></li>
+      <% end %>
+	  <% if @section.instance_of?(Shop) %>
+	  	<li><%= link_to 'Shop Setup', admin_section_path(@site, @section) %></li>
+		<li><%= link_to 'Payment Setup', admin_shop_path(@site, @section, @section) %></li>
+	  <% else %>
+	  	<% puts admin_section_path(@site, @section)%>
+      	<li><%= link_to 'Settings', admin_section_path(@site, @section) %></li>
+	  <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+5) \adva_cms\vendor\engines\adva_user\app\models\user.rb:
+
+has_many :addresses  	# Added by Aspire Systems
+
+
+6) /adva_cms/vendor/engines/adva_cms/app/models/category.rb
+
+has_many :products, :through => :product_categories # Added by Aspire Systems
+has_many :product_categories, :dependent => :delete_all # Added by Aspire Systems
+
+7) /adva_cms/vendor/engines/adva_cms/app/helpers/content_helper.rb
+
+def content_path(content, options = {})
+	case content.section
+	when Blog
+		article_path content.section, content.full_permalink.merge(options)
+	when Wiki
+		wikipage_path *[content.section, content.permalink, options].compact
+	when Forum
+		topic_path content.section
+	when Shop
+		product_path *[content.section, content.permalink, options].compact
+	else 
+		section_article_path *[content.section, content.permalink, options].compact
+	end    
+end
+
+8) Also 3 javascript files have been newly added.
+
+	/adva_cms/public/javascripts/admin/order.js
+	/adva_cms/public/javascripts/admin/product.js
+	/adva_cms/public/javascripts/checkout.js

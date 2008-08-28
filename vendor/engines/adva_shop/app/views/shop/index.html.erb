@@ -1,0 +1,6 @@
+
+<%= render :partial => 'product_headers' %>
+<%= render :partial => 'cart_info_widget' %>
+<%= render :partial => 'product', :collection => @products, :locals => {:mode => :many} %>
+<%= will_paginate @products, :id => 'pagination' %>
+<%= render :partial => 'footer' %>

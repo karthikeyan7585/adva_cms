@@ -1,0 +1,7 @@
+<% if @product %>
+  <%= render :partial => 'shop/view_product', :object => @product, :locals => {:mode => :single} %><br />
+  <%= render :partial => 'comments/list', :locals => {:commentable => @product, :comments => @product.approved_comments} %>
+  <% if @product.accept_comments? %>
+    <%= render :partial => 'comments/form', :locals => {:commentable => @product} %>
+  <% end %>
+<% end %>

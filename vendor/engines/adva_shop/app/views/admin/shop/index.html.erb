@@ -1,0 +1,88 @@
+<%= javascript_include_tag 'admin/product' %>
+
+<% content_for :filter do %>
+	<% form_tag admin_products_path, :method => 'get', :id => 'article-search' do -%>
+		<label for="search" class="inline">
+		    Show products:
+		</label>
+		<select name="filter" id="filterlist">
+		    <%= options_for_select [['in category',          'category'],
+								    ['whose name contains',  'name'],
+								    ['whose description contains',  'description'],
+								    ['tagged with','tags'],], params[:filter] %>
+		</select>
+		<select name="category" id="categories">
+		    <option value="0">&mdash; All Categories &mdash;</option>
+		    <%= options_from_collection_for_select @section.categories, :id, :title, params[:category].to_i %>
+		</select>
+		<%= text_field_tag 'query', params[:query], :id => 'query', :style => 'display: none' %>
+		    <input type="submit" id="button" value="Go" style="display: none" />
+	<% end -%>
+<% end -%>
+
+<p>
+    <%= link_to "New Product", new_admin_product_path(@site) %>
+</p>
+
+<% unless @products.blank? %>
+	<p class="total">
+	    Total: <strong><%= @products.total_entries %></strong>
+	    <%= pluralize_str @products.total_entries, 'product' %>.
+	</p>
+	<h1>Products</h1>
+	<table class="list">
+	    <tr>
+	        <th>
+	            Name
+	        </th>
+			<th>
+	            Vendor
+	        </th>
+	        <th>
+	            Price
+	        </th>
+			<th>
+				Active?
+			</th>
+			<th>
+				
+			</th>
+	    </tr>
+	    <%@products.each do |product| %>
+		<% puts product.product_image.public_filename %>
+	    <tr>
+	        <td>
+	        	<%= link_to(image_tag(product.product_image.public_filename, :size => "100x100"), edit_admin_product_path(@site, @section, product)) %>
+				<br>
+	            <%= link_to product.name, edit_admin_product_path(@site, @section, product) %>
+	        </td>
+			<td>
+	            <%= product.vendor_name %>
+	        </td>
+	        <td>
+	            $<%=product.price %>
+	        </td>
+			<td>
+	            <%= image_tag('/images/icons/'+ (product.active? ? 'tick.png' : 'cross.png')) %>
+	        </td>
+			<td>
+				<%= image_tag('/images/icons/delete.png') %>
+				<%= link_to 'Delete this Product', admin_product_path(@site, @section, product), { :confirm => "Are you sure?", :method => :delete} %>
+			</td>
+	    </tr>
+	    <%end unless @products.blank? %>
+	    <tr>
+	        <td colspan=4 align="right">
+	            <%= will_paginate @products, :id => 'pagination' %>
+	        </td>
+	    </tr>
+	</table>
+<% else -%>
+	<div class="empty">
+	    <% unless params[:filter] %>
+	    	There are no products in <%= @section.title %>.<%= link_to "Create one now &raquo;", new_admin_product_path(@site) %>
+	    <% else %>
+	    	There are no products matching that criteria in <%= @section.title %>.
+		<% end %>
+	</div>
+<% end -%>

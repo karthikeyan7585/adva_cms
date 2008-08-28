@@ -1,0 +1,159 @@
+<p align="right"><h2>Order #<%= @order.id %></h2></p>
+<table width="100%" style="padding: 20px;">
+	<tr>
+		<td align="center">
+			<% if @order.paid? %>
+				<%= image_tag("/images/icons/tick.png") %>&nbsp; <b>Payment Received</b>
+			<% else %>
+				<%= button_to "Receive Payment", receive_order_payment_path(@site, @section, @order), :style => "width: 130px"  %>
+			<% end %>
+		</td>
+		<td align="center">
+			<% if @order.shipped? %>
+				<%= image_tag("/images/icons/tick.png") %>&nbsp; <b>Items Shipped</b>
+			<% else %>
+				<%= button_to "Ship Items", ship_order_items_path(@site, @section, @order), :style => "width: 130px"  %>
+			<% end %>
+		</td>
+		<td align="center">
+			<% unless @order.shipped? %>
+				<%= button_to "Cancel Order", {:action => "index"}, :style => "width: 130px" %>
+			<% end %>
+		</td>
+	</tr>
+</table>
+
+<table class="list">
+	<tr>
+		<th>Product</th>
+		<th>Price</th>
+		<th>Quantity</th>
+		<th>Tax Rate</th>
+		<th style="text-align: right">Total</th>
+	</tr>	
+	
+	<% @order.order_lines.each do |order_line| %>
+		<tr>
+			<td><%= order_line.product.name %></td>
+			<td>$<%= order_line.product.price %></td>
+			<td><%= order_line.quantity %></td>
+			<td><%= order_line.product.tax_rate %></td>
+			<td align="right">$<%= order_line.total_price %></td>
+		</tr>
+	<% end %>
+	
+	<tr>
+		<td colspan=4 align="right">Subtotal:</td>
+		<td align="right">$<%= @order.total_price %></td>
+	</tr>
+	<tr>
+		<td colspan=4 align="right">Shipping (<%= @order.shipping_method.name.underscore.humanize unless @order.shipping_method.nil? %>):</td>
+		<td align="right">$<%= @order.shipping_method.shipping_cost unless @order.shipping_method.nil? %></td>
+	</tr>
+	<tr>
+		<td colspan=4 align="right"><b>Total:</b></td>
+		<td align="right"><b>$<%= @order.total_cost %></b></td>
+	</tr>
+</table>
+
+<div style="width: 100%;">
+	<div style="width: 45%; float: left; padding-top: 10px;">
+		<div style="background: #DEDEDE; font-weight: bold;">
+			Billing Address
+		</div>
+		<div style="background: #EFEFEF;">
+			<%= @order.billing_address.full_name %><br>
+			<%= @order.billing_address.street1 %><br>
+			<%= @order.billing_address.street2 %><br>
+			<%= @order.billing_address.city %><br>
+			<%= @order.billing_address.state %><br>
+			<%= @order.billing_address.country %><br>
+			ZIP: <%= @order.billing_address.zip_code %><br>
+			Phone: <%= @order.billing_address.phone %>
+		</div>
+	</div>
+
+	<div style="width: 45%; float: right; padding-top: 10px;">
+		<div style="background: #DEDEDE; font-weight: bold;">
+			Shipping Address
+		</div>
+		<div style="background: #EFEFEF;">
+			<%= @order.shipping_address.full_name %><br>
+			<%= @order.shipping_address.street1 %><br>
+			<%= @order.shipping_address.street2 %><br>
+			<%= @order.shipping_address.city %><br>
+			<%= @order.shipping_address.state %><br>
+			<%= @order.shipping_address.country %><br>
+			ZIP: <%= @order.shipping_address.zip_code %><br>
+			Phone: <%= @order.shipping_address.phone %>
+		</div>
+	</div>
+</div>
+
+<div style="width: 100%">
+	<div style="width: 45%; float: left; padding-top: 20px;">
+		<div style="background: #DEDEDE; font-weight: bold;">
+			Shipping Method
+		</div>
+		<div style="background: #EFEFEF;">
+			<%= @order.shipping_method.name unless @order.shipping_method.nil? %>
+		</div>
+		<br></br>
+<%if !@order_version.empty?%>
+<p align="right"><h2>Order History</h2></p>
+	<table cellspacing=5 class="list">
+	<tr>
+			<th>
+				Order Id
+			</th>
+						<th>
+			Shipped
+			</th>
+						<th>
+				Paid
+			</th>
+				<th>
+				Date
+			</th>
+		</tr>
+<%@order_version.each do |ord|%>
+
+		
+		<tr>
+			<td>
+				<%=ord.order_id%>
+			</td>
+						<td>
+							<%if ord.shipped==true%>
+Shipped
+<%else%>
+N/A
+<%end%>
+			</td>
+						<td>
+							<%if ord.paid==true%>
+Paid
+<%else%>
+N/A
+<%end%>
+	
+			</td>
+			
+						<td>
+	<%=ord.date_at%>
+			</td>
+
+	</tr>
+	<%end%>
+</table>
+<%end%>
+	</div>
+	<div style="width: 45%; float: right; padding-top: 20px;">
+		<div style="background: #DEDEDE; font-weight: bold;">
+			Payment Method
+		</div>
+		<div style="background: #EFEFEF;">
+			<%= @order.payment_method %>
+		</div>
+	</div>
+</div>

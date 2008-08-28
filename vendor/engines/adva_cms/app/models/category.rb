@@ -9,6 +9,9 @@ class Category < ActiveRecord::Base
   belongs_to :section, :foreign_key => 'section_id'  
   has_many :contents, :through => :category_assignments
   has_many :category_assignments, :dependent => :delete_all
+  
+    has_many :products, :through => :product_categories 
+  has_many :product_categories, :dependent => :delete_all 
 
   before_validation :set_path
   

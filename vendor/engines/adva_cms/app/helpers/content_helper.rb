@@ -17,6 +17,8 @@ module ContentHelper
       wikipage_path *[content.section, content.permalink, options].compact
     when Forum
       topic_path content.section
+    when Shop
+     product_path *[content.section, content.permalink, options].compact
     else 
       section_article_path *[content.section, content.permalink, options].compact
     end    
@@ -25,7 +27,7 @@ module ContentHelper
   def link_to_content(*args)
     content = args.pop
     return unless content
-    text = args.pop || content.title
+    text = args.pop || content.title  || content.name
     link_to text, content_path(content)
   end
   

@@ -1,0 +1,11 @@
+<p>
+	<%= link_to "Delete this product", admin_product_path, { :confirm => "Are you sure?", :method => :delete} %>
+</p>
+
+<% split_form_for :product, @product, :url => admin_product_path, :html => {:multipart => true, :method => :put, :id => 'content_form' } do |f| %>
+	<%= render :partial => 'form', :locals => {:f => f} %>
+	<p class="buttons">
+		<%=  submit_tag "Apply changes" %>
+		<%= link_to "Cancel", admin_products_path %>
+	</p>
+<% end -%>
