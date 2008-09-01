@@ -1,4 +1,6 @@
 module ShopHelper
+  include Admin::ShopHelper
+
   def get_products_in_cart
     @section.products.find(session[:products_in_cart].keys.collect{|key| key.to_s.to_i})
   end

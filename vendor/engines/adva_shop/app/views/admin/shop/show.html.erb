@@ -65,28 +65,6 @@
 		</fieldset>
 	<% end %>
 	
-	<h4>Shipping Methods</h4>
-	<% fields_for :shipping_method do |f| %>
-		<fieldset>
-			
-			<p>
-				<h3>Available Methods:</h3>
-				<% @shop.shipping_methods.each do |sm| %>
-					<%= sm.name %><br />
-				<% end %>
-			</p>
-			<p>
-				<h3>Add New:</h3>
-				<%= f.label :name %>
-				<%= f.text_field :name %>
-			</p>
-			<p>
-				<%= f.label :shipping_cost %>
-				<%= f.text_field :shipping_cost %>
-			</p>
-		</fieldset>
-	<% end %>
-	
 	<p class="buttons">
 	  <%= submit_tag 'Save' %>
 	</p>

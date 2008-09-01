@@ -6,13 +6,6 @@
 	
 	<% form_tag(process_payment_path) do %>
 		
-		<p>
-			<h3>
-				Select the Shipping Method:
-			</h3>
-			<%= select_tag "shipping_method_id", options_for_select(shipping_method_options) %>
-		</p>
-		
 		<h3>
 			Select the Payment Method:
 		</h3>

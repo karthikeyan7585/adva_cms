@@ -9,7 +9,7 @@ class ShopController < BaseController
   before_filter :set_addresses, :only => [:select_addresses]
   before_filter :set_order, :only => [:process_payment, :complete_payment]
   
-  caches_page_with_references :index, :show, :track => ['@product', '@products', '@category', {'@site' => :tag_counts, '@section' => :tag_counts}]
+  #caches_page_with_references :index, :show, :track => ['@product', '@products', '@category', {'@site' => :tag_counts, '@section' => :tag_counts}]
   
   authenticates_anonymous_user
   acts_as_commentable
@@ -78,12 +78,11 @@ class ShopController < BaseController
     amount =  @order.total_price * 100
     
     @order.payment_method = params[:payment_method]
-    @order.shipping_method_id = params[:shipping_method_id].to_i
     
     
     if params[:payment_method] == "CreditCardPayment"
      credit_card = ActiveMerchant::Billing::CreditCard.new(params[:credit_card])
-     
+     puts credit_card.valid?
       if credit_card.valid?
         options ={}
         options[:billing_address] = {}

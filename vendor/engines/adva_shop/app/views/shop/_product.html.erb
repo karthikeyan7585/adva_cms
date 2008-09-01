@@ -9,10 +9,10 @@
 			<table width="100%">
 				<tr>
 					<td align="center" width="30%">
-						<h2><%= link_to_content product  %></h2>
+						<h2><%= link_to_content product %></h2>
 						
 						<% cache do %>
-						<%= image_tag(product.product_image.public_filename, :size => "50x50") %>
+						<%= image_tag(image_path(product), :size => "50x50") %>
 						<% end %>
 						<br />
 						<%= link_to_content_comments product unless mode == :single %><br />

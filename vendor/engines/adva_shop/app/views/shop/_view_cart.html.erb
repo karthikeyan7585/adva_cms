@@ -45,11 +45,7 @@
 				<tr>
 					<td align="center" width="20%">
 						<h2><%= product.name %></h2>
-						<!--
-						<% cache do %>
-						<%= link_to(image_tag(product.product_image.public_filename, :size => "50x50"), edit_admin_product_path(@site, @section, product)) %>
-						<% end %>
-						-->
+						<%= image_tag(image_path(product), :size => "50x50") %>
 					</td>
 					<td align="center" width="15%">
 						<%= product.vendor_name %>

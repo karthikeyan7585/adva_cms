@@ -37,7 +37,7 @@
 		<table width="100%">
 			<tr>
 				<td align="center" width="20%">
-					<%= image_tag(order_line.product.product_image.public_filename, :size => "50x50") %>
+					<%= image_tag(image_path(order_line.product), :size => "50x50") %>
 					<h3><%= order_line.product.name %></h3>
 					
 				</td>

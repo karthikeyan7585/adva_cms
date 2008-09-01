@@ -10,8 +10,7 @@
 		    						['ordered on',          'ordered_on'],
 								    ['whose shipping status is',  'shipping_status'],
 								    ['whose payment status is',  'payment_status'],
-									['with product ID',  'product_id'],
-									['whose shipping method is',  'shipping_method'],
+								['with product ID',  'product_id'],
 								    ['whose payment method is',  'payment_method']], params[:filter] %>
 		</select>
 		<% puts params[:shipping_status] %>
@@ -19,7 +18,6 @@
 		<%= date_select("order", "ordered_on", {}, :style => 'display: none')%>
 		<%= select_tag "shipping_status", options_for_select([["- All Orders -", ''], ["Shipped", "1"], ["Not Shipped", "0"]], params[:shipping_status]), :style => 'display: none' %>
 		<%= select_tag "payment_status", options_for_select([["- All Orders -", ''], ["Paid", "1"], ["Not Paid", "0"]], params[:payment_status]), :style => 'display: none' %>
-		<%= select_tag "shipping_method", options_for_select([["- All Methods -", '']] + @section.shipping_methods.collect{|sm| [sm.name, sm.id.to_s] }, params[:shipping_method]), :style => 'display: none' %>
 		<%= select_tag "payment_method", options_for_select([["- All Methods -", '']] + @section.payment_methods.collect{|sm| [sm.name, sm.id.to_s] }, params[:payment_method]), :style => 'display: none' %>
 		<%= submit_tag "Go", :id => "button", :style => "display: none;" %>
 	<% end -%>

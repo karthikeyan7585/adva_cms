@@ -22,7 +22,6 @@ class Shop < Section
     build_external_payment(params)
     build_credit_card_payment(params)
     build_bank_payment(params)
-    build_shipping_methods(params)
     self.save
     return payment_setup_saved?
   end
@@ -54,12 +53,5 @@ class Shop < Section
   def payment_setup_saved?
     self.external_payment.errors.blank? && self.credit_card_payment.errors.blank? && self.bank_payment.errors.blank?
   end
-  
-  def build_shipping_methods(params)
-    unless params[:shipping_method][:name].blank? and params[:shipping_method][:shipping_cost].blank?
-      shipping_method = ShippingMethod.new(params[:shipping_method].merge(:section_id => self.id))
-      shipping_method.save
-    end
-  end
- 
+    
 end

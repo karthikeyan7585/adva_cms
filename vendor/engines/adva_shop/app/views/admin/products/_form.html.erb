@@ -55,7 +55,7 @@
 		<p>
 			<%= label_tag "Graphic Image" %>
 			<% unless @product.new_record? %>
-				<%= image_tag(@product.product_image.public_filename, :size => "50x50") %>
+				<%= image_tag(image_path(@product), :size => "50x50") %>
 				<label class="light"><%= check_box_tag("change_product_image", 1, false) %> Change Image</label>
 			<% end %>
 			<%= f.file_field :uploaded_image, :style => ("display: none" unless @product.new_record?) %>

@@ -46,10 +46,7 @@
 		<td colspan=4 align="right">Subtotal:</td>
 		<td align="right">$<%= @order.total_price %></td>
 	</tr>
-	<tr>
-		<td colspan=4 align="right">Shipping (<%= @order.shipping_method.name.underscore.humanize unless @order.shipping_method.nil? %>):</td>
-		<td align="right">$<%= @order.shipping_method.shipping_cost unless @order.shipping_method.nil? %></td>
-	</tr>
+	
 	<tr>
 		<td colspan=4 align="right"><b>Total:</b></td>
 		<td align="right"><b>$<%= @order.total_cost %></b></td>
@@ -91,64 +88,8 @@
 </div>
 
 <div style="width: 100%">
+
 	<div style="width: 45%; float: left; padding-top: 20px;">
-		<div style="background: #DEDEDE; font-weight: bold;">
-			Shipping Method
-		</div>
-		<div style="background: #EFEFEF;">
-			<%= @order.shipping_method.name unless @order.shipping_method.nil? %>
-		</div>
-		<br></br>
-<%if !@order_version.empty?%>
-<p align="right"><h2>Order History</h2></p>
-	<table cellspacing=5 class="list">
-	<tr>
-			<th>
-				Order Id
-			</th>
-						<th>
-			Shipped
-			</th>
-						<th>
-				Paid
-			</th>
-				<th>
-				Date
-			</th>
-		</tr>
-<%@order_version.each do |ord|%>
-
-		
-		<tr>
-			<td>
-				<%=ord.order_id%>
-			</td>
-						<td>
-							<%if ord.shipped==true%>
-Shipped
-<%else%>
-N/A
-<%end%>
-			</td>
-						<td>
-							<%if ord.paid==true%>
-Paid
-<%else%>
-N/A
-<%end%>
-	
-			</td>
-			
-						<td>
-	<%=ord.date_at%>
-			</td>
-
-	</tr>
-	<%end%>
-</table>
-<%end%>
-	</div>
-	<div style="width: 45%; float: right; padding-top: 20px;">
 		<div style="background: #DEDEDE; font-weight: bold;">
 			Payment Method
 		</div>

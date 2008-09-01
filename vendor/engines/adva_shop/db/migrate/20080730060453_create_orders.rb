@@ -2,7 +2,6 @@ class CreateOrders < ActiveRecord::Migration
   def self.up
     create_table :orders, :force => true do |t|
       t.references    :section
-      t.integer       :shipping_method_id
       t.string        :payment_method
       t.boolean       :shipped
       t.boolean       :paid

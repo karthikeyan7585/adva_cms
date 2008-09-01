@@ -15,8 +15,6 @@ class Order < ActiveRecord::Base
   belongs_to :shipping_address, :foreign_key => 'shipping_address_id', 
              :class_name => 'Address'
   
-  belongs_to :shipping_method
-  
   belongs_to :shop, :foreign_key => "section_id"
   
   before_create :set_default_values
@@ -45,7 +43,7 @@ class Order < ActiveRecord::Base
   end
   
   def total_cost
-    total_price + shipping_cost
+    total_price
   end
 
   def shipping_status

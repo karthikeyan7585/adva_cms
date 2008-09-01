@@ -81,8 +81,9 @@ render :action =>'shipping_page',:layout =>false
         options[:conditions] = Order.send(:sanitize_sql, ["orders.id = ?", params[:query].to_i])
       when 'ordered_on'
         params["order"]["ordered_on(2i)"] = "0" + params["order"]["ordered_on(2i)"]
-        ordered_date = params["order"]["ordered_on(1i)"] + "-" + params["order"]["ordered_on(2i)"] + "-" + params["order"]["ordered_on(3i)"]
-        options[:conditions] = Order.send(:sanitize_sql, ["orders.created_at LIKE ?", "#{ordered_date.to_s}%"])
+        ordered_date = params["order"]["ordered_on(1i)"] + "/" + params["order"]["ordered_on(2i)"] + "/" + params["order"]["ordered_on(3i)"]
+        ordered_date = Date.parse(ordered_date)
+        options[:conditions] = Order.send(:sanitize_sql, ["orders.created_at >= ? and orders.created_at < ?", ordered_date,ordered_date+1])
       when 'shipping_status'
         options[:conditions] = Order.send(:sanitize_sql, ["orders.shipped = ?", params[:shipping_status]]) unless params[:shipping_status].blank?
       when 'payment_status'

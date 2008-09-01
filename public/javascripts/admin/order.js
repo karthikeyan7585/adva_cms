@@ -1,12 +1,11 @@
 var OrderSearch = Class.create();
 OrderSearch.create = function(trigSubmit) { 
 	var search = new OrderSearch('order-search', [
-    {keys: ['order_id', 'product_id'],  show: ['query'],  hide: ['shipping_status', 'payment_status', 'shipping_method', 'payment_method', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button']},
-    {keys: ['ordered_on'], show: ['order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button'],       hide: ['query', 'shipping_status', 'payment_status', 'shipping_method', 'payment_method']},
-	{keys: ['shipping_status'],  show: ['shipping_status'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'payment_status', 'shipping_method', 'payment_method', 'button']},
-	{keys: ['payment_status'],  show: ['payment_status'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'shipping_status', 'shipping_method', 'payment_method', 'button']},
-	{keys: ['shipping_method'],  show: ['shipping_method'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'shipping_status', 'payment_status', 'payment_method', 'button']},
-	{keys: ['payment_method'],  show: ['payment_method'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'shipping_status', 'payment_status', 'shipping_method', 'button']},
+    {keys: ['order_id', 'product_id'],  show: ['query'],  hide: ['shipping_status', 'payment_status', 'payment_method', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button']},
+    {keys: ['ordered_on'], show: ['order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button'],       hide: ['query', 'shipping_status', 'payment_status', 'payment_method']},
+	{keys: ['shipping_status'],  show: ['shipping_status'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'payment_status', 'payment_method', 'button']},
+	{keys: ['payment_status'],  show: ['payment_status'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'shipping_status', 'payment_method', 'button']},
+	{keys: ['payment_method'],  show: ['payment_method'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'shipping_status', 'payment_status', 'button']},
   	], trigSubmit);
 	search.onChange($('filterlist'));
 	return search;
@@ -103,7 +102,6 @@ Event.addBehavior({
   '#order-search':  function() { 
 	  	OrderSearch.create('shipping_status');
 	  	OrderSearch.create('payment_status');
-		OrderSearch.create('shipping_method');
 		OrderSearch.create('payment_method');
 	}
   // '#revisionnum':  function() { Event.observe(this, 'change', OrderForm.getRevision.bind(this)); },
