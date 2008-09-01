@@ -1,0 +1,23 @@
+<div id="bank_details" style="display: none">
+	<% if @section.bank_payment %>
+		<p>
+			<h3>Please deposit the payment to the following bank account:</h3>
+		</p>
+		<p style="padding: 10px">
+			<b>Bank Code:</b> <br /><%= @section.bank_payment.bank_code %><br /><br />
+			<b>IBAN Number:</b> <br /><%= @section.bank_payment.iban_number %><br /><br />
+			<b>SWIFT Code:</b> <br /><%= @section.bank_payment.swift_code %><br /><br />
+			
+			<% if @section.bank_payment.address %>
+				<b>Address:</b> <br />
+				<%= @section.bank_payment.address.full_name %><br />
+				<%= @section.bank_payment.address.street1 %><br />
+				<%= @section.bank_payment.address.city %><br />
+				<%= @section.bank_payment.address.state %><br />
+				<%= @section.bank_payment.address.country %><br />
+				ZIP: <%= @section.bank_payment.address.zip_code %><br />
+				Phone: <%= @section.bank_payment.address.phone %><br />
+			<% end %>
+		</p>
+	<% end %>
+</div>

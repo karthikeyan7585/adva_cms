@@ -20,7 +20,7 @@ class CreateProducts < ActiveRecord::Migration
       t.datetime      :updated_at
       t.string        :filter
       t.datetime      :published_at
-      t.string         :title
+      t.string        :title
     end
   end
 

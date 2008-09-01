@@ -4,7 +4,6 @@ class CreateOrderLines < ActiveRecord::Migration
       t.references    :product
       t.references    :order
       t.integer       :quantity
-      
     end
   end
 

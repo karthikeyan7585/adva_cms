@@ -3,18 +3,18 @@
 <%= render :partial => 'cart_products' %>
 
 <div style="padding-top: 50px">
-	<% form_tag(proceed_to_payment_path) do %>
+	<% form_tag(proceed_to_payment_path(@section, @order)) do %>
 	
 		<div id="email">
-			<%= label_tag "email" %>
-			<%= text_field_tag "email", nil, {:size => 30} %>
+			<p>
+				<%= label_tag "email" %>: 
+				<%= text_field_tag "email", current_user.is_a?(User) ? current_user.email : "", {:size => 30, :readonly => current_user.is_a?(User)} %>
+			</p>
 		</div>
 	
 		<div id="billing_address" style="float:left; width:49%; display: block;height: auto; border: #000000;">
 			<p>
-				<h3>
-					Billing Address:
-				</h3>
+				<h3>Billing Address:</h3>
 			</p>
 			<%= render :partial => 'existing_addresses', :locals => {:address_type => 'billing_address'} %>
 			
@@ -29,19 +29,15 @@
 						Use my billing address for shipping
 					</td>
 				</tr>
-				<tr rowspan=2 valign="bottom">
-					<td>
-						<%= submit_tag "Proceed to next step" %>
-					</td>
+				<tr rowspan=2>
+					<td><%= submit_tag "Proceed to next step" %></td>
 				</tr>
 			</table>
 		</div>
 		
 		<div id="shipping_address" style="float:right; width:49%; display: none;">
 			<p>
-				<h3>
-					Shipping Address:
-				</h3>
+				<h3>Shipping Address:</h3>
 			</p>
 			<%= render :partial => 'existing_addresses', :locals => {:address_type => 'shipping_address'} %>
 			

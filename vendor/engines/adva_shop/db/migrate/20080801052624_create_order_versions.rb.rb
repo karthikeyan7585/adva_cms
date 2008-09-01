@@ -4,20 +4,18 @@ class CreateOrderVersions < ActiveRecord::Migration
       t.references    :section
       t.references    :order
       t.integer       :version
-      t.integer       :shipping_method_id
       t.string        :payment_method
-      t.boolean       :shipped
-      t.boolean       :paid
+      t.integer       :status
       t.boolean       :cancelled
-      t.integer       :billing_address_id
-      t.integer       :shipping_address_id
-      t.datetime        :created_at
-      t.datetime        :updated_at
+      t.references    :billing_address
+      t.references    :shipping_address
+      t.datetime      :created_at
+      t.datetime      :updated_at
       
     end
   end
 
   def self.down
-    drop_table :product_images
+    drop_table :order_versions
   end
 end

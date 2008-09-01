@@ -33,7 +33,7 @@
 	<table class="list">
 	    <tr>
 	        <th>
-	            Name
+	           <%= link_to 'Name',  sort_param('name', :alias => 'name') %>
 	        </th>
 			<th>
 	            Vendor
@@ -49,7 +49,6 @@
 			</th>
 	    </tr>
 	    <%@products.each do |product| %>
-		
 	    <tr>
 	        <td>
 	        	<%= link_to(image_tag(image_path(product), :size => "100x100"), edit_admin_product_path(@site, @section, product)) %>

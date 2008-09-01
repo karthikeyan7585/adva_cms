@@ -9,7 +9,6 @@ class Product < ActiveRecord::Base
 
   belongs_to :section
   belongs_to :site
-  belongs_to :asset
   
   has_permalink :name, :scope => :section_id
   
@@ -53,7 +52,7 @@ class Product < ActiveRecord::Base
 
   
   def accept_comments?
-    (comment_age > -1) && (comment_age == 0)
+    comment_age > -1
   end
   
   private

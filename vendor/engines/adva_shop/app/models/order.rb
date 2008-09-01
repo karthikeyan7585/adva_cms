@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   
   class Jail < Safemode::Jail
-    allow :section, :shipping_address, :billing_address, :paid, :cancelled, :shipped, :version, :shipping_method, :payment_method
+    allow :section, :shipping_address, :billing_address, :paid, :cancelled, :shipped, :version, :payment_method, :session
   end
   
   acts_as_versioned
@@ -18,14 +18,17 @@ class Order < ActiveRecord::Base
   belongs_to :shop, :foreign_key => "section_id"
   
   before_create :set_default_values
+  before_save   :save_addresses
+  
+  STATUS = {:incomplete => 0, :new => 1, :paid => 2, :shipped => 3}
   
   def receive_payment
-    self.paid = true
+    self.status = Order::STATUS[:paid]
     self.save
   end
   
   def ship_items
-    self.shipped = true
+    self.status = Order::STATUS[:shipped]
     self.save
   end
   
@@ -38,31 +41,41 @@ class Order < ActiveRecord::Base
     order_lines.collect{|order_line| order_line.total_price}.sum
   end
   
-  def shipping_cost
-    self.shipping_method.nil? ? 0 : self.shipping_method.shipping_cost
-  end
-  
   def total_cost
     total_price
   end
 
   def shipping_status
-    shipped? ? "Shipped" : "Not Shipped"
+    status > 2 ? "Shipped" : "Not Shipped"
   end
   
   def payment_status
-    paid? ? "Paid" : "Not Paid"
+    status > 1  ? "Paid" : "Not Paid"
   end
   
   def completed?
-    paid? && shipped?
+    status > 2
   end
+  
+  def shipped?
+    status > 2
+  end
+  
+  def paid?
+    status > 1
+  end
+  
   
   protected
   
+  def save_addresses
+    self.shipping_address.save if !self.shipping_address.nil? and self.shipping_address.new_record?
+    self.shipping_address.save if !self.shipping_address.nil? and self.shipping_address.new_record?    
+  end
+  
   def set_default_values
-    self.shipped = false
-    self.cancelled = false
+    self.status = Order::STATUS[:incomplete] if self.status.blank?
+    self.cancelled = false if self.cancelled.blank?
     return self
   end
   

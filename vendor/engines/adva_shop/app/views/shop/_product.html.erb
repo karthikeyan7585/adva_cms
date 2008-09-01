@@ -1,16 +1,11 @@
 <% if product %>
-	<% 	prod_quantity = session[:products_in_cart][product.id.to_s.to_sym] unless session[:products_in_cart].nil?
-		prod_quantity ||= 1
-	%>
-
-
+	
 	<div id="<%= dom_id product %>" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 75%;">
 		<div>
 			<table width="100%">
 				<tr>
 					<td align="center" width="30%">
-						<h2><%= link_to_content product %></h2>
-						
+						<h2><%= link_to_content product  %></h2>
 						<% cache do %>
 						<%= image_tag(image_path(product), :size => "50x50") %>
 						<% end %>
@@ -25,9 +20,9 @@
 					<td align="center" width="20%">
 						<b>$<%= product.price %></b>
 					</td>
-					<% form_tag(:action => "index", :product_id=> product.id) do %>
+					<% form_tag(add_to_cart_path(@section,product)) do %>
 						<td width="10%">
-							<%= text_field_tag("product_quantity_#{product.id}", prod_quantity, :size => 1) %>
+							<%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
 						</td>
 						<td width="20%">
 							<%= submit_tag "  Add to Cart  " %>

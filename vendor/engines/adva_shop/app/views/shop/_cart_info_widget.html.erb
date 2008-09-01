@@ -1,12 +1,12 @@
-<div style="display:inline;float:right;padding:0;width: 25%;border-color:#CCCCCC;border-style:solid;border-width:1px 0;">
+<div id="cart_info_widget" style="display:inline;float:right;padding:0;width: 25%;border-color:#CCCCCC;border-style:solid;border-width:1px 0;">
 	<dl style="color:#777777;font-size:13px;">
 		<dt style="background:#666666 ;color:#EEEEEE;font-size:90%;margin:0;padding:0.5em 0.5em;font-weight:bold;text-decoration:none;text-shadow:1px 1px #FFFFFF;">
 			Cart
 		</dt>
 		<dd style="background:#EEEEEE none repeat scroll 0 0;border-bottom:1px solid #FFFFFF;border-top:1px solid #CCCCCC;color:#555555;font-size:90%;margin:0;padding:0;">
-			<% unless session[:products_in_cart].blank? %>
-				<b><%= pluralize(session[:products_in_cart].length, 'Item') %></b> in the cart.
-				<%= link_to "View Cart", view_cart_path %>
+			<% unless @cart.blank? %>
+				<b><%= pluralize(@cart.cart_items.length, 'Item') %></b> in the cart.
+				<%= link_to "View Cart", view_cart_path(@section) %>
 			<% else %>
 				No Items
 			<% end %>

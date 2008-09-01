@@ -1,0 +1,31 @@
+<div id="credit_card_details" <%= "style=\"#{@section.credit_card_payment ? "" : "display: none"}\"" %>>
+	<% if @section.credit_card_payment %>
+		<table cellspacing="5">
+			<tr>
+				<td><b> First Name</b></td>
+				<td><%= text_field "credit_card", "first_name" %></td>
+			</tr>
+			<tr>
+				<td><b> Last Name</b></td>
+				<td><%= text_field "credit_card", "last_name" %></td>
+			</tr>
+			<tr>												
+				<td><b> Card Type</b></td>
+				<td><%= select "credit_card", "type", @section.credit_card_payment.accepted_credit_cards.collect{|card| [card.humanize, card]} %></td>
+			</tr>
+	
+			<tr>
+				<td><b>Credit Card Number</b></td>
+				<td><%= text_field "credit_card", "number" %></td>
+			</tr>
+			<tr>
+				<td><b>Expiration Date</b></td>
+				<td><%= month_select_for("credit_card") %>  <%=year_select_for("credit_card") %></td>
+			</tr>
+			<tr>
+				<td><b>Card Verification Value</b></td>
+				<td><%= text_field "credit_card", "verification_value" %></td>
+			</tr>
+		</table>
+	<% end %>
+</div>

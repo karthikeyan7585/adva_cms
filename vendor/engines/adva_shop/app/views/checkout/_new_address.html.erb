@@ -1,0 +1,37 @@
+<% fields_for address_type.to_sym do |f| %>
+	<table width="100%" style="padding-top: 30px;" cellspacing="10" cellpadding="10">
+		<tr>
+			<td width="40%" style="padding-right: 20px;">Name</td>
+			<td width="60%"><%= f.text_field :full_name %></td>
+		</tr>
+		<tr>
+			<td style="padding-right: 20px;">Street 1</td>
+			<td><%= text_field "#{address_type}", "street1" %></td>
+		</tr>
+		<tr>
+			<td style="padding-right: 20px;">Street 2</td>
+			<td ><%= text_field "#{address_type}", "street2" %></td>
+		</tr>
+		<tr>
+			<td style="padding-right: 20px;">City</td>
+			<td><%= text_field "#{address_type}", "city" %></td>
+		</tr>
+		<tr>
+			<td style="padding-right: 20px;">State</td>
+			<td width="60%"><%= text_field "#{address_type}", "state" %></td>
+		</tr>
+		<tr>
+			<td style="padding-right: 20px;">Country</td>
+			<td><%= country_select "#{address_type}", "country", nil, {}, {:style => "width: 200px"} %></td>
+		</tr>
+		<tr>
+			<td style="padding-right: 20px;">ZIP Code</td>
+			<td><%= text_field "#{address_type}", "zip_code" %></td>
+		</tr>
+		<tr>
+			<td style="padding-right: 20px;">Phone
+			</td>
+			<td><%= text_field "#{address_type}", "phone" %></td>
+		</tr>
+	</table>	
+<% end %>

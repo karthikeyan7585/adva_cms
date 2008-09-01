@@ -1,8 +1,5 @@
 <% if view_product %>
-	<% 	product = view_product
-		prod_quantity = session[:products_in_cart][product.id.to_s.to_sym] unless session[:products_in_cart].nil?
-		prod_quantity ||= 1
-	%>
+	<% 	product = view_product %>
 
 	<div id="<%= dom_id product %>" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 75%;">
 		<div>
@@ -27,7 +24,7 @@
 					</td>
 					<% form_tag(:action => "index", :product_id=> product.id) do %>
 						<td width="10%">
-							<%= text_field_tag("product_quantity_#{product.id}", prod_quantity, :size => 1) %>
+							<%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
 						</td>
 						<td width="20%">
 							<%= submit_tag "  Add to Cart  " %>

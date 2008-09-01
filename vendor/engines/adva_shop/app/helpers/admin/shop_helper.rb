@@ -1,6 +1,5 @@
 module Admin
   module ShopHelper
-    
     def external_payment_options
       PaymentMethod::ExternalPayment.payment_gateways
     end
@@ -12,6 +11,5 @@ module Admin
     def image_path(product)   
       product.product_image.nil? ? "rails.png" : product.product_image.public_filename
     end
-    
   end
 end

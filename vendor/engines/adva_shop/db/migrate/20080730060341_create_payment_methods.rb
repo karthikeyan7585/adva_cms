@@ -1,8 +1,9 @@
 class CreatePaymentMethods < ActiveRecord::Migration
   def self.up
     create_table :payment_methods, :force => true do |t|
-      t.string  :name
-      t.references :section
+      t.references  :section
+      t.string      :payment_type
+      t.text        :payment_attributes
     end
   end
 

@@ -1,69 +1,117 @@
+<%= javascript_include_tag "admin/shop" %>
+
 <h3>Edit Payment settings for <%= @section.type.titleize %></h3>
 
 <% form_for :shop, @section, :url => save_payment_setup_admin_shop_path(@site, @section), :html => {:method => :put} do %>
 
-	<h4>External Payment</h4>
-	<% fields_for :external_payment do |f| %>
+	<h4>Allowed Payment Methods</h4>
+	<fieldset>
+		<p>
+			<%= check_box_tag "external_payment_method", 1, params[:external_payment_method] || !@section.external_payment.nil?, :onclick => "togglePaymentMethod(this.checked, 'external_payment');"  %>
+			<b>Paypal Payment</b>
+		</p>
+		<p>
+			<%= check_box_tag "credit_card_payment_method", 1, params[:credit_card_payment_method] || !@section.credit_card_payment.nil?, :onclick => "togglePaymentMethod(this.checked, 'credit_card_payment');"  %>
+			<b>Credit Card Payment</b>
+		</p>
+		<p>
+			<%= check_box_tag "bank_payment_method", 1, params[:bank_payment_method] || !@section.bank_payment.nil?, :onclick => "togglePaymentMethod(this.checked, 'bank_payment');"  %>
+			<b>Bank Payment</b>
+		</p>
+	</fieldset>
+
+	<div id="external_payment" <%= "style=\"#{(params[:external_payment_method] || !@section.external_payment.nil?) ? "" : "display: none;"}\"" %>>
+		<h4>External Payment</h4>
 		<fieldset>
 			<p>
-				<%= f.label :payment_gateway %>
-				<%= f.select :payment_gateway, ExternalPayment.payment_gateways, :include_blank => false %> 
+				<%= label_tag "Payment Gateway" %>
+				<%= select_tag "external_payment[payment_attributes][payment_gateway]", options_for_select(external_payment_options), :include_blank => false %> 
 			</p>
 			<p>
-				<%= f.label :account_email %>
-				<%= f.text_field :account_email %>
+				<%= label_tag "Account Email" %>
+				<%= text_field_tag "external_payment[payment_attributes][account_email]" %>
 			</p>
 		</fieldset>
-	<% end %>
+	</div>
 	
-	<h4>Credit Card Payment</h4>
-	<% fields_for :credit_card_payment do |f| %>
+	<div id="credit_card_payment" <%= "style=\"#{(params[:credit_card_payment_method] || !@section.credit_card_payment.nil?) ? "" : "display: none;"}\"" %>>
+		<h4>Credit Card Payment</h4>
+		<% form_for :credit_card_payment do |f| %>
+			<fieldset>
+				<p>
+					<%= f.label :payment_gateway %>
+					<%= select_tag "credit_card_payment[payment_attributes][payment_gateway]",  options_for_select(credit_card_payment_options), :include_blank => false %> 
+				</p>
+				<p>
+					<label for="credit_card_payment_payment_attributes_account_email" >Account Email</label>
+					<%= text_field_tag "credit_card_payment[payment_attributes][account_email]", nil , :id => "credit_card_payment_payment_attributes_account_email" %>
+				</p>
+				<p>
+					<%= label_tag "Accepted Credit Cards" %>
+					<table width="60%">
+						<tr>
+							<% PaymentMethod::CreditCardPayment.acceptable_credit_cards.each do |card| %>
+							<td> 
+								<%= check_box_tag "credit_card_payment[payment_attributes][accepted_cards][#{card}]", 1, false %>
+								<b><%= card.humanize %></b>				
+							</td>
+							<% end %>
+						</tr>
+					</table>
+				</p>
+			</fieldset>
+		<% end %>
+	</div>
+
+	<div id="bank_payment" <%= "style=\"#{(params[:bank_payment_method] || !@section.bank_payment.nil?) ? "" : "display: none;"}\"" %>>
+		<h4>Bank Payment</h4>
 		<fieldset>
 			<p>
-				<%= f.label :payment_gateway %>
-				<%= f.select :payment_gateway, ExternalPayment.payment_gateways, :include_blank => false %> 
+				<%= label_tag "Bank Code" %>
+				<%= text_field_tag "bank_payment[payment_attributes][bank_code]" %> 
 			</p>
 			<p>
-				<%= f.label :account_email %>
-				<%= f.text_field :account_email %>
+				<%= label_tag "IBAN" %>
+				<%= text_field_tag "bank_payment[payment_attributes][iban_number]" %> 
 			</p>
 			<p>
-				<%= f.label :accepted_credit_cards %>
-				<table width="60%">
-					<tr>
-						<% CreditCardPayment.acceptable_credit_cards.each do |card| %>
-						<td> 
-							<%= check_box "credit_cards", "#{card}", {}, "#{card}", nil %>
-							<b><%= card.humanize %></b>				
-						</td>
-						<% end %>
-					</tr>
-				</table>
+				<%= label_tag "SWIFT Code" %>
+				<%= text_field_tag "bank_payment[payment_attributes][swift_code]" %> 
+			</p>
+			<p>
+				<%= label_tag "Bank Name" %>
+				<%= text_field_tag "bank_payment[address][full_name]" %> 
+			</p>
+			<p>
+				<%= label_tag "Street 1" %>
+				<%= text_field_tag "bank_payment[address][street1]" %> 
+			</p>
+			<p>
+				<%= label_tag "Street 2" %>
+				<%= text_field_tag "bank_payment[address][street2]" %> 
+			</p>
+			<p>
+				<%= label_tag "City" %>
+				<%= text_field_tag "bank_payment[address][city]" %> 
+			</p>
+			<p>
+				<%= label_tag "State" %>
+				<%= text_field_tag "bank_payment[address][state]" %> 
+			</p>
+			<p>
+				<%= label_tag "Country" %>
+				<%= country_select "bank_payment", "address", nil, {}, :name => "bank_payment[address][country]" %> 
+			</p>
+			<p>
+				<%= label_tag "ZIP" %>
+				<%= text_field_tag "bank_payment[address][zip_code]" %> 
+			</p>
+			<p>
+				<%= label_tag "phone" %>
+				<%= text_field_tag "bank_payment[address][phone]" %> 
 			</p>
 		</fieldset>
-	<% end %>
-	
-	<h4>Bank Payment</h4>
-	<% fields_for :bank_payment do |f| %>
-		<fieldset>
-			<p>
-				<%= f.label :bank_name %>
-				<%= f.text_field :bank_name %> 
-			</p>
-			<p>
-				<%= f.label :account_number %>
-				<%= f.text_field :account_number %>
-			</p>
-			<p>
-				<%= f.label :payee_name %>
-				<%= f.text_field :payee_name %>
-			</p>
-			<p>
-				<%= f.label :other_details %>
-				<%= f.text_area :other_details, :class => 'fat', :rows => 8 %>
-			</p>
-		</fieldset>
-	<% end %>
+	</div>
 	
 	<p class="buttons">
 	  <%= submit_tag 'Save' %>

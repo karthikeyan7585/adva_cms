@@ -1,5 +1,4 @@
 <h2>CART</h2>
-
 <% products = get_products_in_cart %>
 
 <% unless products.blank? %>
@@ -35,33 +34,35 @@
 	</div>
 </div>
 
-<% products.each do |product|
-		prod_quantity = session[:products_in_cart][product.id.to_s.to_sym] || 1 
-%>
+<% products.each do |product|%>
 
 	<div id="<%= dom_id product %>" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%;">
 		<div>
 			<table width="100%">
 				<tr>
 					<td align="center" width="20%">
-						<h2><%= product.name %></h2>
-						<%= image_tag(image_path(product), :size => "50x50") %>
+						<h2><%= link_to_content product %></h2>
+					
+						<% cache do %>
+						<%= image_tag(image_path(product), :size => "50x50") %>					
+						<% end %>
+					
 					</td>
 					<td align="center" width="15%">
 						<%= product.vendor_name %>
 					</td>
-					<% form_tag(update_cart_path(:product_id => product.id)) do %>
+					<% form_tag(update_cart_path(@section,product)) do %>
 						<td align="center" width="10%">
-							<%= text_field_tag("product_quantity_#{product.id}", prod_quantity, :size => 1) %>
-						</td>
+							<%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
+						</td>						
 						<td align="center" width="15%">
 							<b>$<%= product.price %></b>
 						</td>
 						<td align="center" width="15%">
-							<b>$<%= (product.price+(product.price*product.tax_rate/100))* prod_quantity.to_i %></b>
+							<b>$<%= total_price(product) %></b>
 						</td>
 						<td align="center" width="10%">
-							<%= link_to(image_tag('/images/icons/delete.png', :style => "border: none"), remove_from_cart_path(:product_id => product.id)) %>
+							<%= link_to(image_tag('/images/icons/delete.png', :style => "border: none"), remove_from_cart_path(@section, product)) %>
 						</td>
 						<td align="center" width="10%">
 							<%= submit_tag "Update" %>
@@ -72,11 +73,10 @@
 		</div>
 	</div>
 <% end %>
-
+<p>
+	<%= button_to "Checkout", add_billing_details_path(@section) %>
+</p>
 <% else %>
-	<p> No items in the cart. Go back to <b><%= link_to "Shop", :action => "index" %></b>. </p>
+	<p> No items in the cart. Go back to <b><%= link_to "Shop", :action=>"index" %></b>. </p>
 <% end %>
 
-<p>
-	<%= button_to "Checkout", select_addresses_path %>
-</p>

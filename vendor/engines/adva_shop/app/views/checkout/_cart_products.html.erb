@@ -1,0 +1,76 @@
+<h3>Products in your cart</h3>
+<br />
+
+<% order_lines = @order.order_lines %>
+
+<% unless order_lines.blank? %>
+	<div class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%">
+		<div>
+			<table width="100%">
+				<tr style="padding-top: 50px">
+					<th align="center" bgcolor="#CCCCCC" width="20%" >
+						<b>Name</b>
+					</th>
+					<th align="center" bgcolor="#CCCCCC" width="11%">
+						<b>Vendor</b>
+					</th>
+					<th bgcolor="#CCCCCC" width="10%">
+						<b>Quantity</b>
+					</th>
+					<th align="center" bgcolor="#CCCCCC" width="12%">
+						<b>Price</b>
+					</th>
+					<th align="center" bgcolor="#CCCCCC" width="10%">
+						<b>Tax</b>
+					</th>
+					<th align="center" bgcolor="#CCCCCC" width="12%">
+						<b>Total</b>
+					</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+<% end %>
+
+<% order_lines.each do |order_line| %>
+	<div class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%;">
+		<table width="100%">
+			<tr>
+				<td align="center" width="20%">
+					<%= image_tag(image_path(order_line.product), :size => "50x50") %>
+					<h3><%= order_line.product.name %></h3>
+					
+				</td>
+				<td align="center" width="11%">
+					<%= order_line.product.vendor_name %>
+				</td>
+				<td align="center" width="10%">
+					<%= order_line.quantity %>
+				</td>
+				<td align="center" width="12%">
+					<b>$<%= order_line.product.price %></b>
+				</td>
+				<td align="center" width="10%">
+					<b><%= order_line.product.tax_rate %>&nbsp%</b>
+				</td>
+				<td align="center" width="12%">
+					<b>$<%= order_line.total_price %></b>
+				</td>
+			</tr>
+		</table>
+	</div>
+<% end %>
+
+<div class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%;"> 
+	<table width="100%">
+		<tr   bgcolor="#EEEEEE">
+			<td align="right" colspan="4" style="width: 80%;">
+				<b>Total</b>
+				
+			</td>
+			<td align="center" width="20%">
+				<b>$<%= order_lines.collect{|ol| ol.total_price}.sum %></b>
+			</td>
+		</tr>
+	</table>
+</div>

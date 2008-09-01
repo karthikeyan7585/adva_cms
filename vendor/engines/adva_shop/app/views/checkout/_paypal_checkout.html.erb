@@ -1,0 +1,7 @@
+<div id="paypal_checkout_button" <%= "style=\"#{(@section.credit_card_payment.nil? && @section.external_payment) ? "" : "display: none"}\"" %>>
+	<% if @section.external_payment %>
+		<p>
+	 		<%= link_to image_tag('https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif'), process_payment_path(:payment_method => "ExternalPayment") %>
+		</p>
+	<% end %>
+</div>

@@ -1,11 +1,13 @@
 class Admin::ProductsController < Admin::BaseController
+
   layout "admin"
   helper :assets
   
   before_filter :set_section
   before_filter :set_product,      :only => [:show, :edit, :update, :destroy, :product_image]
   before_filter :set_categories,   :only => [:new, :edit]
-
+  before_filter :guard_view_permissions, :only => :show
+  
   widget :section_tree, :partial => 'widgets/admin/section_tree',
                         :only    => { :controller => ['admin/products'] }
   
@@ -16,7 +18,10 @@ class Admin::ProductsController < Admin::BaseController
                 :only => [:create, :update, :destroy]
   
   def index
-    options = {:page => current_page, :per_page => 5, :order => 'products.name'}
+    add_to_sortable_columns('name', { :model => Product, :field => 'name', :alias => 'name' })
+    options = {:page => current_page, :per_page => 3, :order => sortable_order('name', :model => Product, 
+                                                                                        :field => 'name', 
+                                                                                        :sort_direction => :desc)}
     @products = @section.products.paginate options.reverse_merge(filter_options)
     template = @section.type == 'Section' ? 'admin/products/index' : "admin/#{@section.type.downcase}/index"
     render :template => template

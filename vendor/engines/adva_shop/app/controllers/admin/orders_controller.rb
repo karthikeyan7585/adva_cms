@@ -19,7 +19,7 @@ class Admin::OrdersController < Admin::BaseController
   end
   
   def edit
-  @order_version=OrderVersion.find_by_sql("select order_id,shipped,paid,updated_at as date_at from order_versions")  
+    @order_version=OrderVersion.find(:all, :conditions => {:section_id => @section.id})
   end
 
   def receive_payment
@@ -53,10 +53,10 @@ class Admin::OrdersController < Admin::BaseController
       render :action => 'edit'
     end
   end
+  
   def shipping_page
-    puts "layout page"
- @order = @section.orders.find(params[:id])
-render :action =>'shipping_page',:layout =>false
+    @order = @section.orders.find(params[:id])
+    render :action =>'shipping_page',:layout =>false
   end
   
   private
@@ -84,19 +84,13 @@ render :action =>'shipping_page',:layout =>false
         ordered_date = params["order"]["ordered_on(1i)"] + "/" + params["order"]["ordered_on(2i)"] + "/" + params["order"]["ordered_on(3i)"]
         ordered_date = Date.parse(ordered_date)
         options[:conditions] = Order.send(:sanitize_sql, ["orders.created_at >= ? and orders.created_at < ?", ordered_date,ordered_date+1])
-      when 'shipping_status'
-        options[:conditions] = Order.send(:sanitize_sql, ["orders.shipped = ?", params[:shipping_status]]) unless params[:shipping_status].blank?
-      when 'payment_status'
-        options[:conditions] = Order.send(:sanitize_sql, ["orders.paid = ?", params[:payment_status]]) unless params[:payment_status].blank?
-      when 'shipping_method'
-        options[:conditions] = Order.send(:sanitize_sql, ["orders.shipping_method_id = ?", params[:shipping_method]]) unless params[:shipping_method].blank?
-      when 'payment_method'
-        options[:conditions] = Order.send(:sanitize_sql, ["orders.payment_method_id = ?", params[:payment_method]]) unless params[:payment_method].blank?
+      when 'status'
+        options[:conditions] = Order.send(:sanitize_sql, ["orders.status = ?", params[:status]]) unless params[:status].blank?
       end
       options
     end  
     def set_orders
-      conditions = "orders.cancelled=false and (orders.paid=false or orders.shipped=false)"
+      conditions = "orders.status > 0 and orders.status < 3 and orders.cancelled=false"
       filt_options = filter_options[:conditions]
       conditions = conditions + " and " + filt_options if filt_options
       options = {:page => current_page, :per_page => 10, :order => "orders.id", :conditions => [conditions]}

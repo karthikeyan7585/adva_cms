@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   
   has_many :sites, :through => :memberships
   has_many :memberships, :dependent => :delete_all
-  has_many :addresses
+  
+  has_many :addresses, :as => :addressable # Added by Aspire Systems
+  
   has_many :roles, :dependent => :delete_all do
     def by_context(object)
       roles = by_site object

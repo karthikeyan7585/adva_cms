@@ -1,20 +1,16 @@
-<% sort_order = params[:sort_order]=="DESC" ? "" : "DESC" %>
-
 <div class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 75%">
 	<div>
 		<table width="100%">
 			<tr style="padding-top: 50px">
-				<th align="center" bgcolor="#CCCCCC" width="30%" style="cursor: pointer" <%= "onclick=\"#{remote_function(:url => {:action => 'index'}, :update => "page", :with=>"'sort_field=name&sort_order=#{sort_order}'")}\"" %> >
-					<b>Name</b> <%= #image_tag("/images/arrow_sort_dnblk.gif") 
-								%>
+				<th align="center" bgcolor="#CCCCCC" width="30%" style="cursor: pointer">
+					 <%= link_to 'Name',  sort_param('name', :alias => 'name') %>
+					
 				</th>
 				<th align="center" bgcolor="#CCCCCC" width="20%">
-					<b>Vendor</b> <%= #image_tag("/images/arrow_sort_dnblk.gif")
-%>
+					<%= link_to 'Vendor',  sort_param('name', :alias => 'vendor') %>
 				</th>
 				<th align="center" bgcolor="#CCCCCC" width="20%">
-					<b>Price</b> <%= #image_tag("/images/arrow_sort_dnblk.gif") 
-%>
+					<%= link_to 'Price',  sort_param('price', :alias => 'price') %>
 				</th>
 				<th align="center" bgcolor="#CCCCCC" width="10%">
 					<b>Quantity</b> 

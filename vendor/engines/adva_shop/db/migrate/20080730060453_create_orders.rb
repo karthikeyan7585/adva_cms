@@ -3,15 +3,13 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders, :force => true do |t|
       t.references    :section
       t.string        :payment_method
-      t.boolean       :shipped
-      t.boolean       :paid
+      t.integer       :status
       t.boolean       :cancelled
-      t.integer       :billing_address_id
-      t.integer       :shipping_address_id
-      t.datetime        :created_at
-      t.datetime        :updated_at
-      t.integer        :version
-      
+      t.references    :billing_address
+      t.references    :shipping_address
+      t.datetime      :created_at
+      t.datetime      :updated_at
+      t.integer       :version
     end
   end
 
