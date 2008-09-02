@@ -9194,3 +9194,534 @@ Loading routes for engine adva_spam
 Loading routes for engine adva_user
 Loading routes for engine adva_wiki
 Loading routes for engine theme_support
+Loading routes for engine adva_activity
+Loading routes for engine adva_assets
+Loading routes for engine adva_blog
+Loading routes for engine adva_cms
+Loading routes for engine adva_comments
+Loading routes for engine adva_forum
+Loading routes for engine adva_shop
+Loading routes for engine adva_spam
+Loading routes for engine adva_user
+Loading routes for engine adva_wiki
+Loading routes for engine theme_support
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000303)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000314)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000862)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.059533)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.130114)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001097)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.051099)[0m   [0;1m CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;35;1mSQL (0.001251)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000506)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateCarts (20080901142033)
+  [4;35;1mSQL (0.000462)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.017196)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080901142033')[0m
+Migrating to CreateCartItems (20080901142329)
+  [4;35;1mSQL (0.000646)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.019992)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080901142329')[0m
+  [4;35;1mSQL (0.000763)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001048)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.024708)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'engines_config'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001100)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000864)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'engines_config'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000607)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'engines_config'
+ ORDER BY version DESC[0m
+Migrating to CreatePluginConfigs (20080710000000)
+  [4;36;1mSQL (0.000493)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001050)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.049977)[0m   [0;1mCREATE TABLE `plugin_configs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `name` varchar(255) DEFAULT NULL NULL, `options` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.019110)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('engines_config', '20080710000000')[0m
+Migrating to PluginOwnerColumn (20080715131051)
+  [4;36;1mSQL (0.000661)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.109089)[0m   [0mALTER TABLE `plugin_configs` DROP `site_id`[0m
+  [4;36;1mSQL (0.115479)[0m   [0;1mALTER TABLE `plugin_configs` ADD `owner_id` int(11)[0m
+  [4;35;1mSQL (0.115897)[0m   [0mALTER TABLE `plugin_configs` ADD `owner_type` varchar(255)[0m
+  [4;36;1mSQL (0.018201)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('engines_config', '20080715131051')[0m
+  [4;35;1mSQL (0.000794)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_activity'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001080)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000838)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_activity'
+ ORDER BY version DESC[0m
+Migrating to CreateActivitiesTable (20080401000000)
+  [4;35;1mSQL (0.000580)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.001263)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.060051)[0m   [0mCREATE TABLE `activities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `section_id` int(11) DEFAULT NULL NULL, `author_id` int(11) DEFAULT NULL NULL, `author_type` varchar(255) DEFAULT NULL NULL, `author_name` varchar(40) DEFAULT NULL NULL, `author_email` varchar(40) DEFAULT NULL NULL, `author_homepage` varchar(255) DEFAULT NULL NULL, `actions` varchar(255) DEFAULT NULL NULL, `object_id` int(11) DEFAULT NULL NULL, `object_type` varchar(15) DEFAULT NULL NULL, `object_attributes` text DEFAULT NULL NULL, `created_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.018940)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_activity', '20080401000000')[0m
+  [4;35;1mSQL (0.000791)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_assets'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001116)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.013676)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_assets'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000743)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_assets'
+ ORDER BY version DESC[0m
+Migrating to CreateAssetsTable (20080429181111)
+  [4;36;1mSQL (0.000648)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001137)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.047226)[0m   [0;1mCREATE TABLE `asset_assignments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content_id` int(11) DEFAULT NULL NULL, `asset_id` int(11) DEFAULT NULL NULL, `position` int(11) DEFAULT NULL NULL, `label` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `active` tinyint(1) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001329)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.047893)[0m   [0;1mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `parent_id` int(11) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `content_type` varchar(255) DEFAULT NULL NULL, `filename` varchar(255) DEFAULT NULL NULL, `size` int(11) DEFAULT NULL NULL, `thumbnail` varchar(255) DEFAULT NULL NULL, `width` int(11) DEFAULT NULL NULL, `height` int(11) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `thumbnails_count` int(11) DEFAULT 0 NULL, `created_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.018840)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_assets', '20080429181111')[0m
+Migrating to RemovePosition (20080626111252)
+  [4;36;1mSQL (0.000790)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.117716)[0m   [0mALTER TABLE `asset_assignments` DROP `position`[0m
+  [4;36;1mSQL (0.017944)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_assets', '20080626111252')[0m
+  [4;35;1mSQL (0.001074)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001202)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.001053)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000690)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000694)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000674)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000629)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000604)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000690)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+Migrating to CreateSitesTable (20080401000001)
+  [4;35;1mSQL (0.000678)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.063573)[0m   [0;1mCREATE TABLE `sites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `host` varchar(255) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `subtitle` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL, `timezone` varchar(255) DEFAULT NULL NULL, `theme_names` varchar(255) DEFAULT NULL NULL, `ping_urls` text DEFAULT NULL NULL, `akismet_key` varchar(100) DEFAULT NULL NULL, `akismet_url` varchar(255) DEFAULT NULL NULL, `approve_comments` tinyint(1) DEFAULT NULL NULL, `comment_age` int(11) DEFAULT NULL NULL, `comment_filter` varchar(255) DEFAULT NULL NULL, `search_path` varchar(255) DEFAULT NULL NULL, `tag_path` varchar(255) DEFAULT NULL NULL, `tag_layout` varchar(255) DEFAULT NULL NULL, `permalink_style` varchar(255) DEFAULT NULL NULL, `permissions` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.022260)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000001')[0m
+Migrating to CreateSectionsTable (20080401000002)
+  [4;36;1mSQL (0.000822)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.051396)[0m   [0mCREATE TABLE `sections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `type` varchar(255) DEFAULT NULL NULL, `site_id` int(11) DEFAULT NULL NULL, `parent_id` int(11) DEFAULT NULL NULL, `lft` int(11) DEFAULT 0 NOT NULL, `rgt` int(11) DEFAULT 0 NOT NULL, `path` varchar(255) DEFAULT NULL NULL, `permalink` varchar(255) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `layout` varchar(255) DEFAULT NULL NULL, `template` varchar(255) DEFAULT NULL NULL, `options` text DEFAULT NULL NULL, `contents_count` int(11) DEFAULT NULL NULL, `comment_age` int(11) DEFAULT NULL NULL, `content_filter` varchar(255) DEFAULT NULL NULL, `permissions` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.018526)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000002')[0m
+Migrating to CreateContentsTable (20080401000003)
+  [4;35;1mSQL (0.000859)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.002083)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.068381)[0m   [0mCREATE TABLE `contents` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `section_id` int(11) DEFAULT NULL NULL, `type` varchar(20) DEFAULT NULL NULL, `position` int(11) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `permalink` varchar(255) DEFAULT NULL NULL, `excerpt` text DEFAULT NULL NULL, `excerpt_html` text DEFAULT NULL NULL, `body` text DEFAULT NULL NULL, `body_html` text DEFAULT NULL NULL, `author_id` int(11) DEFAULT NULL NULL, `author_type` varchar(255) DEFAULT NULL NULL, `author_name` varchar(40) DEFAULT NULL NULL, `author_email` varchar(40) DEFAULT NULL NULL, `author_homepage` varchar(255) DEFAULT NULL NULL, `version` int(11) DEFAULT NULL NULL, `filter` varchar(255) DEFAULT NULL NULL, `comment_age` int(11) DEFAULT 0 NULL, `cached_tag_list` varchar(255) DEFAULT NULL NULL, `assets_count` int(11) DEFAULT 0 NULL, `published_at` datetime DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mContent Columns (0.006706)[0m   [0;1mSHOW FIELDS FROM `contents`[0m
+  [4;35;1mSQL (0.053682)[0m   [0mCREATE TABLE `content_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content_id` int(11) DEFAULT NULL NULL, `version` int(11) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.116178)[0m   [0;1mALTER TABLE `content_versions` ADD `site_id` bigint(11) DEFAULT NULL[0m
+  [4;35;1mSQL (0.124771)[0m   [0mALTER TABLE `content_versions` ADD `section_id` bigint(11) DEFAULT NULL[0m
+  [4;36;1mSQL (0.124700)[0m   [0;1mALTER TABLE `content_versions` ADD `position` bigint(11) DEFAULT NULL[0m
+  [4;35;1mSQL (0.116256)[0m   [0mALTER TABLE `content_versions` ADD `title` varchar(255) DEFAULT NULL[0m
+  [4;36;1mSQL (0.124743)[0m   [0;1mALTER TABLE `content_versions` ADD `permalink` varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.121525)[0m   [0mALTER TABLE `content_versions` ADD `excerpt` text DEFAULT NULL[0m
+  [4;36;1mSQL (0.123886)[0m   [0;1mALTER TABLE `content_versions` ADD `excerpt_html` text DEFAULT NULL[0m
+  [4;35;1mSQL (0.125183)[0m   [0mALTER TABLE `content_versions` ADD `body` text DEFAULT NULL[0m
+  [4;36;1mSQL (0.124171)[0m   [0;1mALTER TABLE `content_versions` ADD `body_html` text DEFAULT NULL[0m
+  [4;35;1mSQL (0.099987)[0m   [0mALTER TABLE `content_versions` ADD `author_id` bigint(11) DEFAULT NULL[0m
+  [4;36;1mSQL (0.132840)[0m   [0;1mALTER TABLE `content_versions` ADD `author_type` varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.132912)[0m   [0mALTER TABLE `content_versions` ADD `author_name` varchar(40) DEFAULT NULL[0m
+  [4;36;1mSQL (0.116216)[0m   [0;1mALTER TABLE `content_versions` ADD `author_email` varchar(40) DEFAULT NULL[0m
+  [4;35;1mSQL (0.126145)[0m   [0mALTER TABLE `content_versions` ADD `author_homepage` varchar(255) DEFAULT NULL[0m
+  [4;36;1mSQL (0.139670)[0m   [0;1mALTER TABLE `content_versions` ADD `filter` varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.142543)[0m   [0mALTER TABLE `content_versions` ADD `comment_age` bigint(11) DEFAULT 0[0m
+  [4;36;1mSQL (0.148250)[0m   [0;1mALTER TABLE `content_versions` ADD `published_at` datetime DEFAULT NULL[0m
+  [4;35;1mSQL (0.142320)[0m   [0mALTER TABLE `content_versions` ADD `created_at` datetime DEFAULT NULL[0m
+  [4;36;1mSQL (0.148376)[0m   [0;1mALTER TABLE `content_versions` ADD `updated_at` datetime DEFAULT NULL[0m
+  [4;35;1mSQL (0.142045)[0m   [0mALTER TABLE `content_versions` ADD `versioned_type` varchar(20) DEFAULT NULL[0m
+  [4;36;1mSQL (0.023286)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000003')[0m
+Migrating to CreateCategoriesTable (20080401000004)
+  [4;35;1mSQL (0.000886)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.061095)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `section_id` int(11) DEFAULT NULL NULL, `parent_id` int(11) DEFAULT NULL NULL, `lft` int(11) DEFAULT 0 NOT NULL, `rgt` int(11) DEFAULT 0 NOT NULL, `title` varchar(255) DEFAULT NULL NULL, `path` varchar(255) DEFAULT NULL NULL, `permalink` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.023585)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000004')[0m
+Migrating to CreateCategoryAssignments (20080401000005)
+  [4;36;1mSQL (0.002660)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.061816)[0m   [0mCREATE TABLE `category_assignments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content_id` int(11) DEFAULT NULL NULL, `category_id` int(11) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.035104)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000005')[0m
+Migrating to CreateTaggableTables (20080401000006)
+  [4;35;1mSQL (0.002143)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.061470)[0m   [0;1mCREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.046539)[0m   [0mCREATE TABLE `taggings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tag_id` int(11) DEFAULT NULL NULL, `taggable_id` int(11) DEFAULT NULL NULL, `taggable_type` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.123279)[0m   [0;1mCREATE INDEX `index_taggings_on_tag_id` ON `taggings` (`tag_id`)[0m
+  [4;35;1mSQL (0.118180)[0m   [0mCREATE INDEX `index_taggings_on_taggable_id_and_taggable_type` ON `taggings` (`taggable_id`, `taggable_type`)[0m
+  [4;36;1mSQL (0.034917)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000006')[0m
+Migrating to AddSpamEngineToSite (20080712133231)
+  [4;35;1mSQL (0.000997)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.118033)[0m   [0;1mALTER TABLE `sites` ADD `spam_options` text[0m
+  [4;35;1mSQL (0.016319)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080712133231')[0m
+  [4;36;1mSQL (0.000787)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001587)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;35;1mSQL (0.000906)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000618)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000632)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+Migrating to CreateCommentsTable (20080401000007)
+  [4;36;1mSQL (0.000851)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001650)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.052752)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `section_id` int(11) DEFAULT NULL NULL, `commentable_id` int(11) DEFAULT NULL NULL, `commentable_type` varchar(255) DEFAULT NULL NULL, `author_id` int(11) DEFAULT NULL NULL, `author_type` varchar(255) DEFAULT NULL NULL, `author_name` varchar(40) DEFAULT NULL NULL, `author_email` varchar(40) DEFAULT NULL NULL, `author_homepage` varchar(255) DEFAULT NULL NULL, `body` text DEFAULT NULL NULL, `body_html` text DEFAULT NULL NULL, `approved` int(11) DEFAULT 0 NOT NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.023602)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_comments', '20080401000007')[0m
+Migrating to AddSpamInfoToComments (20080712154718)
+  [4;36;1mSQL (0.001865)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.121743)[0m   [0mALTER TABLE `comments` ADD `spaminess` text[0m
+  [4;36;1mSQL (0.016253)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_comments', '20080712154718')[0m
+Migrating to AddCommentBoardId (20080721141112)
+  [4;35;1mSQL (0.001099)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.116184)[0m   [0;1mALTER TABLE `comments` ADD `board_id` int(11)[0m
+  [4;35;1mSQL (0.012969)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_comments', '20080721141112')[0m
+  [4;36;1mSQL (0.000780)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001449)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;35;1mSQL (0.000900)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000660)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000611)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+Migrating to CreateForumTables (20080401000011)
+  [4;36;1mSQL (0.000961)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001527)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.063728)[0m   [0;1mCREATE TABLE `topics` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `section_id` int(11) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `sticky` int(11) DEFAULT 0 NULL, `locked` tinyint(1) DEFAULT 0 NULL, `comments_count` int(11) DEFAULT 0 NULL, `hits` int(11) DEFAULT 0 NULL, `last_comment_id` int(11) DEFAULT NULL NULL, `last_author_id` int(11) DEFAULT NULL NULL, `last_author_type` varchar(255) DEFAULT NULL NULL, `last_author_name` varchar(255) DEFAULT NULL NULL, `permalink` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `last_updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.013103)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_forum', '20080401000011')[0m
+Migrating to CreateBoardsTable (20080721115631)
+  [4;36;1mSQL (0.001267)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001660)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.057836)[0m   [0;1mCREATE TABLE `boards` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `section_id` int(11) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `permalink` varchar(255) DEFAULT NULL NULL, `description` text DEFAULT NULL NULL, `position` int(11) DEFAULT NULL NULL, `last_comment_id` int(11) DEFAULT NULL NULL, `last_author_id` int(11) DEFAULT NULL NULL, `last_author_type` varchar(255) DEFAULT NULL NULL, `last_author_name` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `last_updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.106960)[0m   [0mALTER TABLE `topics` ADD `board_id` int(11)[0m
+  [4;36;1mSQL (0.015989)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_forum', '20080721115631')[0m
+Migrating to AddTopicAuthor (20080723181444)
+  [4;35;1mSQL (0.001103)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.117050)[0m   [0;1mALTER TABLE `topics` ADD `author_id` int(11)[0m
+  [4;35;1mSQL (0.120893)[0m   [0mALTER TABLE `topics` ADD `author_type` varchar(255)[0m
+  [4;36;1mSQL (0.015823)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_forum', '20080723181444')[0m
+  [4;35;1mSQL (0.000790)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001580)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000918)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000619)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000649)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000598)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000591)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000578)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000605)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000613)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000704)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000897)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+Migrating to CreateProducts (20080730052959)
+  [4;36;1mSQL (0.001176)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001916)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.051399)[0m   [0;1mCREATE TABLE `products` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `section_id` int(11) DEFAULT NULL NULL, `name` varchar(255) DEFAULT NULL NULL, `description` text DEFAULT NULL NULL, `price` float DEFAULT NULL NULL, `weight` float DEFAULT NULL NULL, `tax_rate` float DEFAULT NULL NULL, `quantity` int(11) DEFAULT NULL NULL, `vendor_name` varchar(255) DEFAULT NULL NULL, `asset_id` int(11) DEFAULT NULL NULL, `permalink` varchar(255) DEFAULT NULL NULL, `comment_age` int(11) DEFAULT NULL NULL, `comment_counts` int(11) DEFAULT NULL NULL, `active` int(11) DEFAULT NULL NULL, `cached_tag_list` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `filter` varchar(255) DEFAULT NULL NULL, `published_at` datetime DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.030913)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730052959')[0m
+Migrating to CreateProductCategories (20080730053108)
+  [4;36;1mSQL (0.005905)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001732)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.065818)[0m   [0;1mCREATE TABLE `product_categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `product_id` int(11) DEFAULT NULL NULL, `category_id` int(11) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.015718)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730053108')[0m
+Migrating to CreatePaymentMethods (20080730060341)
+  [4;36;1mSQL (0.001312)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001679)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.052643)[0m   [0;1mCREATE TABLE `payment_methods` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `section_id` int(11) DEFAULT NULL NULL, `payment_type` varchar(255) DEFAULT NULL NULL, `payment_attributes` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.019392)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060341')[0m
+Migrating to CreateAddresses (20080730060428)
+  [4;36;1mSQL (0.001247)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.002236)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.047141)[0m   [0;1mCREATE TABLE `addresses` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `full_name` varchar(255) DEFAULT NULL NULL, `street1` varchar(255) DEFAULT NULL NULL, `street2` varchar(255) DEFAULT NULL NULL, `city` varchar(255) DEFAULT NULL NULL, `state` varchar(255) DEFAULT NULL NULL, `country` varchar(255) DEFAULT NULL NULL, `zip_code` varchar(255) DEFAULT NULL NULL, `phone` varchar(255) DEFAULT NULL NULL, `addressable_id` int(11) DEFAULT NULL NULL, `addressable_type` varchar(255) DEFAULT NULL NULL, `email` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.015692)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060428')[0m
+Migrating to CreateOrders (20080730060453)
+  [4;36;1mSQL (0.001299)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001818)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.058301)[0m   [0;1mCREATE TABLE `orders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `section_id` int(11) DEFAULT NULL NULL, `payment_method` varchar(255) DEFAULT NULL NULL, `status` int(11) DEFAULT NULL NULL, `cancelled` tinyint(1) DEFAULT NULL NULL, `billing_address_id` int(11) DEFAULT NULL NULL, `shipping_address_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `version` int(11) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.016248)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060453')[0m
+Migrating to CreateOrderLines (20080730060528)
+  [4;36;1mSQL (0.001294)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.002253)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.059472)[0m   [0;1mCREATE TABLE `order_lines` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `product_id` int(11) DEFAULT NULL NULL, `order_id` int(11) DEFAULT NULL NULL, `quantity` int(11) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.030053)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060528')[0m
+Migrating to CreateProductImages (20080801052623)
+  [4;36;1mSQL (0.006123)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.001910)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.046511)[0m   [0;1mCREATE TABLE `product_images` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `product_id` int(11) DEFAULT NULL NULL, `parent_id` int(11) DEFAULT NULL NULL, `content_type` varchar(255) DEFAULT NULL NULL, `filename` varchar(255) DEFAULT NULL NULL, `size` int(11) DEFAULT NULL NULL, `thumbnail` varchar(255) DEFAULT NULL NULL, `width` int(11) DEFAULT NULL NULL, `height` int(11) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `thumbnails_count` int(11) DEFAULT 0 NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.030434)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080801052623')[0m
+Migrating to CreateOrderVersions (20080801052624)
+  [4;36;1mSQL (0.006127)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.002116)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.062851)[0m   [0;1mCREATE TABLE `order_versions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `section_id` int(11) DEFAULT NULL NULL, `order_id` int(11) DEFAULT NULL NULL, `version` int(11) DEFAULT NULL NULL, `payment_method` varchar(255) DEFAULT NULL NULL, `status` int(11) DEFAULT NULL NULL, `cancelled` tinyint(1) DEFAULT NULL NULL, `billing_address_id` int(11) DEFAULT NULL NULL, `shipping_address_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.030240)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080801052624')[0m
+Migrating to CreateCarts (20080901142033)
+  [4;36;1mSQL (0.006176)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.002031)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.083594)[0m   [0;1mCREATE TABLE `carts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.023827)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080901142033')[0m
+Migrating to CreateCartItems (20080901142329)
+  [4;36;1mSQL (0.001413)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.002369)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.059512)[0m   [0;1mCREATE TABLE `cart_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `product_id` int(11) DEFAULT NULL NULL, `cart_id` int(11) DEFAULT NULL NULL, `quantity` int(11) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.025784)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080901142329')[0m
+  [4;36;1mSQL (0.007419)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_spam'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.003180)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;35;1mSQL (0.000823)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_spam'
+ ORDER BY version DESC[0m
+Migrating to SpamReportsTable (20080713161553)
+  [4;36;1mSQL (0.002170)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.053522)[0m   [0mCREATE TABLE `spam_reports` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subject_id` int(11) DEFAULT NULL NULL, `subject_type` varchar(255) DEFAULT NULL NULL, `engine` varchar(255) DEFAULT NULL NULL, `spaminess` float DEFAULT NULL NULL, `data` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.016417)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_spam', '20080713161553')[0m
+  [4;35;1mSQL (0.000825)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001956)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000950)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000718)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000642)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000635)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+Migrating to CreateUsersTable (20080402000001)
+  [4;36;1mSQL (0.001375)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.060681)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(40) DEFAULT NULL NULL, `email` varchar(100) DEFAULT NULL NULL, `homepage` varchar(255) DEFAULT NULL NULL, `about` varchar(255) DEFAULT NULL NULL, `signature` varchar(255) DEFAULT NULL NULL, `login` varchar(40) DEFAULT NULL NULL, `password_hash` varchar(40) DEFAULT NULL NULL, `password_salt` varchar(40) DEFAULT NULL NULL, `remember_me` varchar(40) DEFAULT NULL NULL, `token_key` varchar(40) DEFAULT NULL NULL, `token_expiration` datetime DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `verified_at` datetime DEFAULT NULL NULL, `deleted_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.025559)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000001')[0m
+Migrating to CreateAnonymousesTable (20080402000004)
+  [4;35;1mSQL (0.001585)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.060490)[0m   [0;1mCREATE TABLE `anonymouses` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(40) DEFAULT NULL NULL, `email` varchar(100) DEFAULT NULL NULL, `homepage` varchar(255) DEFAULT NULL NULL, `ip` varchar(255) DEFAULT NULL NULL, `agent` varchar(255) DEFAULT NULL NULL, `referer` varchar(255) DEFAULT NULL NULL, `token_key` varchar(40) DEFAULT NULL NULL, `token_expiration` datetime DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.023662)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000004')[0m
+Migrating to CreateMembershipsTable (20080402000005)
+  [4;36;1mSQL (0.002328)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.005395)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.038888)[0m   [0;1mCREATE TABLE `memberships` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `user_id` int(11) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.023641)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000005')[0m
+Migrating to CreateRoleTables (20080402000006)
+  [4;36;1mSQL (0.001591)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.045917)[0m   [0mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL NULL, `context_id` int(11) DEFAULT NULL NULL, `context_type` varchar(255) DEFAULT NULL NULL, `type` varchar(25) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.026323)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000006')[0m
+  [4;35;1mSQL (0.007219)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'has_counter'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.003349)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000920)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'has_counter'
+ ORDER BY version DESC[0m
+Migrating to CreateCountersTable (20080601194338)
+  [4;35;1mSQL (0.001581)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.002065)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.061516)[0m   [0mCREATE TABLE `counters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `owner_id` int(11) DEFAULT NULL NULL, `owner_type` varchar(255) DEFAULT NULL NULL, `name` varchar(25) DEFAULT NULL NULL, `count` int(11) DEFAULT 0 NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.023459)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('has_counter', '20080601194338')[0m
+  [4;35;1mSQL (0.001551)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'page_cache_tagging'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.011943)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'plugin_schema_migrations' already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000911)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'page_cache_tagging'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001101)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'page_cache_tagging'
+ ORDER BY version DESC[0m
+Migrating to CreateCachedPageReferences (20080401000020)
+  [4;36;1mSQL (0.001841)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.002202)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.049298)[0m   [0;1mCREATE TABLE `cached_page_references` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `cached_page_id` int(11) DEFAULT NULL NULL, `object_id` int(11) DEFAULT NULL NULL, `object_type` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.024314)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('page_cache_tagging', '20080401000020')[0m
+Migrating to CreateCachedPages (20080401000021)
+  [4;36;1mSQL (0.003541)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.006534)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.043982)[0m   [0;1mCREATE TABLE `cached_pages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `site_id` int(11) DEFAULT NULL NULL, `section_id` int(11) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `cleared_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.028078)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('page_cache_tagging', '20080401000021')[0m

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml2/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/stylesheets/cache/default.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="/javascripts/cache/default.js" type="text/javascript"></script>
+    <title>Webshop</title>
+
+    <script type="text/javascript">
+//<![CDATA[
+      var uid = Cookie.get('uid');
+      if(uid) {
+        new Ajax.Request('/users/' + uid + '/roles.js', { 
+          method: 'get', asynchronous: false, evalScripts: true, 
+        })
+      }
+      var aid = Cookie.get('aid');
+      if(aid) {
+        Event.onReady(function() {
+          var roles = new Array('anonymous-' + aid);
+          authorize_elements(roles);
+        });
+        // new Ajax.Request('/anonymouses/' + aid + '.js', { 
+        //   method: 'get', asynchronous: false, evalScripts: true, 
+        // })
+      }
+
+//]]>
+</script>
+
+  </head>
+  <body>
+    <div id="page">
+      <div id="header" class="clearing">
+        <h1>Webshop</h1>
+        <h2></h2>
+        <ul class="menu">
+
+  
+  <li>
+    
+    <a href="/">Home</a>
+  </li>
+
+
+  
+  <li>
+    
+    <a href="/shop">Shop</a>
+  </li>
+
+
+</ul>
+      </div>
+      <div id="main">
+        
+  <div id="flash-notice" class="flash" style="display: none;"></div>
+
+  <div id="flash-warning" class="flash" style="display: none;"></div>
+
+  <div id="flash-error" class="flash" style="display: none;"></div>
+
+  
+        
+      </div>
+      <p id="copyright">
+  Site powered by adva cms. Theme inspired by depo.
+</p>
+
+    </div>
+  </body>
+</html>
