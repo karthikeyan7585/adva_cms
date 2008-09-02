@@ -47,13 +47,13 @@ describe Admin::ArticlesController do
         @section.articles.should_receive(:paginate).with options
         request_to :get, @collection_path, :filter => 'category', :category => '1'
       end
-      
+    
       it "should fetch articles by checking the title when :filter == title" do
         options = hash_including(:conditions => "LOWER(contents.title) LIKE '%foo%'")
         @section.articles.should_receive(:paginate).with options
         request_to :get, @collection_path, :filter => 'title', :query => 'foo'
       end
-      
+    
       it "should fetch articles by checking the excerpt and body when :filter == body" do
         options = hash_including(:conditions => "LOWER(contents.excerpt) LIKE '%foo%' OR LOWER(contents.body) LIKE '%foo%'")
         @section.articles.should_receive(:paginate).with options
@@ -78,7 +78,7 @@ describe Admin::ArticlesController do
     act! { request_to :get, @member_path }
     it_assigns :article
     # it_guards_permissions :show, :article # deactivated all :show permissions in the backend
-    
+  
     it "reverts the article when given a :version param" do
       @article.should_receive(:revert_to).any_number_of_times.with "1"
       request_to :get, @member_path, :version => "1"
@@ -118,7 +118,7 @@ describe Admin::ArticlesController do
       it_assigns_flash_cookie :error => :not_nil
     end    
   end
-  
+   
   describe "GET to :edit" do
     act! { request_to :get, @edit_member_path }    
     it_assigns :article
@@ -213,16 +213,16 @@ describe Admin::ArticlesController, "page_cache" do
   it "activates the ArticleSweeper as an around filter" do
     @filter.should be_kind_of(ActionController::Filters::AroundFilter)
   end
-  
+    
   it "configures the ArticleSweeper to observe Comment create, update, rollback and destroy events" do
     @filter.options[:only].should == [:create, :update, :destroy]
   end
 end
-
+  
 describe "ArticleSweeper" do
   include SpecControllerHelper
   controller_name 'admin/articles'
-  
+
   before :each do
     scenario :section_with_published_article
     @sweeper = ArticleSweeper.instance
