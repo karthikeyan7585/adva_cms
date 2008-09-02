@@ -1,7 +1,7 @@
 define Site do
-  has_many :sections, [stub_section, stub_wiki, stub_blog, stub_forum],
+  has_many :sections, [stub_section, stub_wiki, stub_blog, stub_forum,stub_shop],
                       [:find, :build, :root] => stub_section, 
-                      :paths => ['section', 'sections/section', 'blog', 'blogs/blog', 
+                      :paths => ['section', 'sections/section', 'blog', 'blogs/blog','shop','shops/shop', 
                                  'forums/forum', 'forum', 'wikis/wiki', 'wiki']
   has_many :themes, [:find, :build, :root] => stub_theme
   has_many :users, :build => stub_user

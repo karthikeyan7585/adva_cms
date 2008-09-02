@@ -1,0 +1,91 @@
+8
+
+dir
+15
+svn://aspire390/adva_cms_repo/trunk/spec
+svn://aspire390
+
+
+
+2008-08-28T10:06:18.493029Z
+6
+ratna
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f10cddde-da8b-ee4d-a913-9cac3f699329
+
+stubs
+dir
+
+helpers
+dir
+
+models
+dir
+
+controllers
+dir
+
+matchers
+dir
+
+scenarios
+dir
+
+fixtures
+dir
+
+spec_helper.rb
+file
+
+
+
+
+2008-08-30T05:42:02.706108Z
+363baa05f8b9445ed0f58d48efc2b7dc
+2008-08-28T10:06:18.493029Z
+6
+ratna
+
+spec_helpers
+dir
+
+views
+dir
+
+rcov.opts
+file
+
+
+
+
+2008-08-30T05:42:02.753047Z
+4c9c6b31310e0d2d1dfdf0a3606d700f
+2008-08-28T10:06:18.493029Z
+6
+ratna
+
+spec.opts
+file
+
+
+
+
+2008-08-30T05:42:02.784339Z
+f358117a83d64a85a7e2995c39de7a98
+2008-08-28T10:06:18.493029Z
+6
+ratna
+
