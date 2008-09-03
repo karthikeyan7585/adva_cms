@@ -8,6 +8,6 @@ class CreatePaymentMethods < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :customers
+    drop_table :payment_methods
   end
 end

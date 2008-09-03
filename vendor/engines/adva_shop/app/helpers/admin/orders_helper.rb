@@ -1,5 +1,7 @@
 module Admin
   module OrdersHelper
+    include Admin::ShopHelper
+    
     def order_status_options
       options = [["- All Orders -", '']]
       Order::STATUS.each do |key, val|

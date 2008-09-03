@@ -18,14 +18,15 @@
 			</p>
 			<%= render :partial => 'existing_addresses', :locals => {:address_type => 'billing_address'} %>
 			
-			<div id="billing_address_form" style=<%= @addresses.blank? ? "" : "display:none" %>  >
+			<div id="billing_address_form" style=<%= (@addresses.blank? || params[:selected_billing_address]=="new") ? "" : "display:none" %>  >
 				<%= render :partial => 'new_address', :locals => {:address_type => 'billing_address'} %>
 			</div>
 			<br />
 			<table cellspacing="1" cellpadding="1">
 				<tr>
 					<td>
-						<%= check_box_tag "ship_to_billing_address", nil, true, {:onchange => "toggleShippingAddress(this.checked, 'shipping_address');"} %>
+						<%= check_box_tag "ship_to_billing_address", nil, shipping_address_form_selected(params), 
+								{:onchange => "toggleShippingAddress(this.checked, 'shipping_address');"} %>
 						Use my billing address for shipping
 					</td>
 				</tr>
@@ -35,13 +36,13 @@
 			</table>
 		</div>
 		
-		<div id="shipping_address" style="float:right; width:49%; display: none;">
+		<div id="shipping_address" <%=  "style=\"float:right; width:49%; #{shipping_address_form_selected(params) ? "display:none" : "" };\"" %> >
 			<p>
 				<h3>Shipping Address:</h3>
 			</p>
 			<%= render :partial => 'existing_addresses', :locals => {:address_type => 'shipping_address'} %>
 			
-			<div id="shipping_address_form" style=<%= @addresses.blank? ? "" : "display:none" %>  >
+			<div id="shipping_address_form" style=<%= (@addresses.blank? || params[:selected_shipping_address]=="new") ? "" : "display:none" %>  >
 				<%= render :partial => 'new_address', :locals => {:address_type => 'shipping_address'} %>
 			</div>
 		</div>

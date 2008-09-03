@@ -1,0 +1,13 @@
+<div id="external_payment" <%= "style=\"#{(params[:external_payment_method] || !@section.external_payment.nil?) ? "" : "display: none;"}\"" %>>
+	<h4>External Payment</h4>
+	<fieldset>
+		<p>
+			<%= label_tag "Payment Gateway" %>
+			<%= select_tag "external_payment[payment_attributes][payment_gateway]", options_for_select(external_payment_options, (@external_payment.payment_gateway if @external_payment)), :include_blank => false %> 
+		</p>
+		<p>
+			<%= label_tag "Account Email" %>
+			<%= text_field_tag "external_payment[payment_attributes][account_email]", (@external_payment.account_email if @external_payment) %>
+		</p>
+	</fieldset>
+</div>

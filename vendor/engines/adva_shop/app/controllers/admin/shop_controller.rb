@@ -3,7 +3,7 @@ class Admin::ShopController < Admin::BaseController
   layout "admin"
   
   before_filter :set_site
-  before_filter :set_section, :set_shop, :only => [:show, :save_payment_setup]
+  before_filter :set_section, :set_shop
   before_filter :set_payments, :only => :show
   widget :section_tree, :partial => 'widgets/admin/section_tree',
                         :only    => { :controller => ['admin/shop'] }
@@ -45,5 +45,4 @@ class Admin::ShopController < Admin::BaseController
       @credit_card_payment = @shop.credit_card_payment
       @bank_payment = @shop.bank_payment
     end
-  
 end

@@ -1,0 +1,5 @@
+<%unless order_version.status < 1%>
+<ul class="order_versions">
+	<li>Order Status Changed to <%= order_status(order_version) %></li> 
+</ul>
+<%end%>

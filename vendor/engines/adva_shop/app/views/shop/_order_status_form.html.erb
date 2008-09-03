@@ -1,0 +1,5 @@
+<% form_tag fetch_order_status_path(@section) do %>
+Enter your Order id
+<%=	text_field_tag("order_id")%>
+  <%= submit_tag 'Check Status' %>
+<% end %>

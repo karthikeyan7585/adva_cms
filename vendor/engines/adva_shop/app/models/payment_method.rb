@@ -20,7 +20,7 @@ class PaymentMethod < ActiveRecord::Base
       self.errors.add(key.to_s, "can't be blank") if value.blank?
     end
     return self.errors.blank?
-  end 
+  end   
   
   def create_gateway
     config = YAML::load(File.open("#{RAILS_ROOT}/vendor/engines/adva_shop/config/paypal/config.yml"))
@@ -41,11 +41,13 @@ class ExternalPayment < PaymentMethod
     payment_attributes[:account_email]
   end
   
+  #DEVNOTE - Remove the response parameter
   def process(params, order, request, response)
     amount =  order.total_price * 100
     
     gateway = self.create_gateway
     
+    #DEVNOTE - Rename this as result
     purchase = gateway.purchase(amount,
                                 :ip       => request.remote_ip,
                                 :payer_id => params[:payer_id],
@@ -102,6 +104,7 @@ class CreditCardPayment < PaymentMethod
         gateway.capture(amount, response.authorization)
         gateway.transfer(amount, self.account_email)
         order.status = Order::STATUS[:paid]
+        #DEVNOTE - This should not be saved now. This should be saved before processing. You should call order.payment_method.procss unless process_method.is_a (BankPayment)
         order.payment_method = "CreditCardPayment"
         order.save
         return true
@@ -109,6 +112,7 @@ class CreditCardPayment < PaymentMethod
         return false
       end
     else
+      #DEVNOTE - Throw the exception and capture it in the controller. do something there
       return "Credit card is invalid"
     end
   end

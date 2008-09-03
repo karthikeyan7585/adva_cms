@@ -18,12 +18,13 @@ class Admin::OrdersController < Admin::BaseController
     render :template => 'admin/orders/index'
   end
   
-  def edit
-    @order_version=OrderVersion.find(:all, :conditions => {:section_id => @section.id})
+  def edit    
+    @order_versions = @order.order_versions.find_coinciding_grouped_by_dates(Time.zone.now.to_date, 1.day.ago)
   end
 
   def receive_payment
     if @order.receive_payment
+      #DEVNOTE - Refactor the email class. go and see the comments there
       Emailer.deliver_contact(@order.billing_address.email,'from adva cms')
 
       flash[:notice] = "Successfully updated."
@@ -54,6 +55,7 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
   
+  #DEVNOTE - Rename this method and give the comments
   def shipping_page
     @order = @section.orders.find(params[:id])
     render :action =>'shipping_page',:layout =>false

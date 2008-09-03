@@ -1,12 +1,11 @@
-<% if view_product %>
-	<% 	product = view_product %>
+	<% 	product = product_description %>
 
-	<div id="<%= dom_id product %>" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 75%;">
+	<div id="<%= dom_id product %>" class="clearing" style="display:inline;margin:0;padding:0;">
 		<div>
 			<table width="100%">
 				<tr>
 					<td align="center" width="30%">
-						<h2><%= link_to_content product %></h2>
+						<h2><%=product.name %></h2>
 						
 						<% cache do %>
 						<%= image_tag(image_path(product), :size => "50x50") %>
@@ -34,4 +33,3 @@
 			</table>
 		</div>
 	</div>
-<% end %>

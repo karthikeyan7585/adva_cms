@@ -5,7 +5,8 @@ class ShopController < BaseController
   before_filter :set_products, :only => [:index,:add_to_cart]
   before_filter :set_product, :only => [:show,:add_to_cart,:update_cart,:remove_from_cart]
   before_filter :find_cart
-    
+  before_filter :set_cart_item , :only =>[:update_cart,:remove_from_cart]
+   
   caches_page_with_references :index, :show, :track => ['@product', '@products', '@category', {'@site' => :tag_counts, '@section' => :tag_counts}]
     
   def index  
@@ -33,7 +34,7 @@ class ShopController < BaseController
     quantity = params["product_quantity_#{params[:product_id]}".to_sym].to_i
     #Update the quantity when it is given, otherwise remove the cart line
     if quantity > 0
-      @cart.cart_items.select{|cart_item| cart_item.product_id == params[:product_id].to_i }.first.update_attribute(:quantity , quantity)
+      @cart_item.update_attribute(:quantity , quantity)
       redirect_to view_cart_path(@section)
     else  
       redirect_to remove_from_cart_path(@section, @product)
@@ -42,8 +43,22 @@ class ShopController < BaseController
   end
   
   def remove_from_cart
-    @cart.cart_items.select{|cart_item| cart_item.product_id == params[:product_id].to_i }.first.destroy
+    @cart_item.destroy
     redirect_to view_cart_path(@section)
+  end
+  
+  def order_status
+    
+  end
+  
+  def fetch_order_status
+   begin
+     @order = @section.orders.find(params[:order_id]) 
+     @order_versions = @order.order_versions.find_coinciding_grouped_by_dates(Time.zone.now.to_date, 1.day.ago)
+   rescue   
+     
+   end
+
   end
   
   private
@@ -99,4 +114,7 @@ class ShopController < BaseController
     end
   end
   
+  def set_cart_item
+    @cart_item = @cart.cart_items.select{|cart_item| cart_item.product_id == params[:product_id].to_i }.first
+  end
 end

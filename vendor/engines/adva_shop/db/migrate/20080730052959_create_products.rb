@@ -10,6 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.float         :tax_rate
       t.integer       :quantity
       t.string        :vendor_name
+      #DEVNOTE - Why you are referring the asset in product
       t.references    :asset
       t.string        :permalink
       t.integer       :comment_age

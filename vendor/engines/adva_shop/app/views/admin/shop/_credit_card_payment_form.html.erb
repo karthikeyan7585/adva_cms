@@ -1,0 +1,28 @@
+<div id="credit_card_payment" <%= "style=\"#{(params[:credit_card_payment_method] || !@section.credit_card_payment.nil?) ? "" : "display: none;"}\"" %>>
+	<h4>Credit Card Payment</h4>
+	<% form_for :credit_card_payment do |f| %>
+		<fieldset>
+			<p>
+				<%= f.label :payment_gateway %>
+				<%= select_tag "credit_card_payment[payment_attributes][payment_gateway]",  options_for_select(credit_card_payment_options, (@credit_card_payment.payment_gateway if @credit_card_payment)), :include_blank => false %> 
+			</p>
+			<p>
+				<label for="credit_card_payment_payment_attributes_account_email" >Account Email</label>
+				<%= text_field_tag "credit_card_payment[payment_attributes][account_email]", (@credit_card_payment.account_email if @credit_card_payment) , :id => "credit_card_payment_payment_attributes_account_email" %>
+			</p>
+			<p>
+				<%= label_tag "Accepted Credit Cards" %>
+				<table width="60%">
+					<tr>
+						<% PaymentMethod::CreditCardPayment.acceptable_credit_cards.each do |card| %>
+						<td> 
+							<%= check_box_tag "credit_card_payment[payment_attributes][accepted_cards][#{card}]", 1, (@credit_card_payment.accepted_credit_cards.include?(card) if @credit_card_payment) %>
+							<b><%= card.humanize %></b>				
+						</td>
+						<% end %>
+					</tr>
+				</table>
+			</p>
+		</fieldset>
+	<% end %>
+</div>

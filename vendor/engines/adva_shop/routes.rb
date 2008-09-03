@@ -17,6 +17,10 @@ with_options :controller => "shop", :action => "index", :requirements => { :meth
   shop.remove_from_cart     "shops/:section_id/remove_from_cart/:product_id", :action => 'remove_from_cart',
                                      :requirements => { :method => :delete }
   
+  shop.order_status           "shops/:section_id/order_status", :action => 'order_status'  
+  
+  shop.fetch_order_status    "shops/:section_id/fetch_order_status", :action => 'fetch_order_status'
+  
 end
 
 with_options :controller => "admin/orders", :action => "index", :requirements => { :method => :get } do |order|
@@ -41,9 +45,9 @@ with_options :controller => 'checkout', :action => 'index', :requirements => {:m
   
   checkout.process_payment      "shops/:section_id/checkout/process_payment/:order_id", :action => "process_payment"
   
-  checkout.confirm_payment      "shops/:section_id/checkout/confirm_payment/:order_id", :action => 'confirm_payment'
+  checkout.confirm_external_payment      "shops/:section_id/checkout/confirm_external_payment/:order_id", :action => 'confirm_external_payment'
   
-  checkout.complete_payment     "shops/:section_id/checkout/complete_payment/:order_id", :action => 'complete_payment'
+  checkout.complete_external_payment     "shops/:section_id/checkout/complete_external_payment/:order_id", :action => 'complete_external_payment'
   
 end
 

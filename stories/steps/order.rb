@@ -56,11 +56,11 @@ steps_for :order do
     
   end
    When 'the payment is processed' do
-     confirm_payment_path(section.site, section)
+     confirm_external_payment_path(section.site, section)
    end
   Then 'the payment is processed' do
     Then ' the user is redirected to a confirmation page'
-    complete_payment_path(section.site, section)      
+    complete_external_payment_path(section.site, section)      
   end
   Then 'the user sees the admin orders list page' do
     get admin_orders_path(section.site, section, @order)  

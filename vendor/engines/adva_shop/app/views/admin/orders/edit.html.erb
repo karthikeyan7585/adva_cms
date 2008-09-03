@@ -9,6 +9,9 @@
 			<% end %>
 		</td>
 		<td align="center">
+			<%= button_to "Shipping Paper", shipping_page_path(@site, @section, @order), :style => "width: 130px"  %>
+		</td>
+		<td align="center">
 			<% if @order.shipped? %>
 				<%= image_tag("/images/icons/tick.png") %>&nbsp; <b>Items Shipped</b>
 			<% else %>
@@ -95,4 +98,7 @@
 			<%= @order.payment_method %>
 		</div>
 	</div>
+</div>
+<div style="width: 100%">
+<%= render :partial => 'shop/order_version', :object => @order_versions %>
 </div>

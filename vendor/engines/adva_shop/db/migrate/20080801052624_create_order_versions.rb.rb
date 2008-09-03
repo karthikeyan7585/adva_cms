@@ -6,6 +6,7 @@ class CreateOrderVersions < ActiveRecord::Migration
       t.integer       :version
       t.string        :payment_method
       t.integer       :status
+      #DEVNOTE - Remove this column
       t.boolean       :cancelled
       t.references    :billing_address
       t.references    :shipping_address

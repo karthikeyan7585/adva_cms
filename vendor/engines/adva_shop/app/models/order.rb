@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
   acts_as_versioned
   
   has_many :order_lines
+  has_many :order_versions
   has_many :products, :through => :order_lines
   
   belongs_to :billing_address, :foreign_key => 'billing_address_id', 
@@ -18,6 +19,7 @@ class Order < ActiveRecord::Base
   belongs_to :shop, :foreign_key => "section_id"
   
   before_create :set_default_values
+  #DEVNOTE - Think of saving the address when you actually need it
   before_save   :save_addresses
   
   STATUS = {:incomplete => 0, :new => 1, :paid => 2, :shipped => 3}
@@ -32,6 +34,7 @@ class Order < ActiveRecord::Base
     self.save
   end
   
+  #DEVNOTE - cancel can come in status
   def cancel_order
     self.cancelled = true
     self.save
@@ -41,26 +44,32 @@ class Order < ActiveRecord::Base
     order_lines.collect{|order_line| order_line.total_price}.sum
   end
   
+  #DEVNOTE - Why we have two different methods total_cost and total_price
   def total_cost
     total_price
   end
-
+  
+  #DEVNOTE - Remove this method
   def shipping_status
     status > 2 ? "Shipped" : "Not Shipped"
   end
   
+  #DEVNOTE - Remove this method
   def payment_status
     status > 1  ? "Paid" : "Not Paid"
   end
   
+  #DEVNOTE - Update this method
   def completed?
     status > 2
   end
   
+  #DEVNOTE - Update this method
   def shipped?
     status > 2
   end
   
+  #DEVNOTE - Update this method
   def paid?
     status > 1
   end

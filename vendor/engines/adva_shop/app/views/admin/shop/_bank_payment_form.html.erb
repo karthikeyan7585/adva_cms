@@ -1,0 +1,49 @@
+<div id="bank_payment" <%= "style=\"#{(params[:bank_payment_method] || !@section.bank_payment.nil?) ? "" : "display: none;"}\"" %>>
+	<h4>Bank Payment</h4>
+	<fieldset>
+		<p>
+			<%= label_tag "Bank Code" %>
+			<%= text_field_tag "bank_payment[payment_attributes][bank_code]", (@bank_payment.bank_code if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "IBAN" %>
+			<%= text_field_tag "bank_payment[payment_attributes][iban_number]", (@bank_payment.iban_number if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "SWIFT Code" %>
+			<%= text_field_tag "bank_payment[payment_attributes][swift_code]", (@bank_payment.swift_code if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "Bank Name" %>
+			<%= text_field_tag "bank_payment[address][full_name]", (@bank_payment.address.full_name if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "Street 1" %>
+			<%= text_field_tag "bank_payment[address][street1]", (@bank_payment.address.street1 if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "Street 2" %>
+			<%= text_field_tag "bank_payment[address][street2]", (@bank_payment.address.street2 if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "City" %>
+			<%= text_field_tag "bank_payment[address][city]", (@bank_payment.address.city if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "State" %>
+			<%= text_field_tag "bank_payment[address][state]", (@bank_payment.address.state if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "Country" %>
+			<%= country_select "bank_payment", "address", (@bank_payment.address.country if @bank_payment), {}, :name => "bank_payment[address][country]" %> 
+		</p>
+		<p>
+			<%= label_tag "ZIP" %>
+			<%= text_field_tag "bank_payment[address][zip_code]", (@bank_payment.address.zip_code if @bank_payment) %> 
+		</p>
+		<p>
+			<%= label_tag "phone" %>
+			<%= text_field_tag "bank_payment[address][phone]", (@bank_payment.address.phone if @bank_payment) %> 
+		</p>
+	</fieldset>
+</div>
