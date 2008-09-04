@@ -1,0 +1,14 @@
+Dear <%= @order.billing_address.full_name %>,
+
+Your order(Order #<%= @order.id %>) has been shipped to the following address.
+
+<%= @order.shipping_address.full_name %>
+<%= @order.shipping_address.street1 %>
+<%= @order.shipping_address.city %>
+<%= @order.shipping_address.state %>
+<%= @order.shipping_address.country %>
+ZIP: <%= @order.shipping_address.zip_code %>
+Phone: <%= @order.shipping_address.phone %>
+
+
+Thanks.

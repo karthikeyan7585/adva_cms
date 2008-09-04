@@ -24,9 +24,7 @@ class Admin::OrdersController < Admin::BaseController
 
   def receive_payment
     if @order.receive_payment
-      #DEVNOTE - Refactor the email class. go and see the comments there
-      Emailer.deliver_contact(@order.billing_address.email,'from adva cms')
-
+      ShopMailer.deliver_payment_confirmation @order, confirmation_url
       flash[:notice] = "Successfully updated."
       redirect_to admin_orders_path
     else
@@ -37,6 +35,7 @@ class Admin::OrdersController < Admin::BaseController
   
   def ship_items
     if @order.ship_items
+      ShopMailer.deliver_shipment_confirmation @order, confirmation_url
       flash[:notice] = "Successfully updated."
       redirect_to admin_orders_path
     else
@@ -47,6 +46,7 @@ class Admin::OrdersController < Admin::BaseController
   
   def cancel_order
     if @order.cancel_order
+      ShopMailer.deliver_order_cancellation @order, confirmation_url
       flash[:notice] = "The order has been cancelled."
       redirect_to admin_orders_path
     else
@@ -55,7 +55,6 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
   
-  #DEVNOTE - Rename this method and give the comments
   def shipping_page
     @order = @section.orders.find(params[:id])
     render :action =>'shipping_page',:layout =>false
@@ -92,11 +91,21 @@ class Admin::OrdersController < Admin::BaseController
       options
     end  
     def set_orders
-      conditions = "orders.status > 0 and orders.status < 3 and orders.cancelled=false"
+      conditions = "orders.status > 0 and orders.status < 3"
       filt_options = filter_options[:conditions]
-      conditions = conditions + " and " + filt_options if filt_options
+      
+      if params[:filter] == "status"
+        conditions = filt_options
+      else
+        conditions = conditions + " and " + filt_options if filt_options
+      end
+      
       options = {:page => current_page, :per_page => 10, :order => "orders.id", :conditions => [conditions]}
       @orders = @section.orders.paginate options
     end
+    
+    def confirmation_url
+      shop_url(@section)
+    end  
     
 end

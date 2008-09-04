@@ -1,5 +1,5 @@
 class Shop < Section  
-  has_many_comments
+
   has_many :products, :foreign_key => 'section_id'
   has_many :orders, :foreign_key => 'section_id'
   has_many :payment_methods, :foreign_key => 'section_id'   
@@ -16,8 +16,8 @@ class Shop < Section
   permissions :category => { :admin => :all },
               :product  => { :admin => :all },
               :orders   => { :admin => :all },
-              :comment  => { :admin => :show, :anonymous => :create, :admin => :update, :admin => :destroy }        
-  
+              :comment  => { :anonymous => :show, :author => :create, :user => :update, :moderator => :destroy }  
+              
   #DEVNOTE - Following methods needs to be deleted. May be we need to tweak it and move to payment_method.build
   def selected_payment_methods
     sel_payment_methods = []

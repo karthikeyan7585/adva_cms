@@ -4,8 +4,6 @@ class CreateOrders < ActiveRecord::Migration
       t.references    :section
       t.string        :payment_method
       t.integer       :status
-      #DEVNOTE - Remove the cancelled column
-      t.boolean       :cancelled
       t.references    :billing_address
       t.references    :shipping_address
       t.datetime      :created_at

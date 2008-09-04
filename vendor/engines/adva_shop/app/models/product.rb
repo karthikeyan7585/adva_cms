@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   end
 
   acts_as_taggable
+  acts_as_role_context :roles => :author
   has_many_comments :as => :commentable, :polymorphic => true
 
   belongs_to :section
@@ -53,6 +54,10 @@ class Product < ActiveRecord::Base
   
   def accept_comments?
     comment_age > -1
+  end
+  
+   def owner  
+    section
   end
   
   private

@@ -1,28 +1,30 @@
 <p align="right"><h2>Order #<%= @order.id %></h2></p>
 <table width="100%" style="padding: 20px;">
 	<tr>
-		<td align="center">
-			<% if @order.paid? %>
-				<%= image_tag("/images/icons/tick.png") %>&nbsp; <b>Payment Received</b>
-			<% else %>
-				<%= button_to "Receive Payment", receive_order_payment_path(@site, @section, @order), :style => "width: 130px"  %>
-			<% end %>
-		</td>
-		<td align="center">
-			<%= button_to "Shipping Paper", shipping_page_path(@site, @section, @order), :style => "width: 130px"  %>
-		</td>
-		<td align="center">
-			<% if @order.shipped? %>
-				<%= image_tag("/images/icons/tick.png") %>&nbsp; <b>Items Shipped</b>
-			<% else %>
-				<%= button_to "Ship Items", ship_order_items_path(@site, @section, @order), :style => "width: 130px"  %>
-			<% end %>
-		</td>
-		<td align="center">
-			<% unless @order.shipped? %>
-				<%= button_to "Cancel Order", {:action => "index"}, :style => "width: 130px" %>
-			<% end %>
-		</td>
+		<% unless @order.cancelled? %>
+			<td align="center">
+				<% if @order.paid? %>
+					<%= image_tag("/images/icons/tick.png") %>&nbsp; <b>Payment Received</b>
+				<% else %>
+					<%= button_to "Receive Payment", receive_order_payment_path(@site, @section, @order), :style => "width: 130px"  %>
+				<% end %>
+			</td>
+			<td align="center">
+				<%= button_to "Shipping Paper", shipping_page_path(@site, @section, @order), :style => "width: 130px"  %>
+			</td>
+			<td align="center">
+				<% if @order.shipped? %>
+					<%= image_tag("/images/icons/tick.png") %>&nbsp; <b>Items Shipped</b>
+				<% else %>
+					<%= button_to "Ship Items", ship_order_items_path(@site, @section, @order), :style => "width: 130px"  %>
+				<% end %>
+			</td>
+			<td align="center">
+				<% unless @order.shipped? %>
+					<%= button_to "Cancel Order", cancel_order_path(@site, @section, @order), :style => "width: 130px" %>
+				<% end %>
+			</td>
+		<% end %>
 	</tr>
 </table>
 
@@ -44,14 +46,10 @@
 			<td align="right">$<%= order_line.total_price %></td>
 		</tr>
 	<% end %>
-	
-	<tr>
-		<td colspan=4 align="right">Subtotal:</td>
-		<td align="right">$<%= @order.total_price %></td>
-	</tr>
+
 	<tr>
 		<td colspan=4 align="right"><b>Total:</b></td>
-		<td align="right"><b>$<%= @order.total_cost %></b></td>
+		<td align="right"><b>$<%= @order.total_price %></b></td>
 	</tr>
 </table>
 

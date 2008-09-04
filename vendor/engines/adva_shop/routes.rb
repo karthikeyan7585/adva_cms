@@ -17,7 +17,7 @@ with_options :controller => "shop", :action => "index", :requirements => { :meth
   shop.remove_from_cart     "shops/:section_id/remove_from_cart/:product_id", :action => 'remove_from_cart',
                                      :requirements => { :method => :delete }
   
-  shop.order_status           "shops/:section_id/order_status", :action => 'order_status'  
+  shop.order_status         "shops/:section_id/order_status", :action => 'order_status'  
   
   shop.fetch_order_status    "shops/:section_id/fetch_order_status", :action => 'fetch_order_status'
   

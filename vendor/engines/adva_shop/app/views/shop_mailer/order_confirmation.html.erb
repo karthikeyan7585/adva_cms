@@ -1,0 +1,11 @@
+Dear <%= @order.billing_address.full_name %>,
+
+You recently purchased products in our shop. Your order number is #<%= @order.id %>.
+<% if @order.paid? %>
+Your payment has been received.
+<% else %>
+Please make your payment for further process.
+<% end %>
+Further informations regarding the status of the order will be sent to your mail.
+
+Thanks for purchasing.

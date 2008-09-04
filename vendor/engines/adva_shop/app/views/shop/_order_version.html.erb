@@ -1,4 +1,4 @@
-
+<% unless order_version.nil?%>
 <div class="order_versions">
   <h3>Today <%= todays_short_date %></h3>
   <%= render_order_versions order_version[0], true %>
@@ -10,3 +10,6 @@
   <%= render_order_versions order_version[2] %>
 
 </div>
+<% else %>
+<h3>No Such order, Please check your order number and try again </h3>
+<% end %>

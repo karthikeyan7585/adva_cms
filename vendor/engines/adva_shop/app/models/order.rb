@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   
   class Jail < Safemode::Jail
-    allow :section, :shipping_address, :billing_address, :paid, :cancelled, :shipped, :version, :payment_method, :session
+    allow :section, :shipping_address, :billing_address, :status, :version, :payment_method
   end
   
   acts_as_versioned
@@ -19,10 +19,10 @@ class Order < ActiveRecord::Base
   belongs_to :shop, :foreign_key => "section_id"
   
   before_create :set_default_values
-  #DEVNOTE - Think of saving the address when you actually need it
+  
   before_save   :save_addresses
   
-  STATUS = {:incomplete => 0, :new => 1, :paid => 2, :shipped => 3}
+  STATUS = {:incomplete => 0, :new => 1, :paid => 2, :shipped => 3, :cancelled => 4}
   
   def receive_payment
     self.status = Order::STATUS[:paid]
@@ -34,9 +34,8 @@ class Order < ActiveRecord::Base
     self.save
   end
   
-  #DEVNOTE - cancel can come in status
   def cancel_order
-    self.cancelled = true
+    self.status = Order::STATUS[:cancelled]
     self.save
   end
   
@@ -44,34 +43,28 @@ class Order < ActiveRecord::Base
     order_lines.collect{|order_line| order_line.total_price}.sum
   end
   
-  #DEVNOTE - Why we have two different methods total_cost and total_price
-  def total_cost
-    total_price
-  end
-  
-  #DEVNOTE - Remove this method
   def shipping_status
-    status > 2 ? "Shipped" : "Not Shipped"
+    shipped? ? "Shipped" : "Not Shipped"
   end
   
-  #DEVNOTE - Remove this method
   def payment_status
-    status > 1  ? "Paid" : "Not Paid"
+    paid?  ? "Paid" : "Not Paid"
   end
   
-  #DEVNOTE - Update this method
   def completed?
-    status > 2
+    status == 3
   end
   
-  #DEVNOTE - Update this method
   def shipped?
-    status > 2
+    status == 3
   end
   
-  #DEVNOTE - Update this method
   def paid?
-    status > 1
+    status > 1 and status < 4
+  end
+  
+  def cancelled?
+    status == 4
   end
   
   
@@ -84,7 +77,6 @@ class Order < ActiveRecord::Base
   
   def set_default_values
     self.status = Order::STATUS[:incomplete] if self.status.blank?
-    self.cancelled = false if self.cancelled.blank?
     return self
   end
   

@@ -6,15 +6,14 @@
 		    Show Orders:
 		</label>
 		<select name="filter" id="filterlist">
-		    <%= options_for_select [['with ID',          'order_id'],
-		    						['ordered on',          'ordered_on'],
-								    ['whose status is',  'status'],
-									['with product ID',  'product_id']], params[:filter] %>
+		    <%= options_for_select [['with ID',        'order_id'],
+		    						['ordered on',   'ordered_on'],
+								    ['whose status is',  'status']], params[:filter] %>
 		</select>
 		
 		<%= text_field_tag 'query', params[:query], :id => 'query' %>
 		<%= date_select "order", "ordered_on", {}, :style => 'display: none' %>
-		<%= select_tag "status", options_for_select(order_status_options, params[:status]), :style => 'display: none' %>
+		<%= select_tag "status", options_for_select(order_status_options, "#{params[:status]}"), :style => 'display: none' %>
 		<%= submit_tag "Go", :id => "button", :style => "display: none;" %>
 	<% end -%>
 <% end -%>
