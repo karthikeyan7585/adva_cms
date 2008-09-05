@@ -52,7 +52,7 @@ class Order < ActiveRecord::Base
   end
   
   def completed?
-    status == 3
+    shipped?
   end
   
   def shipped?

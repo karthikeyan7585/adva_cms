@@ -1,7 +1,8 @@
 scenario :shop_orders do
   scenario :empty_site
   
-  @order = stub_shop
+  @section = @shop = stub_section
+  @order = stub_order
   @orders = stub_orders
   
   Section.stub!(:find).and_return @section

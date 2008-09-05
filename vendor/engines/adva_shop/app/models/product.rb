@@ -22,7 +22,6 @@ class Product < ActiveRecord::Base
   
   before_validation :set_site
   
-  #DEVNOTE - Why should we have this in class attribute. We can put it in the array or hash right?
   class_inheritable_reader :default_find_options
   write_inheritable_attribute :default_find_options, {:order => 'name'}
   

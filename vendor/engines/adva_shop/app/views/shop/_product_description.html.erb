@@ -1,6 +1,6 @@
 	<% 	product = product_description %>
 
-	<div id="<%= dom_id product %>" class="clearing" style="display:inline;margin:0;padding:0;">
+	<div id="<%= dom_id product %>" >
 		<div>
 			<table width="100%">
 				<tr>
@@ -15,10 +15,10 @@
 						<%= links_to_content_categories product, "in: %s<br />" %>
 						<%= links_to_content_tags product, "tagged: %s<br />" %><br />
 					</td>
-					<td align="center" width="20%">
+					<td >
 						<%= product.vendor_name %>
 					</td>
-					<td align="center" width="20%">
+					<td >
 						<b>$<%= product.price %></b>
 					</td>
 					<% form_tag(:action => "index", :product_id=> product.id) do %>

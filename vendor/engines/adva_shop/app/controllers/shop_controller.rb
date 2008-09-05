@@ -1,12 +1,11 @@
 class ShopController < BaseController
-  #include ActionController::GuardsPermissions::InstanceMethods
   
   before_filter :set_section
   before_filter :set_category, :set_tags, :only => :index
   before_filter :set_products, :only => [:index,:add_to_cart]
   before_filter :set_product, :only => [:show,:add_to_cart,:update_cart,:remove_from_cart]
   before_filter :find_cart
-  before_filter :set_cart_item , :only =>[:update_cart,:remove_from_cart]
+  before_filter :set_cart_item , :only =>[:update_cart,:remove_from_cart,:add_to_cart]
  
   caches_page_with_references :index, :show, :track => ['@product', '@products', '@category', {'@site' => :tag_counts, '@section' => :tag_counts}]
   authenticates_anonymous_user
@@ -25,7 +24,11 @@ class ShopController < BaseController
   
   def add_to_cart
     @cart.cart_items ||= []
-    @cart.cart_items << CartItem.create(:product=>@product,:quantity=> params["product_quantity_#{params[:product_id]}".to_sym].to_i)
+    if @cart_item.blank?
+      @cart.cart_items << CartItem.create(:product=>@product,:quantity=> params["product_quantity_#{params[:product_id]}".to_sym].to_i)
+    else
+      @cart_item.update_attribute(:quantity,params["product_quantity_#{params[:product_id]}".to_sym].to_i)
+    end
     redirect_to :action=>"index"
   end
   
@@ -50,8 +53,9 @@ class ShopController < BaseController
     redirect_to view_cart_path(@section)
   end
   
-  def order_status
-    
+  def search_product
+    @products = Product.find(:all, :conditions=>"name like '#{params[:search_term]}%'")    
+    redirect_to :action=>"index"
   end
   
   def fetch_order_status

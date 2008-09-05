@@ -61,140 +61,120 @@
   <div id="flash-error" class="flash" style="display: none;"></div>
 
   
-        
-<div class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 75%">
-	<div>
-		<table width="100%">
-			<tr style="padding-top: 50px">
-				<th align="center" bgcolor="#CCCCCC" width="30%" style="cursor: pointer">
-					 <a href="/shop?sortdesc=name-name">Name</a>
-					
-				</th>
-				<th align="center" bgcolor="#CCCCCC" width="20%">
-					<a href="/shop?sortasc=vendor_name-vendor_name">Vendor</a>
-				</th>
-				<th align="center" bgcolor="#CCCCCC" width="20%">
-					<a href="/shop?sortasc=price-price">Price</a>
-				</th>
-				<th align="center" bgcolor="#CCCCCC" width="10%">
-					<b>Quantity</b> 
-				</th>
-				<th align="center" bgcolor="#CCCCCC"  width="20%">
-					<b>Add to Cart</b> 
-				</th>
-			</tr>
-		</table>
-	</div>
-</div>
-<div id="cart_info_widget" style="display:inline;float:right;padding:0;width: 25%;border-color:#CCCCCC;border-style:solid;border-width:1px 0;">
-	<dl style="color:#777777;font-size:13px;">
-		<dt style="background:#666666 ;color:#EEEEEE;font-size:90%;margin:0;padding:0.5em 0.5em;font-weight:bold;text-decoration:none;text-shadow:1px 1px #FFFFFF;">
-			Cart
-		</dt>
-		<dd style="background:#EEEEEE none repeat scroll 0 0;border-bottom:1px solid #FFFFFF;border-top:1px solid #CCCCCC;color:#555555;font-size:90%;margin:0;padding:0;">
-			
-				<b>0 Items</b> in the cart.
+        <link href="/stylesheets/adva_shop.css?1220623626" media="screen" rel="stylesheet" type="text/css" />
+<!-- Middle Part Start -->
+<div id="middle">
+    <table width="100%" border="0" cellspacing="0" cellpadding="10">
+        <tr>
+            <td valign="top">
+                <!-- Content Part Start -->
+                <div id="gridcontainer">
+                    <table width="100%" border="0" cellpadding="10" cellspacing="0">
+                        <tr>
+                            <td valign="top">
+                                <table width="100%" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center">
+                                            <table width="600" border="0" align="left" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF" class="borderblue">
+                                                <tr>
+                                                    <td class="row1a">
+                                                        <a href="/shop?sortasc=name-name">Name</a>
+                                                    </td>
+                                                    <td class="row1b">
+                                                        <a href="/shop?sortasc=vendor_name-vendor_name">Vendor</a>
+                                                    </td>
+                                                    <td class="row1a">
+                                                        <a href="/shop?sortasc=price-price">Price</a>
+                                                    </td>
+                                                    <td class="row1a">
+                                                        Quantity
+                                                    </td>
+                                                    <td class="row1a">
+                                                        <strong>Add to Cart</strong>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td class="row2">
+                                                        <h2><a href="/shop/samsung-l-760">samsung l 760</a></h2>
+                                                        
+                                                        <img alt="Rails" height="50" src="/images/rails.png?1219917978" width="50" />
+                                                        
+                                                        <br/>
+                                                        
+                                                        <br/>
+                                                        
+                                                        tagged: <a href="/shop/tags/asdf">asdf</a><br />
+                                                        <br/>
+                                                    </td>
+                                                    <td class="row2a">
+                                                        3sdf
+                                                    </td>
+                                                    <td class="row2">
+                                                        <strong>$34.0</strong>
+                                                    </td>
+                                                    <td class="row2">
+                                                        <form action="/shop/add_to_cart/1" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="3acd925ec8a75b6c1a39239392320122a59c683a" /></div>
+                                                        <input id="product_quantity_1" name="product_quantity_1" size="1" type="text" value="1" />
+                                                    </td>
+                                                    <td class="row2">
+                                                        <input name="commit" type="submit" value="  Add to Cart  " />
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                
+												<tr><td colspan=5 align="right">
+													  
+												</td></tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>                        
+                    </table>
+                    <div id="cart_widget">Cart</div>
+<div id="cart_widget1">
+
+				<b>1 Item</b> in the cart.
 				<a href="/shop/view_cart">View Cart</a>
 			
-		</dd>
-	</dl>
 </div>
-	
-	<div id="product_2" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 75%;">
-		<div>
-			<table width="100%">
-				<tr>
-					<td align="center" width="30%">
-						<h2><a href="/shop/asdf">asdf</a></h2>
-						
-						<img alt="Rails" height="50" src="/images/rails.png?1219917978" width="50" />
-						
-						<br />
-						<br />
-						
-						tagged: <a href="/shop/tags/asdf">asdf</a><br /><br />
-					</td>
-					<td align="center" width="20%">
-						sadf
-					</td>
-					<td align="center" width="20%">
-						<b>$234.0</b>
-					</td>
-					<form action="/shop/add_to_cart/2" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="39d90c5c3ad34b65ea22b26eb865eb0ef4057b8e" /></div>
-						<td width="10%">
-							<input id="product_quantity_2" name="product_quantity_2" size="1" type="text" value="1" />
-						</td>
-						<td width="20%">
-							<input name="commit" type="submit" value="  Add to Cart  " />
-						</td>
-					</form>
-				</tr>
-			</table>
-		</div>
-	</div>
-	
-	<div id="product_1" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 75%;">
-		<div>
-			<table width="100%">
-				<tr>
-					<td align="center" width="30%">
-						<h2><a href="/shop/samsung-l-760">samsung l 760</a></h2>
-						
-						<img alt="Rails" height="50" src="/images/rails.png?1219917978" width="50" />
-						
-						<br />
-						<a href="/shop/samsung-l-760#comments">0 comments</a><br />
-						in: <a href="/shop/categories/samsung">samsung</a><br />
-						tagged: <a href="/shop/tags/mobile">mobile</a><br /><br />
-					</td>
-					<td align="center" width="20%">
-						samsung
-					</td>
-					<td align="center" width="20%">
-						<b>$123.0</b>
-					</td>
-					<form action="/shop/add_to_cart/1" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="39d90c5c3ad34b65ea22b26eb865eb0ef4057b8e" /></div>
-						<td width="10%">
-							<input id="product_quantity_1" name="product_quantity_1" size="1" type="text" value="1" />
-						</td>
-						<td width="20%">
-							<input name="commit" type="submit" value="  Add to Cart  " />
-						</td>
-					</form>
-				</tr>
-			</table>
-		</div>
-	</div>
 
 
-
+                     <div id="search">
+<form action="/shop/search_product" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="3acd925ec8a75b6c1a39239392320122a59c683a" /></div>
+<input id="search_term" name="search_term" size="7" type="text" value="" />
+  <input src="/images/search.gif?1220616483" type="image" />
+</form>
+</div>
+                    <div id="view_widget">View your order status</div>
+						  <div id="view_widget1">
+						  	Enter Your Order No: <br/>
+							<form action="/shop/fetch_order_status" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="3acd925ec8a75b6c1a39239392320122a59c683a" /></div>
+							<input id="order_id" name="order_id" size="7" type="text" value="" />
+							  <input src="/images/search.gif?1220616483" type="image" />
+							</form>
+						  </div>
+						  
+						 						  
+                    <div id="categories_widget">Categories</div>
+  
+ </div>
+						  
+					
+                </div>
+                <!-- Content Part End -->
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- Middle Part End -->
 
       </div>
-      
-<div id="footer" class="clearing">
-    
-    <div id="category_listing" class="clearing">
-        <h4>Categories</h4>
-        <ul>
-            
-            <li>
-                <a href="/shop/categories/samsung">samsung</a>
-            </li>
-            
-        </ul>
-    </div>
-    
-</div>
-<div id="order_tracker">
-    <a href="/shop/order_status">View your Order Status</a>
-</div>
-<div id="pagination" class="clearing" align="right">
-    
-</div>
-<p id="copyright">
+      <p id="copyright">
   Site powered by adva cms. Theme inspired by depo.
 </p>
-
 
     </div>
   </body>

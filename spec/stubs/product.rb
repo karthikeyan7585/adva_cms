@@ -21,9 +21,8 @@ define Product do
            :update_attributes => true, 
            :has_attribute? => true,
            :destroy => true,
-           :save_version_on_create => nil,
-           :increment_counter => nil,
-           :decrement_counter => nil
+           :paginate_with_tags => [self],
+           :find_by_id => self
 
-  instance :product           
+  instance :product 
 end

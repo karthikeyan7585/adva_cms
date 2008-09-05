@@ -1,81 +1,55 @@
-<h2>CART</h2>
+<%= stylesheet_link_tag "adva_shop.css" %>
 <% products = get_products_in_cart %>
-
 <% unless products.blank? %>
 
-<div class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%">
-	<div>
-		<table width="100%">
-			<tr style="padding-top: 50px">
-				<th align="center" bgcolor="#CCCCCC" width="20%" >
-					<b>Name</b>
-				</th>
-				<th align="center" bgcolor="#CCCCCC" width="15%">
-					<b>Vendor</b>
-				</th>
-				<th bgcolor="#CCCCCC" width="10%">
-					<b>Quantity</b>
-				</th>
-				<th align="center" bgcolor="#CCCCCC" width="15%">
-					<b>Price</b>
-				</th>
-				<th align="center" bgcolor="#CCCCCC" width="15%">
-					<b>Total</b>
-				</th>
-					
-				<th align="center" bgcolor="#CCCCCC" width="10%">
-					<b>Remove</b>
-				</th>
-				<th align="center" bgcolor="#CCCCCC"  width="10%">
-					<b>Update</b>
-				</th>
-			</tr>
-		</table>
-	</div>
-</div>
+<table width="60%" border="0" align="left" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF" class="borderblue">
+                                                <tr>
+                                                    <td class="row1a"> Name </td>
+                                                    <td class="row1b">Vendor</td>                                                   
+                                                    <td class="row1a"> Quantity </td>
+													 <td class="row1a">Price </td>
+													  <td class="row1a">Total </td>
+													   <td class="row1a">Remove </td>
+                                                    <td class="row1a">Update</td>
+                                                </tr>
+                                                <%products.each do |product| %>
+                                                <tr>
+                                                    <td class="row2">
+                                                        <h2><%= product.name %></h2>
+                                                        <% cache do %>
+                                                        <%= image_tag(image_path(product), :size => "50x50") %>
+                                                        <% end %>                                                        
+                                                    </td>
+                                                    <td class="row2a">
+                                                        <%= product.vendor_name %>
+                                                    </td>
+													 <td class="row2a">
+													 	<% form_tag(update_cart_path(@section,product)) do %>
+                                                        <%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
+                                                    </td>
+                                                    <td class="row2">
+                                                        <strong>$<%= product.price %></strong>
+                                                    </td>
+													 <td class="row2">
+                                                        <strong>$<%= total_price(product) %></strong>
+                                                    </td>
+													 <td class="row2">
+                                                        <%= link_to(image_tag('/images/icons/delete.png', :style => "border: none"), remove_from_cart_path(@section, product)) %>
+                                                    </td>
+													 <td class="row2a">
+                                                       <%= submit_tag "Update" %>
+                                                    </td>													
+                                                    <% end %>
+                                                </tr>
+                                                <%end %>
+												<tr><td colspan=7 align="center"><%= button_to "Checkout", add_billing_details_path(@section) %>
+									 </td></tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+									
+                                </table>
 
-<% products.each do |product|%>
-
-	<div id="<%= dom_id product %>" class="clearing" style="display:inline;float:left;margin:0;padding:0;width: 100%;">
-		<div>
-			<table width="100%">
-				<tr>
-					<td align="center" width="20%">
-						<h2><%= link_to_content product %></h2>
-					
-						<% cache do %>
-						<%= image_tag(image_path(product), :size => "50x50") %>					
-						<% end %>
-					
-					</td>
-					<td align="center" width="15%">
-						<%= product.vendor_name %>
-					</td>
-					<% form_tag(update_cart_path(@section,product)) do %>
-						<td align="center" width="10%">
-							<%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
-						</td>						
-						<td align="center" width="15%">
-							<b>$<%= product.price %></b>
-						</td>
-						<td align="center" width="15%">
-							<b>$<%= total_price(product) %></b>
-						</td>
-						<td align="center" width="10%">
-							<%= link_to(image_tag('/images/icons/delete.png', :style => "border: none"), remove_from_cart_path(@section, product)) %>
-						</td>
-						<td align="center" width="10%">
-							<%= submit_tag "Update" %>
-						</td>
-					<% end %>
-				</tr>
-			</table>
-		</div>
-	</div>
-<% end %>
-<p>
-	<%= button_to "Checkout", add_billing_details_path(@section) %>
-</p>
 <% else %>
 	<p> No items in the cart. Go back to <b><%= link_to "Shop", :action=>"index" %></b>. </p>
 <% end %>

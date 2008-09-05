@@ -2,9 +2,7 @@ class Shop < Section
 
   has_many :products, :foreign_key => 'section_id'
   has_many :orders, :foreign_key => 'section_id'
-  has_many :payment_methods, :foreign_key => 'section_id'   
   
-  #DEVNOTE - Shop has_many payment_methods and order has_one payment_method. Following lines are not necessary
   has_one :external_payment, :foreign_key => 'section_id', :class_name => 'PaymentMethod::ExternalPayment'
   has_one :bank_payment, :foreign_key => 'section_id', :class_name => 'PaymentMethod::BankPayment'
   has_one :credit_card_payment, :foreign_key => 'section_id', :class_name => 'PaymentMethod::CreditCardPayment'
@@ -18,7 +16,6 @@ class Shop < Section
               :orders   => { :admin => :all },
               :comment  => { :anonymous => :show, :author => :create, :user => :update, :moderator => :destroy }  
               
-  #DEVNOTE - Following methods needs to be deleted. May be we need to tweak it and move to payment_method.build
   def selected_payment_methods
     sel_payment_methods = []
     sel_payment_methods << self.external_payment.payment_type.to_s if self.external_payment

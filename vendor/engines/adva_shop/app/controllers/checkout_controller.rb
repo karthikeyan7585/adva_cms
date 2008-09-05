@@ -15,7 +15,7 @@ class CheckoutController < BaseController
   end
   
   #Save the billing and shipping details and proceed to the payment screen
-  def proceed_to_payment   
+  def proceed_to_payment
     if @billing_address.valid?
       @order.billing_address = @billing_address
       if @shipping_address.valid?
