@@ -1,4 +1,4 @@
-<div id="bank_details" style="display: none">
+<div id="bank_details" <%= "style=\"#{@section.has_only_bank_payment? ? "" : "display: none"}\"" %>>
 	<% if @section.bank_payment %>
 		<p>
 			<h3>Please deposit the payment to the following bank account:</h3>

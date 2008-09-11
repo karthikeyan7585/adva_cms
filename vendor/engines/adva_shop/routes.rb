@@ -5,6 +5,8 @@ with_options :controller => "shop", :action => "index", :requirements => { :meth
   shop.shop_tag             "shops/:section_id/tags/:tags",
                             :requirements => { :method => :get }
   
+  shop.render_cart_info_widget  "shops/:section_id/render_cart_info_widget", :action => 'render_cart_info_widget' 
+  
   shop.shop_category        "shops/:section_id/categories/:category_id",
                             :requirements => { :method => :get }
   
@@ -68,11 +70,6 @@ map.resources :products,    :path_prefix => "admin/sites/:site_id/sections/:sect
                             :member      => {:update_all => :put, :product_image => :get}
 
 map.resources :shop, :member => {:add_product_to_cart => :get}
-
-map.address_create          "addressc/",
-                            :controller     => "addresses",   
-                            :action         => "create",
-                            :requirements   => { :method => :get }
                             
 map.formatted_shop_comments    'shops/:section_id/comments.:format',
                                 :controller   => 'shop',

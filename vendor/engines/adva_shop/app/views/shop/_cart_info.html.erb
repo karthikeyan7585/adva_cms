@@ -1,0 +1,6 @@
+<% unless @cart.blank? or @cart.cart_items.blank? %>
+	<%= pluralize(@cart.cart_items.length, 'Item') %> in the cart.
+	<%= link_to "View Cart", view_cart_path(@section) %>
+<% else %>
+	No Items
+<% end %>

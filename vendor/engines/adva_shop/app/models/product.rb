@@ -32,6 +32,7 @@ class Product < ActiveRecord::Base
   validates_uniqueness_of :permalink, :scope => :section_id
   
  class << self
+   # Find the products with the options
     def find_every(options)
       options = default_find_options.merge(options)    
       if tags = options.delete(:tags)
@@ -51,18 +52,20 @@ class Product < ActiveRecord::Base
     end
   end
   
+  # Returns whether the comments are accepted for the product
   def accept_comments?
     comment_age > -1
   end
   
-   def owner  
+  # Returns the owner of the section
+  def owner  
     section
   end
   
   private
   
+  # Set the site
   def set_site
     self.site_id = section.site_id if section
   end
-
 end

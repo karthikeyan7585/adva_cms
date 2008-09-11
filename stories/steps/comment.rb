@@ -16,16 +16,6 @@ steps_for :comment do
     And "the user clicks the 'Submit comment' button"
     @comment = Comment.find(:first)
   end
- #added by aspire 
-
-  When "the user clicks on 'Details' of a product" do
-    Comment.delete_all
-    When "the user goes to the url shop/fifth-product#comments"
-    And "the user fills in the form with his name, email and comment"
-    And "the user clicks the 'Submit comment' button"
-    @comment = Comment.find(:first)
-  end
-  
   
   When "the user posts a comment which Akismet thinks is $result" do |result|
     result = result == 'ham'

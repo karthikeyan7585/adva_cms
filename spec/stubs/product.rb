@@ -11,18 +11,20 @@ define Product do
 
   methods  :id => 1,
            :type => 'Product',
-           :title => 'A product',
+           :name => 'A product',
            :permalink => 'fifth-product',
-           :body_html => 'body html',
-           :tag_list => 'sdf',
+           :tag_list => 'prod',
            :accept_comments? => true,
            :filter => nil,
-           :save => true, 
+           :save => true,
            :update_attributes => true, 
            :has_attribute? => true,
            :destroy => true,
            :paginate_with_tags => [self],
-           :find_by_id => self
+           :find_by_id => self,
+           :price => 100.0,
+           :tax_rate => 12.0,
+           :vendor_name => 'ProdOwn'
 
   instance :product 
 end

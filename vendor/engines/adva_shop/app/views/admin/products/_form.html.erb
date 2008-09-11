@@ -54,11 +54,15 @@
 	<% fields_for :product_image do |f| -%>
 		<p>
 			<%= label_tag "Graphic Image" %>
+			<span class="hint">Supported image types are GIF, JPEG or PNG. And the file size should be less than <%= ProductImage::UPLOAD_LIMIT %>MB.</span>
 			<% unless @product.new_record? %>
 				<%= image_tag(image_path(@product), :size => "50x50") %>
 				<label class="light"><%= check_box_tag("change_product_image", 1, false) %> Change Image</label>
 			<% end %>
 			<%= f.file_field :uploaded_image, :style => ("display: none" unless @product.new_record?) %>
+			<% unless @product.nil? or @product.product_image.nil? %>
+				<span class="error_message"><%= @product.product_image.errors.full_messages %></span>
+			<% end %>
 		</p>
 	<% end %>
 </fieldset>

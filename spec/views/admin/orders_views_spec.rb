@@ -1,4 +1,3 @@
-
 require File.dirname(__FILE__) + '/../../spec_helper'
 require 'base_helper'
 
@@ -9,10 +8,12 @@ describe "Admin::Orders:" do
     @order = stub_order
     @orders = stub_orders
     
+    @order.stub!(:created_at).and_return Time.zone.now
+    
     assigns[:section] = @section = stub_section
     assigns[:site] = @site = stub_site
-
-
+    
+    
     set_resource_paths :order, '/admin/sites/1/sections/2/'
     
     template.stub!(:admin_orders_path).and_return(@collection_path)
@@ -21,24 +22,25 @@ describe "Admin::Orders:" do
     template.stub!(:receive_order_payment_path).and_return(@receive_order_payment_path)
     template.stub!(:will_paginate)
     
-  
-    (class << template; self; end).class_eval do
+    
+     (class << template; self; end).class_eval do
       include BaseHelper
     end        
   end
   
   describe "the index view" do
     before :each do
-      assigns[:orders] = stub_order
+      assigns[:orders] = stub_orders
     end
     
     it "should display a list of orders" do
-
+      @orders.stub!(:total_entries).and_return 1
       render "admin/orders/index"
       response.should have_tag('table[id=orders]')
     end
   end
-   describe "the edit view" do
+  
+  describe "the edit view" do
     before :each do
       assigns[:order] = @order
     end
@@ -47,7 +49,8 @@ describe "Admin::Orders:" do
       render "admin/orders/edit"
     end
   end
-     describe "the shipping page" do
+  
+  describe "the shipping page" do
     before :each do
       assigns[:order] = @order
     end
@@ -56,4 +59,4 @@ describe "Admin::Orders:" do
       render "admin/orders/shipping_page"
     end
   end
- end
+end

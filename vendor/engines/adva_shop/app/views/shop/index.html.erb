@@ -27,7 +27,7 @@
                                                         Quantity
                                                     </td>
                                                     <td class="row1a">
-                                                        <strong>Add to Cart</strong>
+                                                        <strong>Add to cart</strong>
                                                     </td>
                                                 </tr>
                                                 <%@products.each do |product| %>
@@ -55,7 +55,7 @@
                                                         <%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
                                                     </td>
                                                     <td class="row2">
-                                                        <%= submit_tag "  Add to Cart  " %>
+                                                        <%= submit_tag "Add to cart" %>
                                                         <%end %>
                                                     </td>
                                                 </tr>
@@ -70,7 +70,8 @@
                             </td>
                         </tr>                        
                     </table>
-                    <%= render :partial => 'cart_info_widget' %>
+					
+					 <%= render :partial => 'cart_info_widget' %>                
                     <%= render :partial => 'search_widget' %>
                     <%= render :partial => 'order_status_widget' %>
                     <%= render :partial => 'categories_widget' %>

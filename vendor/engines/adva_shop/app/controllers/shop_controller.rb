@@ -11,17 +11,26 @@ class ShopController < BaseController
   authenticates_anonymous_user
   acts_as_commentable
   
+  # Action to render the page with products of perticular section and site
   def index  
     respond_to do |format|
       format.html { render @section.render_options }
     end
   end
   
-  #temp method to display the product description
+  #Action to render the view cart widget
+  def render_cart_info_widget
+      respond_to do |format|
+        format.js 
+      end   
+  end
+  
+  #Action to render the description page of a particular product
   def show   
     render @section.render_options
   end
   
+  #Action to add a product to a cart
   def add_to_cart
     @cart.cart_items ||= []
     if @cart_item.blank?
@@ -32,10 +41,11 @@ class ShopController < BaseController
     redirect_to :action=>"index"
   end
   
+  #Action to view the cart 
   def view_cart
-    #Display the cart
   end
   
+  #Action to update the quantity of the product in the cart
   def update_cart
     quantity = params["product_quantity_#{params[:product_id]}".to_sym].to_i
     #Update the quantity when it is given, otherwise remove the cart line
@@ -48,16 +58,19 @@ class ShopController < BaseController
     
   end
   
+  #Action to remove the cartitem from cart
   def remove_from_cart
     @cart_item.destroy
     redirect_to view_cart_path(@section)
   end
   
+  #Action to return products array based on the search term entered in the frontend
   def search_product
-    @products = Product.find(:all, :conditions=>"name like '#{params[:search_term]}%'")    
-    redirect_to :action=>"index"
+    @products = Product.paginate(:all, :page => current_page, :per_page => 3, :conditions=>"name like '#{params[:search_term]}%'")    
+    render :template=> 'shop/index'
   end
   
+  #Action to fetch the order status
   def fetch_order_status
    begin
      @order = @section.orders.find(params[:order_id]) 
@@ -70,7 +83,7 @@ class ShopController < BaseController
   
   private
   
-  #To-Do - This method needs to be tested
+  #Action to return category collection
   def set_category
     if params[:category_id]
       @category = @section.categories.find params[:category_id]
@@ -78,7 +91,7 @@ class ShopController < BaseController
     end
   end
   
-  #To-Do - This method needs to be tested
+  #Action to return tags collection
   def set_tags
     if params[:tags]
       names = params[:tags].split('+')
@@ -87,7 +100,7 @@ class ShopController < BaseController
     end
   end
   
-  #To-Do - Needs to be tested based on the tag and category based search
+  #Action to return products collection based on categories/tags/section_id or sortable column header
   def set_products    
     set_sort_params
     add_to_sortable_columns('name', { :model => Product, :field => 'name', :alias => 'name' })
@@ -103,16 +116,18 @@ class ShopController < BaseController
     @products = source.paginate_with_tags options
   end
   
-  #To-Do - Needs to be tested
+  #Action to return a product based on the product_id
   def set_product
     @product = @section.products.find_by_permalink params[:permalink] unless params[:permalink].blank?
     @product ||= @section.products.find_by_id params[:product_id]
   end
   
+  #Action to return the section based on the section_id
   def set_section
     @section = @site.sections.find(params[:section_id])
   end
   
+  #Action to create/return the cart object based on the availability of the session[:cart_id] params
   def find_cart
     id = session[:cart_id]    
     unless id.blank?
@@ -123,10 +138,12 @@ class ShopController < BaseController
     end
   end
   
+  #Action to return the cart_item object basesd on the params[:product_id]
   def set_cart_item
     @cart_item = @cart.cart_items.select{|cart_item| cart_item.product_id == params[:product_id].to_i }.first
   end
   
+  #Action to set sort params based on header which needs to be sorted
   def set_sort_params
       if not params[:sortdesc].nil? 
         @search_field = params[:sortdesc].split('-').first

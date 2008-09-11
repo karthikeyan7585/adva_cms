@@ -1,3 +1,7 @@
+# Logfile created on Sat Aug 30 11:11:46 +0530 2008WARNING: Couldn't create the public file structure for plugin 'theme_support'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/theme_support/D:
+WARNING: Couldn't create the public file structure for plugin 'adva_shop'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/adva_shop/D:
 Loading routes for engine adva_activity
 Loading routes for engine adva_assets
 Loading routes for engine adva_blog
@@ -11,1099 +15,749 @@ Loading routes for engine adva_wiki
 Loading routes for engine theme_support
 
 
-Processing InstallController#index (for 192.168.0.38 at 2008-09-05 20:57:01) [GET]
-  Session ID: 97167c188b9b498f961f84bf0e28a0b2
-  Parameters: {"action"=>"index", "controller"=>"admin/install"}
-Rendering template within layouts/simple
-Rendering admin/install/index
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.12823 (7 reqs/sec) | Rendering: 0.05395 (42%) | DB: 0.00387 (3%) | 200 OK [http://aspire038/]
-
-
-Processing InstallController#index (for 192.168.0.38 at 2008-09-05 20:57:05) [POST]
-  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
-SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlMmQ3ZjMwMmJmMjFkNGFjODIy
-NGIzMjg0ZmRiZTI2NzA=--104beda7edde547c9051444883c392941f999411
-  Parameters: {"commit"=>"Create site & account »", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "action"=>"index", "controller"=>"admin/install", "site"=>{"name"=>"Webshop", "title"=>"Webshop"}, "section"=>{"title"=>"Home", "type"=>"Section"}}
-Cookie set: uid=1; path=/
-Cookie set: uname=Admin; path=/
-Rendering template within layouts/simple
-Rendering admin/install/confirmation
-Cookie set: flash=%7B%22notice%22%3A%22Congratulations%21+You+have+successfully+set+up+your+site.%22%7D; path=/
-Completed in 0.45723 (2 reqs/sec) | Rendering: 0.02489 (5%) | DB: 0.01675 (3%) | 200 OK [http://aspire038/admin/install]
-
-
-Processing SitesController#show (for 192.168.0.38 at 2008-09-05 20:57:08) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewY6C25vdGljZVQ6DGNzcmZfaWQiJTJk
-N2YzMDJiZjIxZDRhYzgyMjRiMzI4NGZkYmUyNjcw--e89fc5b93b23e5af4e6e86ae616f46895f40e396
-  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"admin/sites"}
-Rendering template within layouts/admin
-Rendering admin/sites/show
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.61407 (1 reqs/sec) | Rendering: 0.49112 (79%) | DB: 0.01188 (1%) | 200 OK [http://aspire038/admin/sites/1]
-
-
-Processing SectionsController#new (for 192.168.0.38 at 2008-09-05 20:57:12) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"site_id"=>"1", "action"=>"new", "controller"=>"admin/sections"}
-Rendering template within layouts/admin
-Rendering admin/sections/new
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.10572 (9 reqs/sec) | Rendering: 0.06103 (57%) | DB: 0.01085 (10%) | 200 OK [http://aspire038/admin/sites/1/sections/new]
-
-
-Processing SectionsController#create (for 192.168.0.38 at 2008-09-05 20:57:16) [POST]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"commit"=>"Save", "site_id"=>"1", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "action"=>"create", "controller"=>"admin/sections", "section"=>{"title"=>"Shop", "type"=>"Shop"}}
-Redirected to http://aspire038:3030/admin/sites/1/sections/2
-Cookie set: flash=%7B%22notice%22%3A%22The+section+has+been+created.%22%7D; path=/
-Completed in 0.10874 (9 reqs/sec) | DB: 0.00803 (7%) | 302 Found [http://aspire038/admin/sites/1/sections]
-
-
-Processing SectionsController#show (for 192.168.0.38 at 2008-09-05 20:57:17) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewY6C25vdGljZUY6DGNzcmZfaWQiJTJk
-N2YzMDJiZjIxZDRhYzgyMjRiMzI4NGZkYmUyNjcw--be3e159884e3acd7931577714cabe3118a76b9c4
-  Parameters: {"site_id"=>"1", "action"=>"show", "id"=>"2", "controller"=>"admin/sections"}
-Rendering template within layouts/admin
-Rendering admin/sections/show
-Cookie set: flash=%7B%22notice%22%3A%22The+section+has+been+created.%22%7D; path=/
-Completed in 0.30898 (3 reqs/sec) | Rendering: 0.28806 (93%) | DB: 0.01251 (4%) | 200 OK [http://aspire038/admin/sites/1/sections/2]
-
-
-Processing SectionsController#update (for 192.168.0.38 at 2008-09-05 20:57:20) [PUT]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"commit"=>"Save", "site_id"=>"1", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "_method"=>"put", "action"=>"update", "id"=>"2", "controller"=>"admin/sections", "section"=>{"permalink"=>"shop", "title"=>"Shop", "permissions"=>{"category"=>{"destroy"=>"admin", "create"=>"admin", "update"=>"admin"}, "product"=>{"destroy"=>"admin", "create"=>"admin", "update"=>"admin"}, "orders"=>{"destroy"=>"admin", "create"=>"admin", "update"=>"admin"}, "comment"=>{"destroy"=>"moderator", "create"=>"author", "update"=>"user"}}, "comment_age"=>"-1"}}
-Redirected to http://aspire038:3030/admin/sites/1/sections/2
-Cookie set: flash=%7B%22notice%22%3A%22The+section+has+been+updated.%22%7D; path=/
-Completed in 0.06257 (15 reqs/sec) | DB: 0.00856 (13%) | 302 Found [http://aspire038/admin/sites/1/sections/2]
-
-
-Processing SectionsController#show (for 192.168.0.38 at 2008-09-05 20:57:20) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewY6C25vdGljZUY6DGNzcmZfaWQiJTJk
-N2YzMDJiZjIxZDRhYzgyMjRiMzI4NGZkYmUyNjcw--be3e159884e3acd7931577714cabe3118a76b9c4
-  Parameters: {"site_id"=>"1", "action"=>"show", "id"=>"2", "controller"=>"admin/sections"}
-Rendering template within layouts/admin
-Rendering admin/sections/show
-Cookie set: flash=%7B%22notice%22%3A%22The+section+has+been+updated.%22%7D; path=/
-Completed in 0.39979 (2 reqs/sec) | Rendering: 0.37763 (94%) | DB: 0.01124 (2%) | 200 OK [http://aspire038/admin/sites/1/sections/2]
-
-
-Processing ShopController#show (for 192.168.0.38 at 2008-09-05 20:57:23) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"show", "id"=>"2", "controller"=>"admin/shop"}
-Rendering template within layouts/admin
-Rendering admin/shop/show
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.45964 (2 reqs/sec) | Rendering: 0.12606 (27%) | DB: 0.01347 (2%) | 200 OK [http://aspire038/admin/sites/1/sections/2/shop/2]
-
-
-Processing ShopController#save_payment_setup (for 192.168.0.38 at 2008-09-05 20:57:37) [PUT]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"commit"=>"Save", "site_id"=>"1", "bank_payment"=>{"payment_attributes"=>{"iban_number"=>"", "swift_code"=>"", "bank_code"=>""}, "address"=>{"city"=>"", "street1"=>"", "street2"=>"", "country"=>"Afghanistan", "zip_code"=>"", "phone"=>"", "full_name"=>"", "state"=>""}}, "external_payment_method"=>"1", "section_id"=>"2", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "_method"=>"put", "action"=>"save_payment_setup", "controller"=>"admin/shop", "credit_card_payment"=>{"payment_attributes"=>{"account_email"=>"ratnav_1216101869_biz@gmail.com", "payment_gateway"=>"ActiveMerchant::Billing::PaypalGateway", "accepted_cards"=>{"master"=>"1", "visa"=>"1"}}}, "external_payment"=>{"payment_attributes"=>{"account_email"=>"ratnav_1216101869_biz@gmail.com", "payment_gateway"=>"ActiveMerchant::Billing::PaypalExpressGateway"}}, "credit_card_payment_method"=>"1"}
-Redirected to http://aspire038:3030/admin/sites/1/sections/2/shop/2
-Cookie set: flash=%7B%22notice%22%3A%22The+payment+setup+has+been+saved.%22%7D; path=/
-Completed in 0.08036 (12 reqs/sec) | DB: 0.01002 (12%) | 302 Found [http://aspire038/admin/sites/1/sections/2/shop/save_payment_setup]
-
-
-Processing ShopController#show (for 192.168.0.38 at 2008-09-05 20:57:37) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewY6C25vdGljZUY6DGNzcmZfaWQiJTJk
-N2YzMDJiZjIxZDRhYzgyMjRiMzI4NGZkYmUyNjcw--be3e159884e3acd7931577714cabe3118a76b9c4
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"show", "id"=>"2", "controller"=>"admin/shop"}
-Rendering template within layouts/admin
-Rendering admin/shop/show
-Cookie set: flash=%7B%22notice%22%3A%22The+payment+setup+has+been+saved.%22%7D; path=/
-Completed in 0.12554 (7 reqs/sec) | Rendering: 0.09545 (76%) | DB: 0.01685 (13%) | 200 OK [http://aspire038/admin/sites/1/sections/2/shop/2]
-
-
-Processing ProductsController#index (for 192.168.0.38 at 2008-09-05 20:57:40) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"index", "controller"=>"admin/products"}
-Rendering template within layouts/admin
-Rendering admin/shop/index
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.13646 (7 reqs/sec) | Rendering: 0.09648 (70%) | DB: 0.01718 (12%) | 200 OK [http://aspire038/admin/sites/1/sections/2/products]
-
-
-Processing ProductsController#new (for 192.168.0.38 at 2008-09-05 20:57:42) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"new", "controller"=>"admin/products"}
-Rendering template within layouts/admin
-Rendering admin/products/new
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.82193 (1 reqs/sec) | Rendering: 0.78415 (95%) | DB: 0.01513 (1%) | 200 OK [http://aspire038/admin/sites/1/sections/2/products/new]
-
-
-Processing ProductsController#create (for 192.168.0.38 at 2008-09-05 20:57:56) [POST]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"commit"=>"Add Product", "site_id"=>"1", "assets"=>[{"uploaded_data"=>""}], "search-assets-query"=>"", "section_id"=>"2", "product_image"=>{"uploaded_image"=>""}, "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "product"=>{"permalink"=>"", "name"=>"samsung l 760", "tax_rate"=>"34", "weight"=>"3434", "price"=>"34", "quantity"=>"3434", "description"=>"asdf", "vendor_name"=>"3sdf", "filter"=>"", "tag_list"=>"asdf", "comment_age"=>"-1", "active"=>"1"}, "action"=>"create", "controller"=>"admin/products"}
-Redirected to http://aspire038:3030/admin/sites/1/sections/2/products
-Cookie set: flash=%7B%22notice%22%3A%22The+product+has+been+created%22%7D; path=/
-Completed in 0.11246 (8 reqs/sec) | DB: 0.01479 (13%) | 302 Found [http://aspire038/admin/sites/1/sections/2/products]
-
-
-Processing ProductsController#index (for 192.168.0.38 at 2008-09-05 20:57:56) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewY6C25vdGljZUY6DGNzcmZfaWQiJTJk
-N2YzMDJiZjIxZDRhYzgyMjRiMzI4NGZkYmUyNjcw--be3e159884e3acd7931577714cabe3118a76b9c4
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"index", "controller"=>"admin/products"}
-Rendering template within layouts/admin
-Rendering admin/shop/index
-Cookie set: flash=%7B%22notice%22%3A%22The+product+has+been+created%22%7D; path=/
-Completed in 0.25506 (3 reqs/sec) | Rendering: 0.22837 (89%) | DB: 0.01450 (5%) | 200 OK [http://aspire038/admin/sites/1/sections/2/products]
-
-
-Processing OrdersController#index (for 192.168.0.38 at 2008-09-05 20:57:58) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"index", "controller"=>"admin/orders"}
-Rendering template within layouts/admin
-Rendering admin/orders/index
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.39775 (2 reqs/sec) | Rendering: 0.09563 (24%) | DB: 0.01195 (3%) | 200 OK [http://aspire038/admin/sites/1/sections/2/orders]
-
-
-Processing SectionsController#show (for 192.168.0.38 at 2008-09-05 20:58:02) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"section_id"=>"1", "action"=>"show", "method"=>:get, "controller"=>"sections"}
+Processing SectionsController#show (for 192.168.1.145 at 2008-08-30 11:12:11) [GET]
+  Session ID: ac89adbe38f7b4a3f36def22a9ee82b7
+  Parameters: {"section_id"=>"55", "action"=>"show", "method"=>:get, "controller"=>"sections"}
 Rendering template within layouts/default
 Rendering sections/show
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.22365 (4 reqs/sec) | Rendering: 0.08755 (39%) | DB: 0.02091 (9%) | 200 OK [http://aspire038/]
 
 
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:02) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {}
+ActionView::TemplateError (Not a directory - D:/Projects/adva_cms_svn/public/cache/aspire323:3016) on line #5 of vendor/engines/adva_cms/app/views/layouts/default.html.erb:
+2: <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+3:   <head>
+4:     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+5:     <%= stylesheet_link_tag 'default', 'common', 'comments', 'forms', 'forum', :cache => 'cache/default' %>
+6:     <%= javascript_include_tag 'prototype', 'effects', 'lowpro', 'flash', 'cookie', 'json', 'roles', 'application', :cache => 'cache/default' %>
+7:     <title><%= @site.title %></title>
+8: 
 
-
-ActionController::RoutingError (No route matches "/stylesheets/cache/default.css" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:605:in `write_asset_file_contents_without_path_munging'
+    vendor/engines/theme_support/lib/theme_support/asset_tag_helper.rb:8:in `write_asset_file_contents'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:373:in `stylesheet_link_tag_without_engine_additions'
+    vendor/plugins/engines/lib/engines/rails_extensions/asset_helpers.rb:67:in `stylesheet_link_tag'
+    vendor/engines/adva_cms/app/views/layouts/default.html.erb:5:in `_run_erb_47vendor47engines47adva_cms47app47views47layouts47default46html46erb'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:26:in `render_without_read_access_tracking'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:45:in `with_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:25:in `render_without_read_access_tracking'
+    vendor/plugins/page_cache_tagging/lib/page_cache_tagging.rb:38:in `render'
+    vendor/engines/adva_cms/app/controllers/sections_controller.rb:13:in `show'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
     script/server:3
+    -e:2:in `load'
+    -e:2
 
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:03) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {}
+Rendering D:/Projects/adva_cms_svn/public/500.html (500 Internal Server Error)
 
 
-ActionController::RoutingError (No route matches "/javascripts/cache/default.js" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+Processing SitesController#index (for 192.168.1.145 at 2008-08-30 11:12:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--eb6c8c01ef58b71ef10bc87df45dca32529c5835
+  Parameters: {"action"=>"index", "method"=>:get, "controller"=>"admin/sites"}
+Redirected to http://aspire323:3016/login
+Filter chain halted as [:require_authentication] rendered_or_redirected.
+Completed in 0.07900 (12 reqs/sec) | DB: 0.09500 (120%) | 302 Found [http://aspire323/admin]
+
+
+Processing SessionController#new (for 192.168.1.145 at 2008-08-30 11:12:19) [GET]
+  Session ID: BAh7BzoUcmV0dXJuX2xvY2F0aW9uQzoeSGFzaFdpdGhJbmRpZmZlcmVudEFj
+Y2Vzc3sIIgthY3Rpb24iCmluZGV4IgttZXRob2Q6CGdldCIPY29udHJvbGxl
+ciIQYWRtaW4vc2l0ZXMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs
+YXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--ecf172e90298520d85d6beb1a131d6173d612360
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering template within layouts/login
+Rendering session/new
+
+
+ActionView::TemplateError (Not a directory - D:/Projects/adva_cms_svn/public/cache/aspire323:3016) on line #6 of vendor/engines/adva_cms/app/views/layouts/login.html.erb:
+3:   <head>
+4:     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />   
+5:     <title><%= controller.controller_name %></title>
+6:     <%= stylesheet_link_tag 'admin/base', 'admin/form', 'admin/layout/base', 'admin/layout/login', :cache => 'cache/admin/login' %>
+7:     <%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'lowpro', 'flash', 'json', 'cookie', :cache => 'cache/admin/login' %>
+8:     <%= yield :head %>
+9:   </head>
+
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:605:in `write_asset_file_contents_without_path_munging'
+    vendor/engines/theme_support/lib/theme_support/asset_tag_helper.rb:8:in `write_asset_file_contents'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:373:in `stylesheet_link_tag_without_engine_additions'
+    vendor/plugins/engines/lib/engines/rails_extensions/asset_helpers.rb:67:in `stylesheet_link_tag'
+    vendor/engines/adva_cms/app/views/layouts/login.html.erb:6:in `_run_erb_47vendor47engines47adva_cms47app47views47layouts47login46html46erb'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:26:in `render_without_read_access_tracking'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:41:in `with_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:25:in `render_without_read_access_tracking'
+    vendor/plugins/page_cache_tagging/lib/page_cache_tagging.rb:38:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1157:in `default_render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1163:in `perform_action_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
     script/server:3
+    -e:2:in `load'
+    -e:2
 
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
+Rendering D:/Projects/adva_cms_svn/public/500.html (500 Internal Server Error)
+WARNING: Couldn't create the public file structure for plugin 'theme_support'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/theme_support/D:
+WARNING: Couldn't create the public file structure for plugin 'adva_shop'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/adva_shop/D:
+Loading routes for engine adva_activity
+Loading routes for engine adva_assets
+Loading routes for engine adva_blog
+Loading routes for engine adva_cms
+Loading routes for engine adva_comments
+Loading routes for engine adva_forum
+Loading routes for engine adva_shop
+Loading routes for engine adva_spam
+Loading routes for engine adva_user
+Loading routes for engine adva_wiki
+Loading routes for engine theme_support
 
 
-Processing ShopController#index (for 192.168.0.38 at 2008-09-05 20:58:04) [GET]
-  Session ID: BAh7CDoIdWlkaQYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNo
-OjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTJkN2YzMDJiZjIx
-ZDRhYzgyMjRiMzI4NGZkYmUyNjcw--53620a8a25f4b24b0367fb60300ac9d0672e430c
-  Parameters: {"section_id"=>"2", "action"=>"index", "method"=>:get, "controller"=>"shop"}
+Processing ShopController#index (for 192.168.1.145 at 2008-08-30 11:14:47) [GET]
+  Session ID: BAh7CjoIdWlkaRE6FXByb2R1Y3RzX2luX2NhcnR7BjoGNCIGMToMY3NyZl9p
+ZCIlODYxMjI2ZTE5NTQ5MGY2OTY3MzFkNTE2NWMzMjA1MzciCmZsYXNoSUM6
+J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk
+ewA6FHJldHVybl9sb2NhdGlvbkM6Hkhhc2hXaXRoSW5kaWZmZXJlbnRBY2Nl
+c3N7CCILYWN0aW9uIgppbmRleCILbWV0aG9kOghnZXQiD2NvbnRyb2xsZXIi
+EGFkbWluL3NpdGVz--8885b2620d2d614557776960e5c5a3aa95e08dce
+  Parameters: {"section_id"=>"56", "action"=>"index", "method"=>:get, "controller"=>"shop"}
 Rendering template within layouts/default
 Rendering shop/index
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.57729 (1 reqs/sec) | Rendering: 0.31666 (54%) | DB: 0.02470 (4%) | 200 OK [http://aspire038/shop]
 
 
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:05) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {}
+ActionView::TemplateError (Not a directory - D:/Projects/adva_cms_svn/public/cache/aspire323:3016) on line #5 of vendor/engines/adva_cms/app/views/layouts/default.html.erb:
+2: <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+3:   <head>
+4:     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+5:     <%= stylesheet_link_tag 'default', 'common', 'comments', 'forms', 'forum', :cache => 'cache/default' %>
+6:     <%= javascript_include_tag 'prototype', 'effects', 'lowpro', 'flash', 'cookie', 'json', 'roles', 'application', :cache => 'cache/default' %>
+7:     <title><%= @site.title %></title>
+8: 
 
-
-ActionController::RoutingError (No route matches "/stylesheets/cache/default.css" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:605:in `write_asset_file_contents_without_path_munging'
+    vendor/engines/theme_support/lib/theme_support/asset_tag_helper.rb:8:in `write_asset_file_contents'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:373:in `stylesheet_link_tag_without_engine_additions'
+    vendor/plugins/engines/lib/engines/rails_extensions/asset_helpers.rb:67:in `stylesheet_link_tag'
+    vendor/engines/adva_cms/app/views/layouts/default.html.erb:5:in `_run_erb_47vendor47engines47adva_cms47app47views47layouts47default46html46erb'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:26:in `render_without_read_access_tracking'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:45:in `with_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:25:in `render_without_read_access_tracking'
+    vendor/plugins/page_cache_tagging/lib/page_cache_tagging.rb:38:in `render'
+    vendor/engines/adva_shop/app/controllers/shop_controller.rb:21:in `index'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `call'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    vendor/engines/adva_shop/app/controllers/shop_controller.rb:20:in `index'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
     script/server:3
+    -e:2:in `load'
+    -e:2
 
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:05) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {}
+Rendering D:/Projects/adva_cms_svn/public/500.html (500 Internal Server Error)
 
 
-ActionController::RoutingError (No route matches "/javascripts/cache/default.js" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    script/server:3
-
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ShopController#add_to_cart (for 192.168.0.38 at 2008-09-05 20:58:07) [POST]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {"commit"=>"  Add to Cart  ", "product_quantity_1"=>"1", "section_id"=>"2", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "product_id"=>"1", "action"=>"add_to_cart", "method"=>:get, "controller"=>"shop"}
-Redirected to http://aspire038:3030/shop
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.11493 (8 reqs/sec) | DB: 0.01704 (14%) | 302 Found [http://aspire038/shop/add_to_cart/1]
-
-
-Processing ShopController#index (for 192.168.0.38 at 2008-09-05 20:58:07) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {"section_id"=>"2", "action"=>"index", "method"=>:get, "controller"=>"shop"}
+Processing SectionsController#show (for 192.168.1.145 at 2008-08-30 11:15:39) [GET]
+  Session ID: BAh7CjoVcHJvZHVjdHNfaW5fY2FydHsGOgY0IgYxOgh1aWRpEToUcmV0dXJu
+X2xvY2F0aW9uQzoeSGFzaFdpdGhJbmRpZmZlcmVudEFjY2Vzc3sIIgthY3Rp
+b24iCmluZGV4IgttZXRob2Q6CGdldCIPY29udHJvbGxlciIQYWRtaW4vc2l0
+ZXM6DGNzcmZfaWQiJTg2MTIyNmUxOTU0OTBmNjk2NzMxZDUxNjVjMzIwNTM3
+IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNo
+ewAGOgpAdXNlZHsA--1ac5f4843867884fce47393b5f6733265c8dd395
+  Parameters: {"section_id"=>"55", "action"=>"show", "method"=>:get, "controller"=>"sections"}
 Rendering template within layouts/default
-Rendering shop/index
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.20803 (4 reqs/sec) | Rendering: 0.15246 (73%) | DB: 0.02267 (10%) | 200 OK [http://aspire038/shop]
+Rendering sections/show
 
 
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:08) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {}
+ActionView::TemplateError (Not a directory - D:/Projects/adva_cms_svn/public/cache/aspire323:3016) on line #6 of vendor/engines/adva_cms/app/views/layouts/default.html.erb:
+3:   <head>
+4:     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+5:     <%= stylesheet_link_tag 'default', 'common', 'comments', 'forms', 'forum', :cache => 'cache/default' %>
+6:     <%= javascript_include_tag 'prototype', 'effects', 'lowpro', 'flash', 'cookie', 'json', 'roles', 'application', :cache => 'cache/default' %>
+7:     <title><%= @site.title %></title>
+8: 
+9:     <%= @topic ? authorize_elements(@topic) : authorize_elements %>
 
-
-ActionController::RoutingError (No route matches "/stylesheets/cache/default.css" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:605:in `write_asset_file_contents_without_path_munging'
+    vendor/engines/theme_support/lib/theme_support/asset_tag_helper.rb:8:in `write_asset_file_contents'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:246:in `javascript_include_tag_without_engine_additions'
+    vendor/plugins/engines/lib/engines/rails_extensions/asset_helpers.rb:72:in `javascript_include_tag'
+    vendor/engines/adva_cms/app/views/layouts/default.html.erb:6:in `_run_erb_47vendor47engines47adva_cms47app47views47layouts47default46html46erb'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:26:in `render_without_read_access_tracking'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:45:in `with_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:25:in `render_without_read_access_tracking'
+    vendor/plugins/page_cache_tagging/lib/page_cache_tagging.rb:38:in `render'
+    vendor/engines/adva_cms/app/controllers/sections_controller.rb:13:in `show'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
     script/server:3
+    -e:2:in `load'
+    -e:2
 
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:08) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {}
-
-
-ActionController::RoutingError (No route matches "/javascripts/cache/default.js" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    script/server:3
-
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
+Rendering D:/Projects/adva_cms_svn/public/500.html (500 Internal Server Error)
+WARNING: Couldn't create the public file structure for plugin 'theme_support'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/theme_support/D:
+WARNING: Couldn't create the public file structure for plugin 'adva_shop'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/adva_shop/D:
+Loading routes for engine adva_activity
+Loading routes for engine adva_assets
+Loading routes for engine adva_blog
+Loading routes for engine adva_cms
+Loading routes for engine adva_comments
+Loading routes for engine adva_forum
+Loading routes for engine adva_shop
+Loading routes for engine adva_spam
+Loading routes for engine adva_user
+Loading routes for engine adva_wiki
+Loading routes for engine theme_support
 
 
-Processing ShopController#view_cart (for 192.168.0.38 at 2008-09-05 20:58:09) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {"section_id"=>"2", "action"=>"view_cart", "method"=>:get, "controller"=>"shop"}
+Processing SectionsController#show (for 127.0.0.1 at 2008-08-30 11:17:11) [GET]
+  Session ID: 1428aa760217271fbe432c27dff2be81
+  Parameters: {"section_id"=>"55", "action"=>"show", "method"=>:get, "controller"=>"sections"}
 Rendering template within layouts/default
-Rendering shop/view_cart
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.22051 (4 reqs/sec) | Rendering: 0.15204 (68%) | DB: 0.01581 (7%) | 200 OK [http://aspire038/shop/view_cart]
+Rendering sections/show
 
 
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:09) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {}
+ActionView::TemplateError (Not a directory - D:/Projects/adva_cms_svn/public/cache/localhost:3016) on line #5 of vendor/engines/adva_cms/app/views/layouts/default.html.erb:
+2: <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+3:   <head>
+4:     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+5:     <%= stylesheet_link_tag 'default', 'common', 'comments', 'forms', 'forum', :cache => 'cache/default' %>
+6:     <%= javascript_include_tag 'prototype', 'effects', 'lowpro', 'flash', 'cookie', 'json', 'roles', 'application', :cache => 'cache/default' %>
+7:     <title><%= @site.title %></title>
+8: 
 
-
-ActionController::RoutingError (No route matches "/stylesheets/cache/default.css" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:605:in `write_asset_file_contents_without_path_munging'
+    vendor/engines/theme_support/lib/theme_support/asset_tag_helper.rb:8:in `write_asset_file_contents'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:373:in `stylesheet_link_tag_without_engine_additions'
+    vendor/plugins/engines/lib/engines/rails_extensions/asset_helpers.rb:67:in `stylesheet_link_tag'
+    vendor/engines/adva_cms/app/views/layouts/default.html.erb:5:in `_run_erb_47vendor47engines47adva_cms47app47views47layouts47default46html46erb'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:26:in `render_without_read_access_tracking'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:45:in `with_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:25:in `render_without_read_access_tracking'
+    vendor/plugins/page_cache_tagging/lib/page_cache_tagging.rb:38:in `render'
+    vendor/engines/adva_cms/app/controllers/sections_controller.rb:13:in `show'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
     script/server:3
+    -e:2:in `load'
+    -e:2
 
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:09) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {}
-
-
-ActionController::RoutingError (No route matches "/javascripts/cache/default.js" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    script/server:3
-
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
+Rendering D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+WARNING: Couldn't create the public file structure for plugin 'theme_support'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/theme_support/D:
+WARNING: Couldn't create the public file structure for plugin 'adva_shop'; Error follows:
+Invalid argument - D:/Projects/adva_cms_svn/public/plugin_assets/adva_shop/D:
+Loading routes for engine adva_activity
+Loading routes for engine adva_assets
+Loading routes for engine adva_blog
+Loading routes for engine adva_cms
+Loading routes for engine adva_comments
+Loading routes for engine adva_forum
+Loading routes for engine adva_shop
+Loading routes for engine adva_spam
+Loading routes for engine adva_user
+Loading routes for engine adva_wiki
+Loading routes for engine theme_support
 
 
-Processing CheckoutController#add_billing_details (for 192.168.0.38 at 2008-09-05 20:58:11) [POST]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJv
-bGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIl
-MmQ3ZjMwMmJmMjFkNGFjODIyNGIzMjg0ZmRiZTI2NzA=--6b47319a4f57be34ea0cb0464de72ce5501bd532
-  Parameters: {"section_id"=>"2", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "action"=>"add_billing_details", "method"=>:get, "controller"=>"checkout"}
+Processing SectionsController#show (for 127.0.0.1 at 2008-08-30 11:18:28) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--eb6c8c01ef58b71ef10bc87df45dca32529c5835
+  Parameters: {"section_id"=>"55", "action"=>"show", "method"=>:get, "controller"=>"sections"}
 Rendering template within layouts/default
-Rendering checkout/add_billing_details
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.65159 (1 reqs/sec) | Rendering: 0.42738 (65%) | DB: 0.02292 (3%) | 200 OK [http://aspire038/shop/checkout/add_billing_details]
+Rendering sections/show
 
 
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:12) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {}
+ActionView::TemplateError (Not a directory - D:/Projects/adva_cms_svn/public/cache/localhost:3016) on line #5 of vendor/engines/adva_cms/app/views/layouts/default.html.erb:
+2: <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+3:   <head>
+4:     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+5:     <%= stylesheet_link_tag 'default', 'common', 'comments', 'forms', 'forum', :cache => 'cache/default' %>
+6:     <%= javascript_include_tag 'prototype', 'effects', 'lowpro', 'flash', 'cookie', 'json', 'roles', 'application', :cache => 'cache/default' %>
+7:     <title><%= @site.title %></title>
+8: 
 
-
-ActionController::RoutingError (No route matches "/stylesheets/cache/default.css" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:605:in `write_asset_file_contents_without_path_munging'
+    vendor/engines/theme_support/lib/theme_support/asset_tag_helper.rb:8:in `write_asset_file_contents'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:373:in `stylesheet_link_tag_without_engine_additions'
+    vendor/plugins/engines/lib/engines/rails_extensions/asset_helpers.rb:67:in `stylesheet_link_tag'
+    vendor/engines/adva_cms/app/views/layouts/default.html.erb:5:in `_run_erb_47vendor47engines47adva_cms47app47views47layouts47default46html46erb'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:26:in `render_without_read_access_tracking'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:45:in `with_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:25:in `render_without_read_access_tracking'
+    vendor/plugins/page_cache_tagging/lib/page_cache_tagging.rb:38:in `render'
+    vendor/engines/adva_cms/app/controllers/sections_controller.rb:13:in `show'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
     script/server:3
+    -e:2:in `load'
+    -e:2
 
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:12) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {}
+Rendering D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
 
 
-ActionController::RoutingError (No route matches "/javascripts/cache/default.js" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    script/server:3
-
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing CheckoutController#proceed_to_payment (for 192.168.0.38 at 2008-09-05 20:58:23) [POST]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {"commit"=>"Proceed to next step", "order_id"=>"1", "section_id"=>"2", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "action"=>"proceed_to_payment", "method"=>:get, "controller"=>"checkout", "shipping_address"=>{"city"=>"", "street1"=>"", "street2"=>"", "country"=>"Afghanistan", "zip_code"=>"", "phone"=>"", "full_name"=>"", "state"=>""}, "ship_to_billing_address"=>"on", "billing_address"=>{"city"=>"chenfvnabi", "street1"=>"str", "street2"=>"str2", "country"=>"Austria", "zip_code"=>"34345", "phone"=>"453455", "full_name"=>"Karthikeyan", "state"=>"dsdf"}, "email"=>"admin@admin.org"}
+Processing SectionsController#show (for 127.0.0.1 at 2008-08-30 11:19:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--eb6c8c01ef58b71ef10bc87df45dca32529c5835
+  Parameters: {"section_id"=>"55", "action"=>"show", "method"=>:get, "controller"=>"sections"}
 Rendering template within layouts/default
-Rendering checkout/proceed_to_payment
-Cookie set: flash=%7B%22notice%22%3A%22Address+has+been+added+successfully.%22%7D; path=/
-Completed in 0.23502 (4 reqs/sec) | Rendering: 0.11722 (49%) | DB: 0.02271 (9%) | 200 OK [http://aspire038/shop/checkout/proceed_to_payment/1]
+Rendering sections/show
 
 
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:23) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsGOgtub3RpY2VGOgxj
-c3JmX2lkIiUyZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--2dd1932537cfa6a9786446094d75badffd1bc437
-  Parameters: {}
+ActionView::TemplateError (Not a directory - D:/Projects/adva_cms_svn/public/cache/localhost:3016) on line #6 of vendor/engines/adva_cms/app/views/layouts/default.html.erb:
+3:   <head>
+4:     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+5:     <%= stylesheet_link_tag 'default', 'common', 'comments', 'forms', 'forum', :cache => 'cache/default' %>
+6:     <%= javascript_include_tag 'prototype', 'effects', 'lowpro', 'flash', 'cookie', 'json', 'roles', 'application', :cache => 'cache/default' %>
+7:     <title><%= @site.title %></title>
+8: 
+9:     <%= @topic ? authorize_elements(@topic) : authorize_elements %>
 
-
-ActionController::RoutingError (No route matches "/stylesheets/cache/default.css" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:243:in `fu_mkdir'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:217:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `reverse_each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:215:in `mkdir_p'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `each'
+    D:/ruby/lib/ruby/1.8/fileutils.rb:201:in `mkdir_p'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:605:in `write_asset_file_contents_without_path_munging'
+    vendor/engines/theme_support/lib/theme_support/asset_tag_helper.rb:8:in `write_asset_file_contents'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/asset_tag_helper.rb:246:in `javascript_include_tag_without_engine_additions'
+    vendor/plugins/engines/lib/engines/rails_extensions/asset_helpers.rb:72:in `javascript_include_tag'
+    vendor/engines/adva_cms/app/views/layouts/default.html.erb:6:in `_run_erb_47vendor47engines47adva_cms47app47views47layouts47default46html46erb'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:257:in `render_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_without_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:26:in `render_without_read_access_tracking'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:45:in `with_error_proc'
+    vendor/plugins/render_with_error_proc/lib/action_controller/render_with_error_proc.rb:25:in `render_without_read_access_tracking'
+    vendor/plugins/page_cache_tagging/lib/page_cache_tagging.rb:38:in `render'
+    vendor/engines/adva_cms/app/controllers/sections_controller.rb:13:in `show'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    D:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    D:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    D:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    D:/ruby/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    D:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
     script/server:3
+    -e:2:in `load'
+    -e:2
 
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:23) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {}
-
-
-ActionController::RoutingError (No route matches "/javascripts/cache/default.js" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    script/server:3
-
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing CheckoutController#process_payment (for 192.168.0.38 at 2008-09-05 20:58:32) [POST]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {"commit"=>"Pay Order", "order_id"=>"1", "section_id"=>"2", "credit_card"=>{"month"=>"01", "number"=>"4242424242424242", "type"=>"visa", "verification_value"=>"962", "year"=>"2017", "first_name"=>"steve", "last_name"=>"smith"}, "payment_method"=>"CreditCardPayment", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "action"=>"process_payment", "method"=>:get, "controller"=>"checkout"}
-Sent mail to admin@admin.org
-Rendering template within layouts/default
-Rendering checkout/process_payment
-Cookie set: flash=%7B%22notice%22%3A%22Address+has+been+added+successfully.%22%7D; path=/
-Completed in 27.29040 (0 reqs/sec) | Rendering: 0.03164 (0%) | DB: 0.01973 (0%) | 200 OK [http://aspire038/shop/checkout/process_payment/1]
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:58:59) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {}
-
-
-ActionController::RoutingError (No route matches "/stylesheets/cache/default.css" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    script/server:3
-
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing ApplicationController#index (for 192.168.0.38 at 2008-09-05 20:59:00) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {}
-
-
-ActionController::RoutingError (No route matches "/javascripts/cache/default.js" with {:host=>"aspire038", :method=>:get, :port=>3030, :host_with_port=>"aspire038:3030", :domain=>"aspire038", :subdomain=>nil}):
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path_without_filtering'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:55:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter/locale.rb:11:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/categories.rb:14:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/root_section.rb:23:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/sections.rb:19:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/engines/adva_cms/lib/routing_filter/pagination.rb:5:in `around_recognition'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:58:in `recognize_path'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `call'
-    /vendor/plugins/routing_filter/lib/routing_filter.rb:61:in `recognize_path'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
-    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:62:in `dispatch'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/webrick.rb:66
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
-    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
-    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
-    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
-    script/server:3
-
-Rendering /root/adva_test/trunk/public/404.html (404 Not Found)
-
-
-Processing OrdersController#index (for 192.168.0.38 at 2008-09-05 20:59:07) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"index", "controller"=>"admin/orders"}
-Rendering template within layouts/admin
-Rendering admin/orders/index
-Cookie set: flash=%7B%22notice%22%3A%22Address+has+been+added+successfully.%22%7D; path=/
-Completed in 0.12586 (7 reqs/sec) | Rendering: 0.09806 (77%) | DB: 0.01765 (14%) | 200 OK [http://aspire038/admin/sites/1/sections/2/orders]
-
-
-Processing OrdersController#edit (for 192.168.0.38 at 2008-09-05 20:59:10) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"edit", "id"=>"1", "controller"=>"admin/orders"}
-Rendering template within layouts/admin
-Rendering admin/orders/edit
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.33739 (2 reqs/sec) | Rendering: 0.22758 (67%) | DB: 0.02004 (5%) | 200 OK [http://aspire038/admin/sites/1/sections/2/orders/1/edit]
-
-
-Processing OrdersController#shipping_page (for 192.168.0.38 at 2008-09-05 20:59:14) [POST]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "action"=>"shipping_page", "id"=>"1", "method"=>:get, "controller"=>"admin/orders"}
-Rendering admin/orders/shipping_page
-Cookie set: flash=%7B%7D; path=/
-Completed in 0.04405 (22 reqs/sec) | Rendering: 0.02644 (60%) | DB: 0.00800 (18%) | 200 OK [http://aspire038/admin/sites/1/sections/2/orders/1/shipping_page]
-
-
-Processing OrdersController#ship_items (for 192.168.0.38 at 2008-09-05 20:59:17) [POST]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiUy
-ZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--647aecaa9d9dc9f343a1ad39b4aac66bdfc46b38
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "authenticity_token"=>"3acd925ec8a75b6c1a39239392320122a59c683a", "action"=>"ship_items", "id"=>"1", "method"=>:get, "controller"=>"admin/orders"}
-Sent mail to admin@admin.org
-Redirected to http://aspire038:3030/admin/sites/1/sections/2/orders
-Cookie set: flash=%7B%22notice%22%3A%22Successfully+updated.%22%7D; path=/
-Completed in 0.68574 (1 reqs/sec) | DB: 0.00943 (1%) | 302 Found [http://aspire038/admin/sites/1/sections/2/orders/1/ship_items]
-
-
-Processing OrdersController#index (for 192.168.0.38 at 2008-09-05 20:59:18) [GET]
-  Session ID: BAh7CToIdWlkaQY6DGNhcnRfaWQwIgpmbGFzaElDOidBY3Rpb25Db250cm9s
-bGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsGOgtub3RpY2VGOgxj
-c3JmX2lkIiUyZDdmMzAyYmYyMWQ0YWM4MjI0YjMyODRmZGJlMjY3MA==--2dd1932537cfa6a9786446094d75badffd1bc437
-  Parameters: {"site_id"=>"1", "section_id"=>"2", "action"=>"index", "controller"=>"admin/orders"}
-Rendering template within layouts/admin
-Rendering admin/orders/index
-Cookie set: flash=%7B%22notice%22%3A%22Successfully+updated.%22%7D; path=/
-Completed in 0.11346 (8 reqs/sec) | Rendering: 0.09288 (81%) | DB: 0.01097 (9%) | 200 OK [http://aspire038/admin/sites/1/sections/2/orders]
+Rendering D:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)

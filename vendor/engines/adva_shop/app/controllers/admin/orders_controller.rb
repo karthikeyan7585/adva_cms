@@ -14,16 +14,21 @@ class Admin::OrdersController < Admin::BaseController
                         :only  => { :controller => ['admin/orders'] }
 
 
+  # Display the shop orders which are not completed
   def index
     render :template => 'admin/orders/index'
   end
   
-  def edit    
+  # Find the selected order and render the edit page
+  def edit
+    # Find the order versions to show the history of the order
     @order_versions = @order.order_versions.find_coinciding_grouped_by_dates(Time.zone.now.to_date, 1.day.ago)
   end
-
+  
+  # Receive the payment and mark the status as paid
   def receive_payment
     if @order.receive_payment
+      # Send the payment confirmation email to the customer if the payment is received successfully
       ShopMailer.deliver_payment_confirmation @order, confirmation_url
       flash[:notice] = "Successfully updated."
       redirect_to admin_orders_path
@@ -33,8 +38,10 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
   
+  # Ship the order items and mark the status as shipped
   def ship_items
     if @order.ship_items
+      # Send the shipment confirmation email to the customer if the order items are shipped
       ShopMailer.deliver_shipment_confirmation @order, confirmation_url
       flash[:notice] = "Successfully updated."
       redirect_to admin_orders_path
@@ -44,8 +51,10 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
   
+  # Cancel the order and mark the order status as cancelled
   def cancel_order
     if @order.cancel_order
+      # Send the order cancellation email to the customer if the order is cancelled
       ShopMailer.deliver_order_cancellation @order, confirmation_url
       flash[:notice] = "The order has been cancelled."
       redirect_to admin_orders_path
@@ -55,6 +64,7 @@ class Admin::OrdersController < Admin::BaseController
     end
   end
   
+  # Display the shipping paper page for the selected order
   def shipping_page
     @order = @section.orders.find(params[:id])
     render :action =>'shipping_page',:layout =>false
@@ -62,19 +72,22 @@ class Admin::OrdersController < Admin::BaseController
   
   private
   
-  
+    # Set the section
     def set_section
       @section = @site.sections.find(params[:section_id])
     end
     
+    # Set the categories
     def set_categories
       @categories = @section.categories.roots
     end
     
+    # Set the order
     def set_order
       @order = @section.orders.find(params[:id])
     end
     
+    # Set the filter options for filtering the orders
     def filter_options
       options = {}
       case params[:filter]
@@ -90,6 +103,7 @@ class Admin::OrdersController < Admin::BaseController
       end
       options
     end  
+    # Set the orders
     def set_orders
       conditions = "orders.status > 0 and orders.status < 3"
       filt_options = filter_options[:conditions]
@@ -104,8 +118,8 @@ class Admin::OrdersController < Admin::BaseController
       @orders = @section.orders.paginate options
     end
     
+    # Return the confirmation url to find the host address for the ShopMailer
     def confirmation_url
       shop_url(@section)
     end  
-    
 end

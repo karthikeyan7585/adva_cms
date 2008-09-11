@@ -2,8 +2,10 @@ class OrderVersion < ActiveRecord::Base
   belongs_to :order
   acts_as_nested_set
   attr_accessor :siblings
-    
-   class << self
+  
+  class << self
+    #Action to group the order versions on basis of date 
+    #returns an array of order_versions in 3 groups(Today, yesterday and before yesterday)
     def find_coinciding_grouped_by_dates(*dates)
       options = dates.extract_options!
       groups = (1..dates.size).collect{[]}
@@ -19,36 +21,39 @@ class OrderVersion < ActiveRecord::Base
       
       # push remaining resultset as a group itself (i.e. 'the rest of them')
       groups << order_versions
-  end
-  
-  def find_coinciding(options = {})
+    end
+    
+    #Action to fetch the coinciding order version records
+    def find_coinciding(options = {})
       delta = options.delete(:delta)
       order_versions = find(:all, options).group_by{|r| "#{r.status}"}.values
       order_versions = group_coninciding(order_versions, delta)
       order_versions.sort{|a, b| b.updated_at <=> a.updated_at }
-  end
+    end
     
-  def group_coninciding(order_versions, delta = nil)
+    #Action to group the order versions date wise
+    #returns an array of order_versions date wise
+    def group_coninciding(order_versions, delta = nil)
       order_versions.inject [] do |chunks, group|
         chunks << group.shift
         group.each do |order_version|
           last = chunks.last.siblings.last || chunks.last
           if last.coincides_with?(order_version, delta) 
             chunks.last.siblings << order_version
-        else
+          else
             chunks << order_version
           end
         end
         chunks
       end
-  end
-end  
-
-def after_initialize
+    end
+  end  
+  
+  def after_initialize
     @siblings = []
   end
-
-def coincides_with?(other, delta = nil)
+  
+  def coincides_with?(other, delta = nil)
     delta ||= 1.hour
     created_at - other.updated_at <= delta.to_i 
   end

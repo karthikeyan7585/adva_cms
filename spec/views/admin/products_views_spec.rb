@@ -1,4 +1,3 @@
-
 require File.dirname(__FILE__) + '/../../spec_helper'
 require 'base_helper'
 
@@ -8,6 +7,9 @@ describe "Admin::Products:" do
   before :each do
     @product = stub_product
     @products = stub_products
+    
+    @product.stub!(:comment_age).and_return 0
+    @products.stub!(:total_entries).and_return 1
     
     assigns[:section] = @section = stub_section
     assigns[:site] = @site = stub_site

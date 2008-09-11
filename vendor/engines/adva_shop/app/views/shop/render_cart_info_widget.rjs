@@ -1,0 +1,1 @@
+page['cart_info_widget'].replace_html :partial => 'cart_info'

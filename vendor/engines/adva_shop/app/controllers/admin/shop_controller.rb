@@ -12,10 +12,12 @@ class Admin::ShopController < Admin::BaseController
                         :only  => { :controller => ['admin/shop'] }
   
   
+  # Open the payment setup UI for the selected shop
   def show
     
   end
   
+  # Save the payment details for the shop
   def save_payment_setup
     if @shop.build_payments(params)
       flash[:notice] = "The payment setup has been saved."
@@ -28,18 +30,22 @@ class Admin::ShopController < Admin::BaseController
   
   protected
   
+    # Set the site
     def set_site
       @site = Site.find(params[:site_id])
     end
-  
+    
+    # Set the section
     def set_section
       @section = @site.sections.find(params[:section_id])
     end
     
+    # Set the shop
     def set_shop
       @shop = @section
     end
   
+    # Set the payment details of the shop if already available
     def set_payments
       @external_payment = @shop.external_payment
       @credit_card_payment = @shop.credit_card_payment

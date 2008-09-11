@@ -71,7 +71,6 @@ describe Admin::ProductsController do
   describe "GET to :show" do    
     act! { request_to :get, @member_path }
     it_assigns :product
-    
   end  
   
   describe "GET to :new" do

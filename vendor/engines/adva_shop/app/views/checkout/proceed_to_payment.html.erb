@@ -3,33 +3,40 @@
 <%= render :partial => 'cart_products' %>
 
 <div style="padding: 20px">
-	<% form_tag(process_payment_path(@section, @order)) do %>
-		<h3>Select the Payment Method:</h3>
-		
-		<div id="checkout_options" style="padding-top: 10px;">
-			<p style=<%=  @section.credit_card_payment ? "" : "display: none" %>>
-				<%= radio_button_tag "payment_method", "CreditCardPayment", true, 
-					{:onclick => "togglePaymentMethods('credit_card_details', 'paypal_checkout_button', 'bank_details','submit_icon');"} %>
-				<b>Credit Card</b>
-			</p>
-			<p <%= "style=\"#{@section.external_payment ? "" : "display: none"}\"" %>>
-				<%= radio_button_tag "payment_method", "ExternalPayment", false, 
-					{:onclick => "togglePaymentMethods('paypal_checkout_button', 'credit_card_details', 'bank_details','submit_icon');"} %>
-				<b>Paypal</b>
-			</p>
-			<p <%= "style=\"#{@section.bank_payment ? "" : "display: none"}\"" %>>
-				<%= radio_button_tag "payment_method", "BankPayment", false, 
-					{:onclick => "togglePaymentMethods('bank_details', 'credit_card_details', 'paypal_checkout_button','submit_icon');"} %>
-				<b>Bank</b>
-			</p>
-		</div>
-		
-		<%= render :partial => "credit_card_details" %>
-		<%= render :partial => "bank_details" %>
-		<%= render :partial => "paypal_checkout" %>
-		
-		<div id="submit_icon" <%= "style=\"#{(@section.credit_card_payment || @section.bank_payment) ? "" : "display: none"}\"" %>>
-			<%= submit_tag "Pay Order" %>
-		</div>
+	<% if @section.has_payment_method? %>
+		<% form_tag(process_payment_path(@section, @order)) do %>
+			<h3>Select the Payment Method:</h3>
+			
+			<div id="checkout_options" style="padding-top: 10px;">
+				<p <%= "style=\"#{@section.credit_card_payment ? "" : "display: none"}\"" %>>
+					<%= radio_button_tag "payment_method", "CreditCardPayment", true, 
+						{:onclick => "togglePaymentMethods('credit_card_details', 'paypal_checkout_button', 'bank_details','submit_icon');"} %>
+					<b>Credit Card</b>
+				</p>
+				<p <%= "style=\"#{@section.external_payment ? "" : "display: none"}\"" %>>
+					<%= radio_button_tag "payment_method", "ExternalPayment", @section.has_external_but_no_credit_card_payment?, 
+						{:onclick => "togglePaymentMethods('paypal_checkout_button', 'credit_card_details', 'bank_details','submit_icon');"} %>
+					<b>Paypal</b>
+				</p>
+				<p <%= "style=\"#{@section.bank_payment ? "" : "display: none"}\"" %>>
+					<%= radio_button_tag "payment_method", "BankPayment", @section.has_only_bank_payment?, 
+						{:onclick => "togglePaymentMethods('bank_details', 'credit_card_details', 'paypal_checkout_button','submit_icon');"} %>
+					<b>Bank</b>
+				</p>
+			</div>
+			
+			<%= render :partial => "credit_card_details" %>
+			<%= render :partial => "bank_details" %>
+			<%= render :partial => "paypal_checkout" %>
+			
+			<div id="submit_icon" <%= "style=\"#{@section.has_no_external_payment_but_others? ? "" : "display: none"}\"" %>>
+				<%= submit_tag "Pay Order" %>
+			</div>
+		<% end %>
+	<% else %>
+		<p>
+			<strong><%= image_tag('/images/icons/bullet_error.png') %> 
+			Payment method has not been configured for this Shop. Please contact the shop owner.</strong>
+		</p>
 	<% end %>
 </div>
