@@ -1,7 +1,3 @@
-# 3. Show product in catalogue in frontend
-
-# 3.1 Show products
-
 Story: View all products in the catalogue.
   As a user
   I want to view all products in the shop
@@ -23,30 +19,100 @@ Story: View all products in the catalogue.
     And the cart info widget displays a link to "View Cart" 
     And the user is returned to the product list
     
-# 3.2 Sort products
 
 Story: Browse certain products in the catalogue/category.
   As a user
   I want to search, filter, sort and tag products in the shop
   So I can find the products I am interested in
 
-Scenario: A user sorts a shop product listing 
-  Given a shop with products
-  And the user visits the shop section
-  Then the page has a list of products in catalogue
-  And the page is paginated
-  When the user clicks sortable table column header
-  Then the products will be sorted by the table column header
-  And the table indicates the sorting column and direction (using CSS)  
+  Scenario: A user sorts a shop product listing 
+	Given a shop with products
+	And the user visits the shop section
+	Then the page has a list of products in catalogue
+	And the page is paginated
+	When the user clicks sortable table column header
+	Then the products will be sorted by the table column header
+	And the table indicates the sorting column and direction (using CSS)  
 
   
-# 3.3 Filter products
-
   Scenario: A user filters a shop product listing for one category
-    Given a shop with products
-    And the user visits the shop section
-    Then the page has a list of products in catalogue
+  	Given a shop with products
+  	And the user visits the shop section
+  	Then the page has a list of products in catalogue
     And the page is paginated
     Then the page has categories list section
     When the user clicks on 'a category'
     Then the page has a list of products filtered by category
+    
+    
+# User views products with commenting allowed
+
+Story: View products comments.
+  As a user
+  I want to view all comments regarding a product in the shop 
+  So I can perform an informed purchase
+
+  Scenario: User views the product that has comments
+    Given a shop with commented product
+    And the user visits the shop section
+    Then the page has a list of products in catalogue
+    And the page is paginated
+    When the user clicks on 'Details' of a product
+    Then the page shows the details for the product
+    And the page has a list of approved comments
+
+  Scenario: An anonymous user adds a comment to product
+    Given a shop with products
+    And product commenting for anonymous users is allowed
+    And the user visits the shop section
+    Then the page has a list of products in catalogue
+    And the page is paginated
+    When the user clicks on 'Details' of a product
+    Then the page shows the details for the product
+    And the page has a comment creation form
+    And the form contains anonymous name and email fields
+    When the user fills in the form with his name, email and comment
+    And the user clicks the 'Submit Comment' button
+    Then a new comment is created
+    And the product has one unapproved comment more
+    
+    
+# User adds comment to product
+
+Story: User adds comments to a product.
+  As a user
+  I want to add a comment to a product
+  So other user can see my opinion
+
+  Scenario: An anonymous user adds a comment to product
+    Given a shop with products
+    And an anonymous user
+    And product commenting for anonymous users is allowed
+    And the user visits the shop section
+    Then the page has a list of products in catalogue
+    And the page is paginated
+    When the user clicks on 'Details' of a product
+    Then the page shows the details for the product
+    And the page has a comment creation form
+    And the form contains anonymous name and email fields
+    When the user fills in the form with his name, email and comment
+    And the user clicks the 'Submit Comment' button
+    Then a new comment is created
+    And the product has one unapproved comment more
+
+  Scenario: The registered user adds a comment to product
+    Given a shop with products
+    And the user is logged in
+    And product commenting for registered users is allowed
+    And the user visits the shop section
+    Then the page has a list of products in catalogue
+    And the page is paginated
+    When the user clicks on 'Details' of a product
+    Then the page shows the details for the product
+    And the page has a comment creation form
+    And the form contains comment field
+    When the user fills in the form with a comment
+    And the user clicks the 'Submit Comment' button
+    Then a new comment is created
+    And the product has one approved comment more    
+

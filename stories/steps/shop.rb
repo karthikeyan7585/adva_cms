@@ -1,4 +1,4 @@
-factories :shop, :products
+factories :products
 
 steps_for :shop do 
   Given 'a shop' do
@@ -33,6 +33,17 @@ steps_for :shop do
     Category.delete_all
     @product = create_active_product
     @shop = @product.section
+    @category = create_category :section => @shop
+    @shop.categories = [@category]
+    @product.categories = [@category]
+  end
+  
+  Given "a shop with commented product" do
+    Product.delete_all
+    Category.delete_all
+    @product = create_active_product :comment_age => 0
+    @shop = @product.section
+    @comment = create_comment :commentable => @product, :approved => 1
   end
   
   Given "the user visits the shop section" do
@@ -40,22 +51,50 @@ steps_for :shop do
     get "/#{@shop.permalink}"
   end
   
+  Given "product commenting for anonymous users is allowed" do
+    @product = create_active_product :comment_age => 0
+    @shop.update_attributes! 'permissions' => {'comment' => {'show' => 'anonymous', 'create' => 'anonymous'}}
+  end
+  
+  Given "product commenting for registered users is allowed" do
+    @product = create_active_product :comment_age => 0
+    @shop.update_attributes! 'permissions' => {'comment' => {'show' => 'user', 'create' => 'user'}}
+  end
+  
+  Given "an anonymous user" do
+  end
+  
   When "the user clicks on 'Details' of a product" do
     get "/shop/#{@product.permalink}"
   end
-  
+     
   When "the user clicks sortable table column header" do
     link = find_link "Name"
     link.click
   end
   
+  When "the user fills in the form with a comment" do
+    fills_in 'comment_body', :with => 'the comment body'
+  end
+  
+  When "the user goes to the shop products list page" do
+    raise "step expects the variable @shop to be set" unless @shop
+    get "/#{@shop.permalink}"
+  end
+  
+  When "the user fills in a product quantity with 2" do
+    fills_in "product_quantity_#{@product.id}", :with => '2'
+  end
+  
   Then "the page has categories list section" do
     response.should have_tag("div#categories_widget")
+    response.should have_tag("div#categories_widget1")    
   end
     
   Then "the page has a list of products filtered by category" do
     response.should render_template('shop/index')
-    @product.category.should_not be nil
+    response.should have_tag('td.row2')
+    @product.categories.first.title.should == @category.title
   end
   
   Then "the page has a list of products in catalogue" do
@@ -79,8 +118,16 @@ steps_for :shop do
     response.should have_tag("input[type=?][id=?]", "text", "product_quantity_#{@product.id}")
   end
   
+  Then "each product has a form field for specifying the product quantity" do
+    response.should have_tag("input[type=?][id=?]", "text", "product_quantity_#{@product.id}")
+  end
+  
   Then "the product quantity is set to 1 by default" do
     response.should have_tag("input[type=?][id=?][value=?]", "text", "product_quantity_#{@product.id}", "1")
+  end
+  
+  Then "each product has a \"Add to cart\" button" do
+    response.should have_tag("input[type=?][value=?]", "submit", "Add to cart")
   end
   
   Then "the product is added to the cart with a quantity of 1" do
@@ -92,6 +139,13 @@ steps_for :shop do
   
   Then "the cart info widget displays the cart contents" do
     response.should have_tag("div#cart_info_widget")
+  end
+  
+  Then "the cart info widget displays no cart contents" do
+  end
+  
+  Then "the cart info widget does not display a link to \"View Cart\"" do
+    response.should_not have_tag("a[href=?]", '/shop/view_cart')
   end
   
   Then "the cart info widget displays a link to \"View Cart\"" do
@@ -111,6 +165,35 @@ steps_for :shop do
   
   Then "the page has the product search field for filtering by: keywords (in name/description)" do
     response.should have_tag("input[id=?]", "search_term")
+  end
+  
+  Then "the page has a list of approved comments" do
+    response.should have_tag("div#comments")
+    response.should have_tag("li#comment_#{@comment.id}")
+  end
+  
+  Then "a new comment is created" do
+    puts @product.comments.count
+    response.should have_tag("div#comments")
+    @product.comments.count.should == 1
+    @post = @product.comments.first
+    @post.body.should == 'the comment body'
+  end
+  
+  Then "the product has one unapproved comment more" do
+    @product.comments.first.approved.should == 0
+  end
+  
+  Then "the form contains comment field" do
+    response.should have_tag("textarea#comment_body")
+  end
+  
+  Then "the product has one approved comment more" do
+    @product.comments.first.approved.should == 1
+  end
+  
+  Then "the product is added to the cart with a quantity of 2" do
+    
   end
   
  

@@ -1,0 +1,22 @@
+# 4.  Cart
+# 4.1 Add a product to the cart
+
+Story: Adding a product to the cart.
+  As a user
+  I want to add a product to the cart
+  So I can purchase it
+  
+  Scenario: A user adds a product to the cart 
+    Given a shop with products
+    And the user visits the shop section
+    When the user goes to the shop products list page
+    Then the cart info widget displays no cart contents
+    And the cart info widget does not display a link to "View Cart"
+    And each product has a form field for specifying the product quantity 
+    And the product quantity is set to 1 by default
+    And each product has a "Add to cart" button
+    When the user fills in a product quantity with 2
+    And the user clicks the 'Add to cart' button
+    Then the product is added to the cart with a quantity of 2
+    And the cart info widget displays the cart contents
+    And the cart info widget displays a link to "View Cart"

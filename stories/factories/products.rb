@@ -4,7 +4,7 @@ Category.delete_all
 factories :shop
 
 factory :comment,
-        :body    => 'the comment body',
+        :body       => 'the comment body',
         :site_id    => lambda{ (Site.find(:first) || create_site).id },
         :section_id => lambda{ (Shop.find(:first) || create_shop).id },
         :author_id  => lambda{ (User.find(:first) || create_user).id },
@@ -47,4 +47,9 @@ factory :cart_item,
         :product_id => lambda{ (Product.find(:first) || create_product).id },
         :cart_id => lambda{ (Cart.find(:first) || create_cart).id },
         :quantity => 1
-       
+        
+#factory :product_category,
+#        :product_id => lambda{ (Product.find(:first) || create_product).id },
+#        :product => lambda{ (Product.find(:first) || create_product) },
+#        :category_id => lambda{ (Category.find(:first) || create_category).id },
+#        :category => lambda{ (Category.find(:first) || create_category) }        
