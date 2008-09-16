@@ -1,0 +1,52 @@
+<%= stylesheet_link_tag "adva_shop.css" %>
+<% products = get_products_in_cart %>
+<div id="cart_content">
+	<% unless products.blank? %>
+		<table width="60%" border="0" align="left" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF" class="borderblue">
+	    	<tr>
+	            <td class="row1a"> Name </td>
+	            <td class="row1b">Vendor</td>                                                   
+	            <td class="row1a"> Quantity </td>
+				<td class="row1a">Price </td>
+				<td class="row1a">Total </td>
+				<td class="row1a">Remove </td>
+	            <td class="row1a">Update</td>
+	        </tr>
+	        <%products.each do |product| %>
+		        <tr>
+		            <td class="row2">
+		                <h2><%= product.name %></h2>
+		                <%= image_tag(image_path(product), :size => "50x50") %>
+		            </td>
+		            <td class="row2a">
+		                <%= product.vendor_name %>
+		            </td>
+					<td class="row2a">
+					 	<% form_tag(cart_path(@section, @cart), :method => :put) do %>
+						<%= hidden_field_tag("product_id", product.id) %>
+		                <%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
+		            </td>
+		            <td class="row2">
+		                <strong>$<%= product.price %></strong>
+		            </td>
+					 <td class="row2">
+		                <strong>$<%= total_price(product) %></strong>
+		            </td>
+					 <td class="row2">
+		                <%= link_to(image_tag('/images/icons/delete.png', :style => "border: none"), cart_path(@section, @cart, :product_id => product.id), { :confirm => "Are you sure you wish to remove this item?", :method => :delete }) %>
+		            </td>
+					 <td class="row2a">
+		               <%= submit_tag "Update" %>
+					   <% end %>
+		            </td>		
+		        </tr>
+	        <% end %>
+			<tr>
+				<td colspan=7 align="center"><%= button_to "Checkout", add_billing_details_path(@section) %>
+				</td>
+			</tr>
+	    </table>
+	<% else %>
+		<p> No items in the cart. Go back to <b><%= link_to @section.title, "/#{@section.permalink}" %></b>. </p>
+	<% end %>
+</div>

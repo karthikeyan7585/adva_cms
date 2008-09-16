@@ -47,9 +47,4 @@ factory :cart_item,
         :product_id => lambda{ (Product.find(:first) || create_product).id },
         :cart_id => lambda{ (Cart.find(:first) || create_cart).id },
         :quantity => 1
-        
-#factory :product_category,
-#        :product_id => lambda{ (Product.find(:first) || create_product).id },
-#        :product => lambda{ (Product.find(:first) || create_product) },
-#        :category_id => lambda{ (Category.find(:first) || create_category).id },
-#        :category => lambda{ (Category.find(:first) || create_category) }        
+     

@@ -31,7 +31,9 @@ class Product < ActiveRecord::Base
   validates_numericality_of :quantity, :allow_nil => true, :only_integer => true, :message => "can only be a whole number"
   validates_uniqueness_of :permalink, :scope => :section_id
   
- class << self
+  before_save :set_default_values
+  
+  class << self
    # Find the products with the options
     def find_every(options)
       options = default_find_options.merge(options)    
@@ -67,5 +69,11 @@ class Product < ActiveRecord::Base
   # Set the site
   def set_site
     self.site_id = section.site_id if section
+  end
+  
+  def set_default_values
+    self.quantity = 1 if self.quantity.blank?
+    self.weight = 0 if self.weight.blank?
+    self.tax_rate = 0 if self.tax_rate.blank?
   end
 end

@@ -14,7 +14,7 @@ class Shop < Section
   permissions :category => { :admin => :all },
               :product  => { :admin => :all },
               :orders   => { :admin => :all },
-              :comment  => { :anonymous => :show, :author => :create, :user => :update, :moderator => :destroy }  
+              :comment  => { :anonymous => :create, :author => :update, :user => :update, :moderator => :destroy }  
               
   # Returns an array of the payment methods which are already selected for the shop
   def selected_payment_methods

@@ -1,7 +1,6 @@
 factories :shop, :products
 
 steps_for :article do
-  
   When "the user clicks on \"Products\"" do
     get admin_products_path(@site, @shop)
   end

@@ -1,5 +1,5 @@
-# 4.  Cart
-# 4.1 Add a product to the cart
+# Cart
+# Add a product to the cart
 
 Story: Adding a product to the cart.
   As a user
@@ -20,3 +20,21 @@ Story: Adding a product to the cart.
     Then the product is added to the cart with a quantity of 2
     And the cart info widget displays the cart contents
     And the cart info widget displays a link to "View Cart"
+    
+    
+# Viewing the shopping cart
+
+Story: Viewing the shopping cart
+  As a user
+  I want to review the products in my shopping cart
+  So I can edit it or proceed to checkout
+  
+  Scenario: A user reviews the products in his shopping cart 
+    Given a shop with products
+    Given a user has added a product to the shopping cart
+    When the user goes to the shop products list page
+    Then the cart info widget displays the cart contents
+    And the cart info widget displays a link to "View Cart"
+    When the user clicks on "View Cart"
+    Then the page has a list of the shopping cart contents
+    And the page shows the summary of order costs and totals

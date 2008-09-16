@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "adva_shop.css" %>
+<%= javascript_include_tag :defaults %>
 <!-- Middle Part Start -->
 <div id="middle">
     <table width="100%" border="0" cellspacing="0" cellpadding="10">
@@ -50,16 +51,23 @@
                                                     <td class="row2">
                                                         <strong>$<%= product.price %></strong>
                                                     </td>
-													<% form_tag(add_to_cart_path(@section,product)) do %>
-                                                    <td class="row2">
-                                                        
-                                                        <%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
-                                                    </td>
-                                                    <td class="row2">
-                                                        <%= submit_tag "Add to cart" %>
-                                                       
-                                                    </td>
-													 <%end %>
+													
+                                                    <td class="row2" colspan=2>
+                                                    	
+                                                    	<% form_for(:cart_item, :url => carts_path(@section)) do %>
+                                                    	<table width="100%" border="0" align="left" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
+                                                        	<tr>
+                                                        		<td class="row2a">
+																	<%= text_field_tag("product_quantity_#{product.id}", product_quantity(product), :size => 1) %>
+																	<%= hidden_field_tag("product_id", product.id) %>
+																</td>
+																<td class="row2a">
+			                                                        <%= submit_tag "Add to cart" %>
+			                                                    </td>
+															</tr>
+														</table>
+														 <%end %>
+                                                    </td>													
                                                 </tr>
                                                 <%end %>
 												<tr><td colspan=5 align="right">
@@ -73,7 +81,7 @@
                         </tr>                        
                     </table>
 					
-					 <%= render :partial => 'cart_info_widget' %>                
+					 <%= render :partial => 'carts/cart_info_widget' %>                
                     <%= render :partial => 'search_widget' %>
                     <%= render :partial => 'order_status_widget' %>
                     <%= render :partial => 'categories_widget' %>

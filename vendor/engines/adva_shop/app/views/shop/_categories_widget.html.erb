@@ -1,14 +1,14 @@
 <div id="categories_widget">Categories</div>
   <% if !@section.categories.blank? %>
-						  <div id="categories_widget1">
-						  	<ul>
+	  <div id="categories_widget1">
+	  	<ul>
             <% @section.categories.each do |category| %>
-            <li>
-                <%= link_to_category @section, category %>
-            </li>
+	            <li>
+	                <%= link_to_category @section, category %>
+	            </li>
             <% end %>
         </ul>
-		  <% end %>
- </div>
+  <% end %>
+</div>
 						  
 					

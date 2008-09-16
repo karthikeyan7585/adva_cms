@@ -63,9 +63,15 @@ steps_for :shop do
   
   Given "an anonymous user" do
   end
+
+  Given "a user has added a product to the shopping cart" do
+    Given "an anonymous user"
+    @cart_item = create_cart_item
+    @cart = @cart_item.cart
+  end
   
   When "the user clicks on 'Details' of a product" do
-    get "/shop/#{@product.permalink}"
+    get "/shop/products/#{@product.permalink}"
   end
      
   When "the user clicks sortable table column header" do
@@ -83,6 +89,7 @@ steps_for :shop do
   end
   
   When "the user fills in a product quantity with 2" do
+    raise "step expects the variable @shop to be set" unless @shop
     fills_in "product_quantity_#{@product.id}", :with => '2'
   end
   
@@ -138,18 +145,20 @@ steps_for :shop do
   end
   
   Then "the cart info widget displays the cart contents" do
-    response.should have_tag("div#cart_info_widget")
+    response.should have_tag("div#cart_widget1")
   end
   
   Then "the cart info widget displays no cart contents" do
   end
   
   Then "the cart info widget does not display a link to \"View Cart\"" do
-    response.should_not have_tag("a[href=?]", '/shop/view_cart')
+    @cart.should be_nil
+    response.should_not have_tag("a[href^=?]", "#{@shop.permalink}/carts")
   end
   
   Then "the cart info widget displays a link to \"View Cart\"" do
-    response.should have_tag("a[href]")
+    response.should have_tag('div#cart_info_widget')
+    response.should_not have_tag('img#cart_spinner')
   end
   
   Then "the user is returned to the product list" do
@@ -157,7 +166,6 @@ steps_for :shop do
   end
   
   Then "the products will be sorted by the table column header" do
-    response.should render_template('shop/index')
   end
   
   Then "the table indicates the sorting column and direction (using CSS)" do
@@ -173,7 +181,6 @@ steps_for :shop do
   end
   
   Then "a new comment is created" do
-    puts @product.comments.count
     response.should have_tag("div#comments")
     @product.comments.count.should == 1
     @post = @product.comments.first
@@ -193,7 +200,19 @@ steps_for :shop do
   end
   
   Then "the product is added to the cart with a quantity of 2" do
-    
+    @cart = Cart.find(session[:cart_id])
+    @cart.cart_items.first.quantity.should == 2
+  end
+  
+  Then "the page has a list of the shopping cart contents" do
+    response.should have_tag("div#cart_content")
+    @cart.cart_items.size.should > 0
+  end
+  
+  Then "the page shows the summary of order costs and totals" do
+    response.should have_tag('td[class*=?]', "row1a") do |td|
+      td.should have_text("Total ")
+    end
   end
   
  

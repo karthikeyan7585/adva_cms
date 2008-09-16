@@ -9027,3 +9027,669 @@ Rendering admin/orders/shipping_page
   [4;35;1mAddress Load (0.000000)[0m   [0mSELECT * FROM `addresses` WHERE (`addresses`.`id` = 25) [0m
 Cookie set: flash=%7B%7D; path=/
 Completed in 0.67200 (1 reqs/sec) | Rendering: 0.15700 (23%) | DB: 0.18800 (27%) | 200 OK [http://aspire323/admin/sites/44/sections/56/orders/57/shipping_page]
+Loading routes for engine adva_activity
+Loading routes for engine adva_assets
+Loading routes for engine adva_blog
+Loading routes for engine adva_cms
+Loading routes for engine adva_comments
+Loading routes for engine adva_forum
+Loading routes for engine adva_shop
+Loading routes for engine adva_spam
+Loading routes for engine adva_user
+Loading routes for engine adva_wiki
+Loading routes for engine theme_support
+  [4;36;1mSQL (0.002590)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001229)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.036933)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.005906)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001279)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.005626)[0m   [0m CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000805)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001375)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001994)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'engines_config'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001381)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;35;1mSQL (0.000727)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'engines_config'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000560)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'engines_config'
+ ORDER BY version DESC[0m
+Migrating to CreatePluginConfigs (20080710000000)
+  [4;35;1mSQL (0.000296)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.000879)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.004821)[0m   [0mCREATE TABLE "plugin_configs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "options" text DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003884)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('engines_config', '20080710000000')[0m
+Migrating to PluginOwnerColumn (20080715131051)
+  [4;35;1mSQL (0.000834)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.001530)[0m   [0;1mCREATE TEMPORARY TABLE "altered_plugin_configs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "options" text DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000174)[0m   [0mPRAGMA index_list("plugin_configs")[0m
+  [4;36;1mSQL (0.000871)[0m   [0;1mDROP TABLE "plugin_configs"[0m
+  [4;35;1mSQL (0.000540)[0m   [0mCREATE TABLE "plugin_configs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "options" text DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000122)[0m   [0;1mPRAGMA index_list("altered_plugin_configs")[0m
+  [4;35;1mSQL (0.000534)[0m   [0mDROP TABLE "altered_plugin_configs"[0m
+  [4;36;1mSQL (0.003646)[0m   [0;1mALTER TABLE "plugin_configs" ADD "owner_id" integer[0m
+  [4;35;1mSQL (0.013510)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.184885)[0m   [0;1mALTER TABLE "plugin_configs" ADD "owner_type" varchar(255)[0m
+  [4;35;1mSQL (0.007151)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003287)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('engines_config', '20080715131051')[0m
+  [4;35;1mSQL (0.000583)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_activity'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000839)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.001233)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_activity'
+ ORDER BY version DESC[0m
+Migrating to CreateActivitiesTable (20080401000000)
+  [4;35;1mSQL (0.091081)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.001004)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.006306)[0m   [0mCREATE TABLE "activities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "section_id" integer DEFAULT NULL NULL, "author_id" integer DEFAULT NULL NULL, "author_type" varchar(255) DEFAULT NULL NULL, "author_name" varchar(40) DEFAULT NULL NULL, "author_email" varchar(40) DEFAULT NULL NULL, "author_homepage" varchar(255) DEFAULT NULL NULL, "actions" varchar(255) DEFAULT NULL NULL, "object_id" integer DEFAULT NULL NULL, "object_type" varchar(15) DEFAULT NULL NULL, "object_attributes" text DEFAULT NULL NULL, "created_at" datetime NOT NULL) [0m
+  [4;36;1mSQL (0.002502)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_activity', '20080401000000')[0m
+  [4;35;1mSQL (0.000592)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_assets'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001156)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.000842)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_assets'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000503)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_assets'
+ ORDER BY version DESC[0m
+Migrating to CreateAssetsTable (20080429181111)
+  [4;36;1mSQL (0.000760)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.002219)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.006253)[0m   [0;1mCREATE TABLE "asset_assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer DEFAULT NULL NULL, "asset_id" integer DEFAULT NULL NULL, "position" integer DEFAULT NULL NULL, "label" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "active" boolean DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.002701)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.005744)[0m   [0;1mCREATE TABLE "assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "parent_id" integer DEFAULT NULL NULL, "user_id" integer DEFAULT NULL NULL, "content_type" varchar(255) DEFAULT NULL NULL, "filename" varchar(255) DEFAULT NULL NULL, "size" integer DEFAULT NULL NULL, "thumbnail" varchar(255) DEFAULT NULL NULL, "width" integer DEFAULT NULL NULL, "height" integer DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL, "thumbnails_count" integer DEFAULT 0 NULL, "created_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.002548)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_assets', '20080429181111')[0m
+Migrating to RemovePosition (20080626111252)
+  [4;36;1mSQL (0.001751)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.000994)[0m   [0mCREATE TEMPORARY TABLE "altered_asset_assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer DEFAULT NULL NULL, "asset_id" integer DEFAULT NULL NULL, "position" integer DEFAULT NULL NULL, "label" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "active" boolean DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mPRAGMA index_list("asset_assignments")[0m
+  [4;35;1mSQL (0.000797)[0m   [0mDROP TABLE "asset_assignments"[0m
+  [4;36;1mSQL (0.001475)[0m   [0;1mCREATE TABLE "asset_assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer DEFAULT NULL NULL, "asset_id" integer DEFAULT NULL NULL, "label" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "active" boolean DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.000426)[0m   [0mPRAGMA index_list("altered_asset_assignments")[0m
+  [4;36;1mSQL (0.000624)[0m   [0;1mDROP TABLE "altered_asset_assignments"[0m
+  [4;35;1mSQL (0.003719)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_assets', '20080626111252')[0m
+  [4;36;1mSQL (0.001257)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.004666)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;35;1mSQL (0.001156)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001325)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001117)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001087)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000925)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000879)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001125)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_cms'
+ ORDER BY version DESC[0m
+Migrating to CreateSitesTable (20080401000001)
+  [4;36;1mSQL (0.002926)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.008731)[0m   [0mCREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "host" varchar(255) DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL, "subtitle" varchar(255) DEFAULT NULL NULL, "email" varchar(255) DEFAULT NULL NULL, "timezone" varchar(255) DEFAULT NULL NULL, "theme_names" varchar(255) DEFAULT NULL NULL, "ping_urls" text DEFAULT NULL NULL, "akismet_key" varchar(100) DEFAULT NULL NULL, "akismet_url" varchar(255) DEFAULT NULL NULL, "approve_comments" boolean DEFAULT NULL NULL, "comment_age" integer DEFAULT NULL NULL, "comment_filter" varchar(255) DEFAULT NULL NULL, "search_path" varchar(255) DEFAULT NULL NULL, "tag_path" varchar(255) DEFAULT NULL NULL, "tag_layout" varchar(255) DEFAULT NULL NULL, "permalink_style" varchar(255) DEFAULT NULL NULL, "permissions" text DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.187850)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000001')[0m
+Migrating to CreateSectionsTable (20080401000002)
+  [4;35;1mSQL (0.001058)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.005051)[0m   [0;1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "type" varchar(255) DEFAULT NULL NULL, "site_id" integer DEFAULT NULL NULL, "parent_id" integer DEFAULT NULL NULL, "lft" integer DEFAULT 0 NOT NULL, "rgt" integer DEFAULT 0 NOT NULL, "path" varchar(255) DEFAULT NULL NULL, "permalink" varchar(255) DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL, "layout" varchar(255) DEFAULT NULL NULL, "template" varchar(255) DEFAULT NULL NULL, "options" text DEFAULT NULL NULL, "contents_count" integer DEFAULT NULL NULL, "comment_age" integer DEFAULT NULL NULL, "content_filter" varchar(255) DEFAULT NULL NULL, "permissions" text DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.002653)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000002')[0m
+Migrating to CreateContentsTable (20080401000003)
+  [4;36;1mSQL (0.001047)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.003158)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.005321)[0m   [0;1mCREATE TABLE "contents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "section_id" integer DEFAULT NULL NULL, "type" varchar(20) DEFAULT NULL NULL, "position" integer DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL, "permalink" varchar(255) DEFAULT NULL NULL, "excerpt" text DEFAULT NULL NULL, "excerpt_html" text DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "body_html" text DEFAULT NULL NULL, "author_id" integer DEFAULT NULL NULL, "author_type" varchar(255) DEFAULT NULL NULL, "author_name" varchar(40) DEFAULT NULL NULL, "author_email" varchar(40) DEFAULT NULL NULL, "author_homepage" varchar(255) DEFAULT NULL NULL, "version" integer DEFAULT NULL NULL, "filter" varchar(255) DEFAULT NULL NULL, "comment_age" integer DEFAULT 0 NULL, "cached_tag_list" varchar(255) DEFAULT NULL NULL, "assets_count" integer DEFAULT 0 NULL, "published_at" datetime DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.006867)[0m   [0mCREATE TABLE "content_versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer DEFAULT NULL NULL, "version" integer DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.104425)[0m   [0;1mALTER TABLE "content_versions" ADD "site_id" integer DEFAULT NULL[0m
+  [4;35;1mSQL (0.015503)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.008535)[0m   [0;1mALTER TABLE "content_versions" ADD "section_id" integer DEFAULT NULL[0m
+  [4;35;1mSQL (0.026860)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.007794)[0m   [0;1mALTER TABLE "content_versions" ADD "position" integer DEFAULT NULL[0m
+  [4;35;1mSQL (0.022590)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.010572)[0m   [0;1mALTER TABLE "content_versions" ADD "title" varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.067323)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.010005)[0m   [0;1mALTER TABLE "content_versions" ADD "permalink" varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.040389)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.009379)[0m   [0;1mALTER TABLE "content_versions" ADD "excerpt" text DEFAULT NULL[0m
+  [4;35;1mSQL (0.031139)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.008981)[0m   [0;1mALTER TABLE "content_versions" ADD "excerpt_html" text DEFAULT NULL[0m
+  [4;35;1mSQL (0.028870)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.011635)[0m   [0;1mALTER TABLE "content_versions" ADD "body" text DEFAULT NULL[0m
+  [4;35;1mSQL (0.031267)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.012906)[0m   [0;1mALTER TABLE "content_versions" ADD "body_html" text DEFAULT NULL[0m
+  [4;35;1mSQL (0.026973)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.011330)[0m   [0;1mALTER TABLE "content_versions" ADD "author_id" integer DEFAULT NULL[0m
+  [4;35;1mSQL (0.029077)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.010564)[0m   [0;1mALTER TABLE "content_versions" ADD "author_type" varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.030332)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.008923)[0m   [0;1mALTER TABLE "content_versions" ADD "author_name" varchar(40) DEFAULT NULL[0m
+  [4;35;1mSQL (0.026698)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.009836)[0m   [0;1mALTER TABLE "content_versions" ADD "author_email" varchar(40) DEFAULT NULL[0m
+  [4;35;1mSQL (0.024976)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.287077)[0m   [0;1mALTER TABLE "content_versions" ADD "author_homepage" varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.024061)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.009505)[0m   [0;1mALTER TABLE "content_versions" ADD "filter" varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (0.039290)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.009431)[0m   [0;1mALTER TABLE "content_versions" ADD "comment_age" integer DEFAULT 0[0m
+  [4;35;1mSQL (0.022987)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.008956)[0m   [0;1mALTER TABLE "content_versions" ADD "published_at" datetime DEFAULT NULL[0m
+  [4;35;1mSQL (0.024258)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.563503)[0m   [0;1mALTER TABLE "content_versions" ADD "created_at" datetime DEFAULT NULL[0m
+  [4;35;1mSQL (0.017028)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.011968)[0m   [0;1mALTER TABLE "content_versions" ADD "updated_at" datetime DEFAULT NULL[0m
+  [4;35;1mSQL (0.024977)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.009680)[0m   [0;1mALTER TABLE "content_versions" ADD "versioned_type" varchar(20) DEFAULT NULL[0m
+  [4;35;1mSQL (0.025612)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.008072)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000003')[0m
+Migrating to CreateCategoriesTable (20080401000004)
+  [4;35;1mSQL (0.004129)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.006422)[0m   [0;1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer DEFAULT NULL NULL, "parent_id" integer DEFAULT NULL NULL, "lft" integer DEFAULT 0 NOT NULL, "rgt" integer DEFAULT 0 NOT NULL, "title" varchar(255) DEFAULT NULL NULL, "path" varchar(255) DEFAULT NULL NULL, "permalink" varchar(255) DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.007047)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000004')[0m
+Migrating to CreateCategoryAssignments (20080401000005)
+  [4;36;1mSQL (0.002533)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.005454)[0m   [0mCREATE TABLE "category_assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer DEFAULT NULL NULL, "category_id" integer DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003662)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000005')[0m
+Migrating to CreateTaggableTables (20080401000006)
+  [4;35;1mSQL (0.002803)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.005583)[0m   [0;1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.012048)[0m   [0mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer DEFAULT NULL NULL, "taggable_id" integer DEFAULT NULL NULL, "taggable_type" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.006874)[0m   [0;1mCREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")[0m
+  [4;35;1mSQL (0.005173)[0m   [0mCREATE INDEX "index_taggings_on_taggable_id_and_taggable_type" ON "taggings" ("taggable_id", "taggable_type")[0m
+  [4;36;1mSQL (0.003892)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080401000006')[0m
+Migrating to AddSpamEngineToSite (20080712133231)
+  [4;35;1mSQL (0.003119)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.006708)[0m   [0;1mALTER TABLE "sites" ADD "spam_options" text[0m
+  [4;35;1mSQL (0.040757)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.010928)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_cms', '20080712133231')[0m
+  [4;35;1mSQL (0.001094)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.004160)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.001150)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001052)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001332)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_comments'
+ ORDER BY version DESC[0m
+Migrating to CreateCommentsTable (20080401000007)
+  [4;35;1mSQL (0.004073)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.006465)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.008258)[0m   [0mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "section_id" integer DEFAULT NULL NULL, "commentable_id" integer DEFAULT NULL NULL, "commentable_type" varchar(255) DEFAULT NULL NULL, "author_id" integer DEFAULT NULL NULL, "author_type" varchar(255) DEFAULT NULL NULL, "author_name" varchar(40) DEFAULT NULL NULL, "author_email" varchar(40) DEFAULT NULL NULL, "author_homepage" varchar(255) DEFAULT NULL NULL, "body" text DEFAULT NULL NULL, "body_html" text DEFAULT NULL NULL, "approved" integer DEFAULT 0 NOT NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003440)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_comments', '20080401000007')[0m
+Migrating to AddSpamInfoToComments (20080712154718)
+  [4;35;1mSQL (0.002876)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.004725)[0m   [0;1mALTER TABLE "comments" ADD "spaminess" text[0m
+  [4;35;1mSQL (0.032975)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.008861)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_comments', '20080712154718')[0m
+Migrating to AddCommentBoardId (20080721141112)
+  [4;35;1mSQL (0.004122)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.078259)[0m   [0;1mALTER TABLE "comments" ADD "board_id" integer[0m
+  [4;35;1mSQL (0.046040)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.010063)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_comments', '20080721141112')[0m
+  [4;35;1mSQL (0.001346)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.003956)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.001338)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000989)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.000949)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_forum'
+ ORDER BY version DESC[0m
+Migrating to CreateForumTables (20080401000011)
+  [4;35;1mSQL (0.003745)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.004615)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.008865)[0m   [0mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "section_id" integer DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL, "sticky" integer DEFAULT 0 NULL, "locked" boolean DEFAULT 'f' NULL, "comments_count" integer DEFAULT 0 NULL, "hits" integer DEFAULT 0 NULL, "last_comment_id" integer DEFAULT NULL NULL, "last_author_id" integer DEFAULT NULL NULL, "last_author_type" varchar(255) DEFAULT NULL NULL, "last_author_name" varchar(255) DEFAULT NULL NULL, "permalink" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "last_updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003861)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_forum', '20080401000011')[0m
+Migrating to CreateBoardsTable (20080721115631)
+  [4;35;1mSQL (0.004581)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.023187)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.007690)[0m   [0mCREATE TABLE "boards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "section_id" integer DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL, "permalink" varchar(255) DEFAULT NULL NULL, "description" text DEFAULT NULL NULL, "position" integer DEFAULT NULL NULL, "last_comment_id" integer DEFAULT NULL NULL, "last_author_id" integer DEFAULT NULL NULL, "last_author_type" varchar(255) DEFAULT NULL NULL, "last_author_name" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "last_updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.006215)[0m   [0;1mALTER TABLE "topics" ADD "board_id" integer[0m
+  [4;35;1mSQL (0.542154)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.014971)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_forum', '20080721115631')[0m
+Migrating to AddTopicAuthor (20080723181444)
+  [4;35;1mSQL (0.005483)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.006865)[0m   [0;1mALTER TABLE "topics" ADD "author_id" integer[0m
+  [4;35;1mSQL (0.054129)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.017438)[0m   [0;1mALTER TABLE "topics" ADD "author_type" varchar(255)[0m
+  [4;35;1mSQL (0.056441)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.012152)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_forum', '20080723181444')[0m
+  [4;35;1mSQL (0.002744)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.006378)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.003004)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001338)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001463)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001496)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001535)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.002459)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001323)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.002401)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001360)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001451)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_shop'
+ ORDER BY version DESC[0m
+Migrating to CreateProducts (20080730052959)
+  [4;36;1mSQL (0.004949)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.006675)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.014185)[0m   [0;1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "section_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "description" text DEFAULT NULL NULL, "price" float DEFAULT NULL NULL, "weight" float DEFAULT NULL NULL, "tax_rate" float DEFAULT NULL NULL, "quantity" integer DEFAULT NULL NULL, "vendor_name" varchar(255) DEFAULT NULL NULL, "permalink" varchar(255) DEFAULT NULL NULL, "comment_age" integer DEFAULT NULL NULL, "comment_counts" integer DEFAULT NULL NULL, "active" boolean DEFAULT NULL NULL, "cached_tag_list" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "filter" varchar(255) DEFAULT NULL NULL, "published_at" datetime DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004656)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730052959')[0m
+Migrating to CreateProductCategories (20080730053108)
+  [4;36;1mSQL (0.007378)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.007278)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.009995)[0m   [0;1mCREATE TABLE "product_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer DEFAULT NULL NULL, "category_id" integer DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004371)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730053108')[0m
+Migrating to CreatePaymentMethods (20080730060341)
+  [4;36;1mSQL (0.006169)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.007363)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.008102)[0m   [0;1mCREATE TABLE "payment_methods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer DEFAULT NULL NULL, "payment_type" varchar(255) DEFAULT NULL NULL, "payment_attributes" text DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004548)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060341')[0m
+Migrating to CreateAddresses (20080730060428)
+  [4;36;1mSQL (0.006178)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.008854)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.007890)[0m   [0;1mCREATE TABLE "addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "full_name" varchar(255) DEFAULT NULL NULL, "street1" varchar(255) DEFAULT NULL NULL, "street2" varchar(255) DEFAULT NULL NULL, "city" varchar(255) DEFAULT NULL NULL, "state" varchar(255) DEFAULT NULL NULL, "country" varchar(255) DEFAULT NULL NULL, "zip_code" varchar(255) DEFAULT NULL NULL, "phone" varchar(255) DEFAULT NULL NULL, "addressable_id" integer DEFAULT NULL NULL, "addressable_type" varchar(255) DEFAULT NULL NULL, "email" varchar(255) DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004075)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060428')[0m
+Migrating to CreateOrders (20080730060453)
+  [4;36;1mSQL (0.005350)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.006378)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.008952)[0m   [0;1mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer DEFAULT NULL NULL, "payment_method" varchar(255) DEFAULT NULL NULL, "status" integer DEFAULT NULL NULL, "billing_address_id" integer DEFAULT NULL NULL, "shipping_address_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "version" integer DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.005072)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060453')[0m
+Migrating to CreateOrderLines (20080730060528)
+  [4;36;1mSQL (0.004947)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.007125)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.008267)[0m   [0;1mCREATE TABLE "order_lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer DEFAULT NULL NULL, "order_id" integer DEFAULT NULL NULL, "quantity" integer DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004747)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080730060528')[0m
+Migrating to CreateProductImages (20080801052623)
+  [4;36;1mSQL (0.007059)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.008497)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.007280)[0m   [0;1mCREATE TABLE "product_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer DEFAULT NULL NULL, "parent_id" integer DEFAULT NULL NULL, "content_type" varchar(255) DEFAULT NULL NULL, "filename" varchar(255) DEFAULT NULL NULL, "size" integer DEFAULT NULL NULL, "thumbnail" varchar(255) DEFAULT NULL NULL, "width" integer DEFAULT NULL NULL, "height" integer DEFAULT NULL NULL, "title" varchar(255) DEFAULT NULL NULL, "thumbnails_count" integer DEFAULT 0 NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003371)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080801052623')[0m
+Migrating to CreateOrderVersions (20080801052624)
+  [4;36;1mSQL (0.006632)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.008048)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.008425)[0m   [0;1mCREATE TABLE "order_versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer DEFAULT NULL NULL, "order_id" integer DEFAULT NULL NULL, "version" integer DEFAULT NULL NULL, "payment_method" varchar(255) DEFAULT NULL NULL, "status" integer DEFAULT NULL NULL, "billing_address_id" integer DEFAULT NULL NULL, "shipping_address_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004217)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080801052624')[0m
+Migrating to CreateCarts (20080901142033)
+  [4;36;1mSQL (0.005011)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.007572)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.005413)[0m   [0;1mCREATE TABLE "carts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL) [0m
+  [4;35;1mSQL (0.003219)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080901142033')[0m
+Migrating to CreateCartItems (20080901142329)
+  [4;36;1mSQL (0.005871)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.007011)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.007329)[0m   [0;1mCREATE TABLE "cart_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer DEFAULT NULL NULL, "cart_id" integer DEFAULT NULL NULL, "quantity" integer DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003810)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_shop', '20080901142329')[0m
+  [4;36;1mSQL (0.001142)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_spam'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.008068)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;35;1mSQL (0.001130)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_spam'
+ ORDER BY version DESC[0m
+Migrating to SpamReportsTable (20080713161553)
+  [4;36;1mSQL (0.005578)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.031347)[0m   [0mCREATE TABLE "spam_reports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subject_id" integer DEFAULT NULL NULL, "subject_type" varchar(255) DEFAULT NULL NULL, "engine" varchar(255) DEFAULT NULL NULL, "spaminess" float DEFAULT NULL NULL, "data" text DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003519)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_spam', '20080713161553')[0m
+  [4;35;1mSQL (0.001536)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.010534)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.001133)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.002345)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.001049)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.000619)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'adva_user'
+ ORDER BY version DESC[0m
+Migrating to CreateUsersTable (20080402000001)
+  [4;36;1mSQL (0.003069)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.044965)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(40) DEFAULT NULL NULL, "email" varchar(100) DEFAULT NULL NULL, "homepage" varchar(255) DEFAULT NULL NULL, "about" varchar(255) DEFAULT NULL NULL, "signature" varchar(255) DEFAULT NULL NULL, "login" varchar(40) DEFAULT NULL NULL, "password_hash" varchar(40) DEFAULT NULL NULL, "password_salt" varchar(40) DEFAULT NULL NULL, "remember_me" varchar(40) DEFAULT NULL NULL, "token_key" varchar(40) DEFAULT NULL NULL, "token_expiration" datetime DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "verified_at" datetime DEFAULT NULL NULL, "deleted_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.004172)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000001')[0m
+Migrating to CreateAnonymousesTable (20080402000004)
+  [4;35;1mSQL (0.008511)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.008660)[0m   [0;1mCREATE TABLE "anonymouses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(40) DEFAULT NULL NULL, "email" varchar(100) DEFAULT NULL NULL, "homepage" varchar(255) DEFAULT NULL NULL, "ip" varchar(255) DEFAULT NULL NULL, "agent" varchar(255) DEFAULT NULL NULL, "referer" varchar(255) DEFAULT NULL NULL, "token_key" varchar(40) DEFAULT NULL NULL, "token_expiration" datetime DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004060)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000004')[0m
+Migrating to CreateMembershipsTable (20080402000005)
+  [4;36;1mSQL (0.008816)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.007898)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.008433)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "user_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.003402)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000005')[0m
+Migrating to CreateRoleTables (20080402000006)
+  [4;36;1mSQL (0.006627)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.006796)[0m   [0mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer DEFAULT NULL NULL, "context_id" integer DEFAULT NULL NULL, "context_type" varchar(255) DEFAULT NULL NULL, "type" varchar(25) DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.004266)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('adva_user', '20080402000006')[0m
+  [4;35;1mSQL (0.001209)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'has_counter'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.010859)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.001145)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'has_counter'
+ ORDER BY version DESC[0m
+Migrating to CreateCountersTable (20080601194338)
+  [4;35;1mSQL (0.006424)[0m   [0mSELECT version FROM plugin_schema_migrations[0m
+  [4;36;1mSQL (0.009487)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.013355)[0m   [0mCREATE TABLE "counters" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_id" integer DEFAULT NULL NULL, "owner_type" varchar(255) DEFAULT NULL NULL, "name" varchar(25) DEFAULT NULL NULL, "count" integer DEFAULT 0 NULL) [0m
+  [4;36;1mSQL (0.012573)[0m   [0;1m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('has_counter', '20080601194338')[0m
+  [4;35;1mSQL (0.001301)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'page_cache_tagging'
+ ORDER BY version DESC[0m
+  [4;36;1mSQL (0.011211)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table plugin_schema_migrations already exists: CREATE TABLE plugin_schema_migrations 
+ (plugin_name varchar(255), version varchar(255))
+[0m
+  [4;36;1mSQL (0.001303)[0m   [0;1m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'page_cache_tagging'
+ ORDER BY version DESC[0m
+  [4;35;1mSQL (0.001319)[0m   [0m
+ SELECT version FROM plugin_schema_migrations 
+ WHERE plugin_name = 'page_cache_tagging'
+ ORDER BY version DESC[0m
+Migrating to CreateCachedPageReferences (20080401000020)
+  [4;36;1mSQL (0.007833)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.009266)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.009724)[0m   [0;1mCREATE TABLE "cached_page_references" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cached_page_id" integer DEFAULT NULL NULL, "object_id" integer DEFAULT NULL NULL, "object_type" varchar(255) DEFAULT NULL NULL, "method" varchar(255) DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004256)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('page_cache_tagging', '20080401000020')[0m
+Migrating to CreateCachedPages (20080401000021)
+  [4;36;1mSQL (0.007544)[0m   [0;1mSELECT version FROM plugin_schema_migrations[0m
+  [4;35;1mSQL (0.007610)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.009076)[0m   [0;1mCREATE TABLE "cached_pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer DEFAULT NULL NULL, "section_id" integer DEFAULT NULL NULL, "url" varchar(255) DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL, "cleared_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004107)[0m   [0m
+ INSERT INTO plugin_schema_migrations (plugin_name, version) 
+ VALUES ('page_cache_tagging', '20080401000021')[0m
