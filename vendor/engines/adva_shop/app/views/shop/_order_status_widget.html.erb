@@ -3,7 +3,7 @@
 						  	Enter Your Order No: <br/>
 							<% form_tag fetch_order_status_path(@section) do %>
 							<%=	text_field_tag('order_id','',:size => 7)%>
-							  <%= image_submit_tag("search.gif") %>
+							  <%= image_submit_tag("search.gif" ,:name =>'Find',:value=>'Find') %>
 							<% end %>
 						  </div>
 						  

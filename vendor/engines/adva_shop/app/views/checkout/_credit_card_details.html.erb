@@ -11,7 +11,7 @@
 			</tr>
 			<tr>												
 				<td><b> Card Type</b></td>
-				<td><%= select "credit_card", "type", @section.credit_card_payment.accepted_credit_cards.collect{|card| [card.humanize, card]} %></td>
+				<td><%= select "credit_card", "type", @section.credit_card_payment.accepted_credit_cards.collect{|card| [card.to_s.humanize, card.to_s]} %></td>
 			</tr>
 	
 			<tr>

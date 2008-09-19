@@ -562,4 +562,17 @@ td select.selectbox3 {
 /* --------------------- Footer Part End --------------------- */
 
 
+/* --------------------- checkout -----------------------------*/
 
+#billing_address{
+	float:left; 
+	width:49%; 
+	display: block;
+	height: auto; 
+	border: #000000;
+}
+
+#shipping_address{
+	float:right; 
+	width:49%;
+}

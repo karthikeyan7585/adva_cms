@@ -65,10 +65,15 @@ steps_for :shop do
   end
 
   Given "a user has added a product to the shopping cart" do
-    Given "an anonymous user"
-    @cart_item = create_cart_item
-    @cart = @cart_item.cart
+    When "the user goes to the shop products list page"
+    @cart = Cart.find(session[:cart_id])
+    @cart.cart_items = [create_cart_item]
   end
+  
+  Given "a user has added a product with a quantity of 1 to the shopping cart" do
+    Given "a user has added a product to the shopping cart"
+  end
+  
   
   When "the user clicks on 'Details' of a product" do
     get "/shop/products/#{@product.permalink}"
@@ -91,6 +96,29 @@ steps_for :shop do
   When "the user fills in a product quantity with 2" do
     raise "step expects the variable @shop to be set" unless @shop
     fills_in "product_quantity_#{@product.id}", :with => '2'
+  end
+  
+  When "the user clicks on the \"View Cart\" link" do
+    get "/#{@shop.permalink}/carts/#{@cart.id}"
+    response.should render_template('carts/show')
+  end
+  
+  When "the user goes to the view cart page" do
+    raise "step expects the variable @cart to be set" unless @cart
+    get "/#{@shop.permalink}/carts/#{@cart.id}"
+  end
+  
+  When "the user changes the quantity for the product to 2" do
+    fills_in "product_quantity_#{@cart.cart_items.first.product_id}", :with => '2'
+  end
+  
+  When "the user changes the quantity for the product to 0" do
+    fills_in "product_quantity_#{@cart.cart_items.first.product_id}", :with => '0'
+  end
+  
+  When "the user clicks the \"Delete\" icon on the product line" do
+    link = find_field "delete_#{@cart.cart_items.first.product_id}"
+    link.click
   end
   
   Then "the page has categories list section" do
@@ -146,9 +174,12 @@ steps_for :shop do
   
   Then "the cart info widget displays the cart contents" do
     response.should have_tag("div#cart_widget1")
+    response.should have_tag("div#cart_info_widget")
   end
   
   Then "the cart info widget displays no cart contents" do
+    response.should have_tag("div#cart_info_widget")
+    response.should have_tag("img#cart_spinner")
   end
   
   Then "the cart info widget does not display a link to \"View Cart\"" do
@@ -157,8 +188,8 @@ steps_for :shop do
   end
   
   Then "the cart info widget displays a link to \"View Cart\"" do
-    response.should have_tag('div#cart_info_widget')
     response.should_not have_tag('img#cart_spinner')
+    response.should have_tag("a[href^=?]", "/#{@shop.permalink}/carts/#{@cart.id}")
   end
   
   Then "the user is returned to the product list" do
@@ -210,9 +241,49 @@ steps_for :shop do
   end
   
   Then "the page shows the summary of order costs and totals" do
-    response.should have_tag('td[class*=?]', "row1a") do |td|
-      td.should have_text("Total ")
+    response.should have_tag("div#cart_content")
+    response.should have_tag('td[class*=?]', "row1a")
+  end
+  
+  Then "the cart info widget is requested through an Ajax request and displayed in the page" do
+    response.should have_tag("div#cart_widget1") do |widget|
+      widget.should have_tag("script[type=?]", "text/javascript")
     end
+  end
+  
+  Then "the page shows a form field for the quantity of the listed product" do
+    response.should have_tag("input#product_quantity_#{@cart.cart_items.first.product_id}")
+  end
+  
+  Then "the value of the form field is 1" do
+    response.should have_tag("input#product_quantity_#{@cart.cart_items.first.product_id}[value=?]", "1")
+  end
+  
+  Then "the quantity is updated in the cart" do
+    @cart = Cart.find(session[:cart_id])
+    @cart.cart_items.first.quantity.should == 2
+  end
+  
+  Then "the summary of order costs and totals shows the updated values" do
+    response.should have_tag("input#product_quantity_#{@cart.cart_items.first.product_id}[value=?]", "2")
+    response.should have_tag("td[class*=?]", "row2")
+  end
+  
+  Then "the product is removed from the cart" do
+    @cart = Cart.find(session[:cart_id])
+    @cart.cart_items.length.should == 0
+  end
+  
+  Then "the view cart page shows that the cart is empty" do
+    response.should have_tag("div#empty_cart")
+  end
+  
+  Then "the page contains a link to return to the shop product list page" do
+    response.should have_tag("a[href^=?]", "/#{@shop.permalink}")
+  end
+  
+  Then "each product line has a \"Delete\" button" do
+    response.should have_tag("input[value=?]", "Delete")
   end
   
  

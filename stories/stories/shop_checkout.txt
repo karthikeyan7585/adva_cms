@@ -1,0 +1,122 @@
+Story: Checkout: Adding a billing and shipping address
+  As an anonymous user
+  I want to input a billing address and shipping address
+  So I can receive the purchase and invoice
+  
+  Scenario: An anonymous user only adds a billing address to an order
+    Given a shop with products
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    And the page displays the cart contents including detailed price information
+    And the page has a billing address form
+    And the page has a shipping address form
+    And the page the shipping address form is hidden
+    And the page has a checkbox "use my billing address for shipping" which is checked by default
+    And the checkbox "use my billing address for shipping" unveils the shipping address form when unchecked
+    When the user fills in the billing address form with valid data
+    And the user checks the "use my billing address for shipping" checkbox
+    And the user clicks the 'Proceed to next step' button
+    Then the billing address is stored with the shopping cart
+    And no separate shipping address is stored with the shopping cart
+    And the user is redirected to the review order page
+    
+  Scenario: An anonymous user adds a billing and shipping address to an order
+    Given a shop with products
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    And the page displays the cart contents including detailed price information
+    And the page has a billing address form
+    And the page has a shipping address form
+    When the user fills in the billing address form with valid data
+    And the user unchecks the "use my billing address for shipping" checkbox
+    And the user fills in the shipping address form with valid data
+    And the user clicks the 'Proceed to next step' button
+    Then the billing address is stored with the shopping cart
+    And the shipping address is stored with the shopping cart
+    And the user is redirected to the review order page
+    
+  Scenario: A registered user uses the default form state (with saved billing address)
+    Given a shop with products
+    And the user is a registered user
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    And the page displays the cart contents including detailed price information
+    And the page has radio buttons for selecting a billing address (listing the user's addresses)
+    And the first address is selected as a billing address by default
+    And each of the addresses has a delete button for deleting the address
+    And the page has a radio button "Use a different billing address" which unveils the billing address form when selected
+    And the page has a billing address form which is hidden by default
+    And the page has a checkbox "use my billing address for shipping" which is checked by default
+    And the checkbox "Use my billing address for shipping" unveils the shipping address form (and address radio buttons) when unchecked
+    And the page has radio buttons for selecting a shipping address (listing the user's addresses)
+    And the first address is selected as a shipping address by default
+    And the page has a radio button "Use a different shipping address" which unveils the shipping address form when selected
+    And the page has a shipping address form which is hidden by default
+    And the user checks the "use my billing address for shipping" checkbox
+    When the user clicks the 'Proceed to next step' button
+    Then the user's first address is stored with the shopping cart as the billing address
+    And no separate shipping address is stored with the shopping cart
+    
+  Scenario: A registered user picks a separate shipping address
+    Given a shop with products
+    And the user is a registered user
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    When the user unchecks the "use my billing address for shipping" checkbox
+    And the user clicks the 'Proceed to next step' button
+    Then the user's first address is stored with the shopping cart as the billing address
+    And the user's first address is stored with the shopping cart as the shipping address
+    
+  Scenario: A registered user inputs a new billing address
+    Given a shop with products
+    And the user is a registered user
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    When the user selects the "Use a different billing address" radio button
+    And the user fills in the billing address form with valid data
+    And the user clicks the 'Proceed to next step' button
+    Then user's new address is saved
+    Then the new address is stored with the shopping cart as the billing address
+    And no separate shipping address is stored with the shopping cart
+    
+  Scenario: A registered user inputs a new shipping address
+    Given a shop with products
+    And the user is a registered user
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    When the user unchecks the "use my billing address for shipping" checkbox
+    When the user selects the "Use a different shipping address" radio button
+    And the user fills in the shipping address form with valid data
+    And the user clicks the 'Proceed to next step' button
+    Then the user's first address is stored with the shopping cart as the billing address
+    Then user's new address is saved
+    Then the new address is stored with the shopping cart as the shipping address
+    
+  Scenario: A registered user inputs a new billing address and a new shipping address
+    Given a shop with products
+    And the user is a registered user
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    When the user selects the "Use a different billing address" radio button
+    And the user fills in the billing address form with valid data
+    When the user unchecks the "use my billing address for shipping" checkbox
+    And the user selects the "Use a different shipping address" radio button
+    And the user fills in the shipping address form with valid data
+    And the user clicks the 'Proceed to next step' button
+    Then user's new address is saved
+    Then the new address is stored with the shopping cart as the billing address
+    Then the new address is stored with the shopping cart as the shipping address

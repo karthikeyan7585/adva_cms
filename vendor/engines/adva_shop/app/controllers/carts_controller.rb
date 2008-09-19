@@ -7,6 +7,9 @@ class CartsController < BaseController
  
   authenticates_anonymous_user
   
+  def show
+  end
+  
   #Action to add a product to a cart
   def create
     @cart.cart_items ||= []
@@ -26,6 +29,7 @@ class CartsController < BaseController
     else 
       @cart_item.destroy 
     end
+    
     redirect_to cart_path(@section, @cart)
   end
   

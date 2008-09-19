@@ -1,4 +1,5 @@
 <%= javascript_include_tag "checkout" %>
+<%= stylesheet_link_tag "adva_shop.css" %>
 
 <%= render :partial => 'cart_products' %>
 
@@ -12,7 +13,7 @@
 			</p>
 		</div>
 	
-		<div id="billing_address" style="float:left; width:49%; display: block;height: auto; border: #000000;">
+		<div id="billing_address">
 			<p>
 				<h3>Billing Address:</h3>
 			</p>
@@ -36,7 +37,7 @@
 			</table>
 		</div>
 		
-		<div id="shipping_address" <%=  "style=\"float:right; width:49%; #{shipping_address_form_selected(params) ? "display:none" : "" };\"" %> >
+		<div id="shipping_address" <%=  "style=\"#{shipping_address_form_selected(params) ? "display:none" : "" };\"" %> >
 			<p>
 				<h3>Shipping Address:</h3>
 			</p>

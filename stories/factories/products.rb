@@ -44,7 +44,30 @@ factory :active_product,
 factory :cart, :id => 1
 
 factory :cart_item, 
-        :product_id => lambda{ (Product.find(:first) || create_product).id },
+        :product_id => lambda{ (Product.find(:first) || create_active_product).id },
         :cart_id => lambda{ (Cart.find(:first) || create_cart).id },
+        :product => lambda{ (Product.find(:first) || create_active_product) },
+        :cart => lambda{ (Cart.find(:first) || create_cart) },
         :quantity => 1
      
+factory :addresss,
+        :full_name => 'full name 1',
+        :street1 => 'street1',
+        :street2 => 'street2',
+        :city => 'city',
+        :state => 'state',
+        :country => 'United States',
+        :zip_code => '123456',
+        :phone => '123456789',
+        :email => 'email@email.org',
+        :addressable_type => '',
+        :addressable_id => nil,
+        :addressable => nil
+        
+factory :user_address,
+        valid_addresss_attributes.update(
+          :addressable_type => 'User',
+          :addressable_id => lambda{ (User.find(:first) || create_user).id },
+          :addressable => lambda{ (User.find(:first) || create_user) }),
+        :class => :addresss
+ 

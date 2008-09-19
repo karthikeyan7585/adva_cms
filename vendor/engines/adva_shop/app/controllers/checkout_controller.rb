@@ -41,6 +41,7 @@ class CheckoutController < BaseController
       
       # Send the confirmation mail if the payment is successful
       send_order_confirmation_mail if success
+      session[:order_id] = nil
     elsif params[:payment_method] == "ExternalPayment"
       # Create a gateway for the external payment
       gateway = @section.external_payment.create_gateway
@@ -56,6 +57,7 @@ class CheckoutController < BaseController
       @order.status = Order::STATUS[:new]
       # Save the order and send the confirmation email to the user
       send_order_confirmation_mail if @order.save
+      session[:order_id] = nil
     end
   end
   
@@ -84,6 +86,7 @@ class CheckoutController < BaseController
     else
       render :action => 'error'
     end
+    session[:order_id] = nil
   end
   
   
@@ -94,7 +97,7 @@ class CheckoutController < BaseController
     end
     
     def set_order
-      @order = Order.find(params[:order_id])
+      @order = Order.find(session[:order_id])
     end
     
     def find_order
@@ -103,6 +106,7 @@ class CheckoutController < BaseController
       @order.order_lines = Cart.find(session[:cart_id]).cart_items.collect{|item| OrderLine.new(:product_id => item.product_id, :quantity => item.quantity )}
       Cart.destroy(session[:cart_id]) if @order.save
       session[:cart_id] = nil
+      session[:order_id] = @order.id unless @order.new_record?
     end
     
     def set_addresses

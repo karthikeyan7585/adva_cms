@@ -1,6 +1,3 @@
-# Cart
-# Add a product to the cart
-
 Story: Adding a product to the cart.
   As a user
   I want to add a product to the cart
@@ -19,10 +16,8 @@ Story: Adding a product to the cart.
     And the user clicks the 'Add to cart' button
     Then the product is added to the cart with a quantity of 2
     And the cart info widget displays the cart contents
-    And the cart info widget displays a link to "View Cart"
-    
-    
-# Viewing the shopping cart
+    And the cart info widget is requested through an Ajax request and displayed in the page    
+
 
 Story: Viewing the shopping cart
   As a user
@@ -34,7 +29,52 @@ Story: Viewing the shopping cart
     Given a user has added a product to the shopping cart
     When the user goes to the shop products list page
     Then the cart info widget displays the cart contents
-    And the cart info widget displays a link to "View Cart"
-    When the user clicks on "View Cart"
+    And the cart info widget is requested through an Ajax request and displayed in the page
+    When the user clicks on the "View Cart" link
     Then the page has a list of the shopping cart contents
     And the page shows the summary of order costs and totals
+    
+
+Story: Edit quantities in the shopping cart
+  As a user
+  I want to edit the quantity of products in the cart
+  So I can proceed to checkout with the right amount
+  
+  Scenario: A user edits the quantity of a product in the shopping cart 
+    Given a shop with products
+    Given a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    Then the page shows a form field for the quantity of the listed product
+    And the value of the form field is 1
+    When the user changes the quantity for the product to 2
+    And the user clicks the 'Update' button
+    Then the quantity is updated in the cart
+    And the summary of order costs and totals shows the updated values
+
+
+Story: Remove a product from the shopping cart
+  As a user
+  I want to remove a product from the cart
+  So I can proceed to checkout with the right products
+
+  Scenario: A user removes a product from the shopping cart by setting the quantity to zero
+    Given a shop with products
+    Given a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    Then the page shows a form field for the quantity of the listed product
+    And the value of the form field is 1
+    When the user changes the quantity for the product to 0
+    And the user clicks the 'Update' button
+    Then the product is removed from the cart
+    And the view cart page shows that the cart is empty
+    And the page contains a link to return to the shop product list page
+    
+  Scenario: A user removes a product from the shopping cart by clicking the "Delete" button
+    Given a shop with products
+    Given a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    Then each product line has a "Delete" button
+    When the user clicks the 'Delete' button
+    Then the product is removed from the cart
+    And the view cart page shows that the cart is empty
+    And the page contains a link to return to the shop product list page

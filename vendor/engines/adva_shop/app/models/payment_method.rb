@@ -109,7 +109,12 @@ class CreditCardPayment < PaymentMethod
                                       :state => order.billing_address.state, :country => 'US',
                                       :zip => order.billing_address.zip_code, :phone => order.billing_address.phone)
       gateway = self.create_gateway
-      response = gateway.authorize(amount, credit_card, options)
+      
+      begin
+        response = gateway.authorize(amount, credit_card, options)
+      rescue
+        return false
+      end
 
       if response.success?
         # Capture the amount from the customer's credit card

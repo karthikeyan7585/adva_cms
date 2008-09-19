@@ -1,0 +1,86 @@
+Story: Paying the order
+  As a user
+  I want to add billing information
+  So I can pay the order
+  
+  Scenario: A user adds billing information to an order
+    Given a shop with products
+    And credit card payment processing is configured properly and available
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    And the page displays the cart contents including detailed price information
+    And the page has a billing address form
+    And the page has a shipping address form
+    And the page the shipping address form is hidden
+    And the page has a checkbox "use my billing address for shipping" which is checked by default
+    And the checkbox "use my billing address for shipping" unveils the shipping address form when unchecked
+    When the user fills in the billing address form with valid data
+    And the user checks the "use my billing address for shipping" checkbox
+    And the user clicks the 'Proceed to next step' button
+    Then the billing address is stored with the shopping cart
+    And no separate shipping address is stored with the shopping cart
+    And the user is redirected to the review order page
+    And the page displays the cart contents including detailed price information
+    And the page displays the shipping and billing address information
+    And the page has a payment information form
+    When the user selects a payment option 
+    And the user fills in the payment information form with valid data
+    When the user clicks the 'Pay order' button
+    Then the payment is processed
+    And a confirmation email is sent to the user
+    And the confirmation email contains the details of the order
+
+  Scenario: An order is paid through online payment processing
+	Given a shop with products
+    And online payment processing is configured properly and available
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    And the page displays the cart contents including detailed price information
+    And the page has a billing address form
+    And the page has a shipping address form
+    And the page the shipping address form is hidden
+    And the page has a checkbox "use my billing address for shipping" which is checked by default
+    And the checkbox "use my billing address for shipping" unveils the shipping address form when unchecked
+    When the user fills in the billing address form with valid data
+    And the user checks the "use my billing address for shipping" checkbox
+    And the user clicks the 'Proceed to next step' button
+    Then the billing address is stored with the shopping cart
+    And no separate shipping address is stored with the shopping cart
+    And the user is redirected to the review order page
+    When the user selects external payment option
+    And the user clicks on the external payment image link
+    Then the user is redirected to the external payment website
+    And the user completes the payment
+    And a confirmation email is sent to the user
+    And the confirmation email contains the details of the order
+
+  Scenario: An order is paid through online payment processing
+	Given a shop with products
+    And online payment processing is not configured properly or not available
+    And a user has added a product with a quantity of 1 to the shopping cart
+    When the user goes to the view cart page
+    And the user clicks the 'Checkout' button
+    Then the user sees the checkout page
+    And the page displays the cart contents including detailed price information
+    And the page has a billing address form
+    And the page has a shipping address form
+    And the page the shipping address form is hidden
+    And the page has a checkbox "use my billing address for shipping" which is checked by default
+    And the checkbox "use my billing address for shipping" unveils the shipping address form when unchecked
+    When the user fills in the billing address form with valid data
+    And the user checks the "use my billing address for shipping" checkbox
+    And the user clicks the 'Proceed to next step' button
+    Then the billing address is stored with the shopping cart
+    And no separate shipping address is stored with the shopping cart
+    And the user is redirected to the review order page
+    When the user selects bank payment option
+    Then the payment details are displayed
+    When the user clicks the 'Pay order' button
+    Then the user is redirected to a confirmation page
+    And the confirmation page shows the details of the order
+    And a confirmation email is sent to the user
+    And the confirmation email contains the details of the order

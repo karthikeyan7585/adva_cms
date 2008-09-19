@@ -1,45 +1,42 @@
 <%= stylesheet_link_tag "adva_shop.css" %>
 <% order_lines = @order.order_lines %>
-
-<table  width="80%" border="0" bgcolor="#FFFFFF" class="borderblue">
-    <tr>
-        <td class="row1a"> Name </td>
-        <td class="row1b">Vendor</td>                                                   
-        <td class="row1a"> Quantity </td>
-		<td class="row1a">Price </td>
-		<td class="row1a">Tax</td>
-		<td class="row1a">Total </td>
-    </tr>
-	
-	<% order_lines.each do |order_line| %>
+<div id="cart_products">
+	<table  width="80%" border="0" bgcolor="#FFFFFF" class="borderblue">
 	    <tr>
-	        <td class="row2">
-				<h3><%= order_line.product.name %></h3>                                                       
-	        </td>
-	        <td class="row2a">
-	          <%= order_line.product.vendor_name %>
-	        </td>
-			 <td class="row2a">
-			 	<%= order_line.quantity %> 
-		 	</td>
-	        <td class="row2">
-	            <strong>$<%= order_line.product.price %></strong>
-	        </td>
-			 <td class="row2">
-	            <strong><%= order_line.product.tax_rate %>&nbsp%</strong>
-	        </td>
-			 <td class="row2">
-	            $<%= order_line.total_price %>
-	        </td>
+	        <td class="row1a"> Name </td>
+	        <td class="row1b">Vendor</td>                                                   
+	        <td class="row1a"> Quantity </td>
+			<td class="row1a">Price </td>
+			<td class="row1a">Tax</td>
+			<td class="row1a">Total </td>
 	    </tr>
-	<%end %>	
-	
-	<tr>
-		<td colspan=5 align="right"> Total </td>
-        <td class="row2">$<%= order_lines.collect{|ol| ol.total_price}.sum %> </td>
-    </tr>											
-</table>
-
-
-
-
+		
+		<% order_lines.each do |order_line| %>
+		    <tr>
+		        <td class="row2">
+					<h3><%= order_line.product.name %></h3>                                                       
+		        </td>
+		        <td class="row2a">
+		          <%= order_line.product.vendor_name %>
+		        </td>
+				 <td class="row2a">
+				 	<%= order_line.quantity %> 
+			 	</td>
+		        <td class="row2">
+		            <strong>$<%= order_line.product.price %></strong>
+		        </td>
+				 <td class="row2">
+		            <strong><%= order_line.product.tax_rate %>&nbsp;%</strong>
+		        </td>
+				 <td class="row2">
+		            $<%= order_line.total_price %>
+		        </td>
+		    </tr>
+		<%end %>	
+		
+		<tr>
+			<td colspan=5 align="right"> Total </td>
+	        <td class="row2">$<%= order_lines.collect{|ol| ol.total_price}.sum %> </td>
+	    </tr>											
+	</table>
+</div>
