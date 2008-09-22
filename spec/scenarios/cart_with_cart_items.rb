@@ -7,11 +7,10 @@ scenario :cart_with_cart_items do
   @cart_item = stub_cart_item
   @cart_items = stub_cart_items
     
-  @cart.stub!(:add_to_cart).and_return @cart_items  
-  @cart.stub!(:view_cart).and_return @cart_items  
-  @cart.stub!(:update_cart).and_return @cart_items  
-    
   Cart.stub!(:find).and_return @cart
   @shop.stub!(:cart).and_return @cart
   @cart.cart_items.stub!(:find).and_return @cart_items
+  @cart.cart_items.stub!(:build).and_return @cart_item
+  @cart.cart_items.stub!(:select).and_return @cart_item
+  @cart_item.stub!(:destroy).and_return true
 end

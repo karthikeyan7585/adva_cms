@@ -1,7 +1,7 @@
 var OrderSearch = Class.create();
 OrderSearch.create = function(trigSubmit) { 
 	var search = new OrderSearch('order-search', [
-    {keys: ['order_id', 'product_id'],  show: ['query'],  hide: ['status', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button']},
+    {keys: ['order_id', 'product_id', 'user_id', 'product_name'],  show: ['query'],  hide: ['status', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button']},
     {keys: ['ordered_on'], show: ['order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button'],       hide: ['query', 'status']},
 	{keys: ['status'],  show: ['status'],  hide: ['query', 'order_ordered_on_1i', 'order_ordered_on_2i', 'order_ordered_on_3i', 'button']},
   	], trigSubmit);

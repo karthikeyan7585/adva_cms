@@ -8,7 +8,10 @@
 		<select name="filter" id="filterlist">
 		    <%= options_for_select [['with ID',        'order_id'],
 		    						['ordered on',   'ordered_on'],
-								    ['whose status is',  'status']], params[:filter] %>
+								    ['whose status is',  'status'],
+									['whose product ID is',  'product_id'],
+									['whose product name contains',  'product_name'],
+									['whose user ID is',  'user_id']], params[:filter] %>
 		</select>
 		
 		<%= text_field_tag 'query', params[:query], :id => 'query' %>

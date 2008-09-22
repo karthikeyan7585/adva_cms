@@ -15,8 +15,8 @@
 						<%= address.state %><br />
 						<%= address.country %><br />
 						ZIP: <%= address.zip_code %><br />
-						Phone : <%= address.phone %>
-						
+						Phone : <%= address.phone %><br /><br />
+						<%= link_to "Delete", remove_address_path(@section,address)  %>
 					</td>
 				</tr>
 			<% end %>

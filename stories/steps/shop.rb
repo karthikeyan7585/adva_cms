@@ -188,6 +188,7 @@ steps_for :shop do
   end
   
   Then "the cart info widget displays a link to \"View Cart\"" do
+    wait_for_ajax(15000)
     response.should_not have_tag('img#cart_spinner')
     response.should have_tag("a[href^=?]", "/#{@shop.permalink}/carts/#{@cart.id}")
   end

@@ -31,7 +31,7 @@ class ShopController < BaseController
   
   #Action to return products array based on the search term entered in the frontend
   def search_product
-    @products = Product.paginate(:all, :page => current_page, :per_page => 3, :conditions=>"name like '#{params[:search_term]}%'")    
+    @products = @section.products.paginate(:all, :page => current_page, :per_page => 3, :conditions=> ["name like ?", "%#{params[:search_term]}%"])    
     render :template=> 'shop/index'
   end
   

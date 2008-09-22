@@ -1,4 +1,4 @@
-define Address do
+define Addresss do
   belongs_to :addressable, :polymorphic => true
   
   methods    :id => 1,
@@ -11,5 +11,4 @@ define Address do
              :zip_code => '123456',
              :phone => '999999999',
              :email => 'mymail@example.com'
-
 end

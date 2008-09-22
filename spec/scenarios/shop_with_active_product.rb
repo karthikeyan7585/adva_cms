@@ -14,7 +14,7 @@ scenario :shop_with_active_product do
   @category.products.stub!(:paginate_with_tags).and_return @products
   @category.products.stub!(:find_by_id).and_return @product
   @shop.products.stub!(:paginate_with_tags).and_return @products
-  @shop.products.stub!(:permalinks).and_return ['fifth-product']
+  @shop.products.stub!(:permalinks).and_return ['a-product']
   @shop.products.stub!(:find_by_id).and_return @product
   
   Category.stub!(:find).and_return @category

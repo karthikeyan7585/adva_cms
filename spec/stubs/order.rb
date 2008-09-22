@@ -1,8 +1,8 @@
 define Order do
   belongs_to :site, stub_site
   belongs_to :section
-  belongs_to :billing_address
-  belongs_to :shipping_address
+  belongs_to :billing_addresss
+  belongs_to :shipping_addresss
   belongs_to :shipping_method
   belongs_to :shop
   has_many   :order_lines

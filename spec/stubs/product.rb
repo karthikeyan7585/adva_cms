@@ -12,7 +12,7 @@ define Product do
   methods  :id => 1,
            :type => 'Product',
            :name => 'A product',
-           :permalink => 'fifth-product',
+           :permalink => 'a-product',
            :tag_list => 'prod',
            :accept_comments? => true,
            :filter => nil,
@@ -24,7 +24,7 @@ define Product do
            :find_by_id => self,
            :price => 100.0,
            :tax_rate => 12.0,
-           :vendor_name => 'ProdOwn'
+           :vendor_name => 'Vendor'
 
   instance :product 
 end

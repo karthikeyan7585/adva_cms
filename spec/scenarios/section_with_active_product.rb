@@ -7,5 +7,5 @@ scenario :section_with_active_product do
     
   Section.stub!(:find).and_return @section
   @site.sections.stub!(:root).and_return @section
-  @section.products.stub!(:permalinks).and_return ['fifth-product']
+  @section.products.stub!(:permalinks).and_return ['a-product']
 end

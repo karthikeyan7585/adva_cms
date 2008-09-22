@@ -100,22 +100,32 @@ class Admin::OrdersController < Admin::BaseController
         options[:conditions] = Order.send(:sanitize_sql, ["orders.created_at >= ? and orders.created_at < ?", ordered_date,ordered_date+1])
       when 'status'
         options[:conditions] = Order.send(:sanitize_sql, ["orders.status = ?", params[:status]]) unless params[:status].blank?
+      when 'product_id'
+        options[:joins] = "INNER JOIN order_lines ON orders.id = order_lines.order_id"
+        options[:conditions] = Order.send(:sanitize_sql, ["order_lines.product_id = ?", params[:query].to_i])
+      when 'product_name'
+        options[:joins] = "INNER JOIN order_lines ON orders.id = order_lines.order_id INNER JOIN products ON products.id = order_lines.product_id"
+        options[:conditions] = Order.send(:sanitize_sql, ["LOWER(products.name) LIKE ?", "%%#{params[:query].downcase}%%"])
+      when 'user_id'
+        options[:joins] = "INNER JOIN addresses ON orders.billing_address_id = addresses.id"
+        options[:conditions] = Order.send(:sanitize_sql, ["addresses.addressable_id = ? and addresses.addressable_type = ?", params[:query].to_i, "User"])
       end
       options
     end  
     # Set the orders
     def set_orders
       conditions = "orders.status > 0 and orders.status < 3"
-      filt_options = filter_options[:conditions]
+      
+      filt_options = filter_options
       
       if params[:filter] == "status"
-        conditions = filt_options
+        conditions = filt_options[:conditions]
       else
-        conditions = conditions + " and " + filt_options if filt_options
+        conditions = conditions + " and " + filt_options[:conditions] if filt_options[:conditions]
       end
-      
-      options = {:page => current_page, :per_page => 10, :order => "orders.id", :conditions => [conditions]}
-      @orders = @section.orders.paginate options
+            
+      options = {:page => current_page, :per_page => 10, :order => "orders.id"}
+      @orders = @section.orders.paginate options.reverse_merge(:joins => filt_options[:joins], :conditions => [conditions])
     end
     
     # Return the confirmation url to find the host address for the ShopMailer

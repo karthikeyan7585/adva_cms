@@ -34,6 +34,9 @@ with_options :controller => 'checkout', :action => 'index', :requirements => {:m
   
   checkout.add_billing_details           "shops/:section_id/checkout/add_billing_details", :action => "add_billing_details"
   
+  checkout.remove_address               "shops/:section_id/checkout/remove_address/:address_id", :action => "remove_address",
+                                                                      :requirements => { :method => :delete }
+  
   checkout.proceed_to_payment            "shops/:section_id/checkout/proceed_to_payment/:order_id", :action => "proceed_to_payment"
   
   checkout.process_payment               "shops/:section_id/checkout/process_payment/:order_id", :action => "process_payment"

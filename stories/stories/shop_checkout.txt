@@ -49,7 +49,7 @@ Story: Checkout: Adding a billing and shipping address
     And the page displays the cart contents including detailed price information
     And the page has radio buttons for selecting a billing address (listing the user's addresses)
     And the first address is selected as a billing address by default
-    And each of the addresses has a delete button for deleting the address
+    And each of the addresses has a delete link for deleting the address
     And the page has a radio button "Use a different billing address" which unveils the billing address form when selected
     And the page has a billing address form which is hidden by default
     And the page has a checkbox "use my billing address for shipping" which is checked by default
@@ -58,8 +58,8 @@ Story: Checkout: Adding a billing and shipping address
     And the first address is selected as a shipping address by default
     And the page has a radio button "Use a different shipping address" which unveils the shipping address form when selected
     And the page has a shipping address form which is hidden by default
-    And the user checks the "use my billing address for shipping" checkbox
-    When the user clicks the 'Proceed to next step' button
+    When the user checks the "use my billing address for shipping" checkbox
+    And the user clicks the 'Proceed to next step' button
     Then the user's first address is stored with the shopping cart as the billing address
     And no separate shipping address is stored with the shopping cart
     

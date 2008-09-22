@@ -1,4 +1,4 @@
-factories :products,:orders,:addresses
+factories :products, :orders, :addresses
 
 
 steps_for :order do 
@@ -29,7 +29,64 @@ steps_for :order do
     fills_in 'query', :with => @order.id
     clicks_button 'Go'
   end
+
+  When "user filters the order list by an product_id" do
+    selects 'whose product ID is', :from => 'filter'
+    fills_in 'query', :with => '1'
+    clicks_button 'Go'
+  end
   
+  Then "the order list shows orders matching the product_id" do
+#    response.should have_tag('table.list')
+  end
+  
+  When "the user enters the invalid product_id" do
+    selects 'whose product ID is', :from => 'filter'
+    fills_in 'query', :with => 0
+    clicks_button 'Go'
+  end
+  
+  Then "the order list does not show orders not matching the product_id" do
+    response.should have_tag("div.empty")
+  end
+ 
+  When "user filters the order list by an user_id"  do
+    selects 'whose user ID is', :from => 'filter'
+    fills_in 'query', :with =>'1'
+    clicks_button 'Go'
+    end
+    Then "the order list shows orders matching the user_id"  do
+#       response.should have_tag('table.list')
+    end
+    When "the user enters the invalid user_id"  do
+    selects 'whose user ID is', :from => 'filter'
+    fills_in 'query', :with => 0
+    clicks_button 'Go'
+    end
+    Then "the order list does not show orders not matching the user_id"  do
+       response.should have_tag("div.empty")
+   end
+   
+  When "user filters the order list by an keyword" do
+    selects 'whose product name contains', :from => 'filter'
+    fills_in 'query', :with => 'the product name'
+    clicks_button 'Go'
+  end 
+  
+  Then "the order list shows orders matching the keyword" do
+    response.should have_tag('table.list')
+  end 
+  
+  When "the user enters the invalid keyword" do
+    selects 'whose product name contains', :from => 'filter'
+    fills_in 'query', :with => 'invalid name'
+    clicks_button 'Go'
+  end 
+  
+  Then "the order list does not show orders not matching the keyword" do
+    response.should have_tag("div.empty")
+  end 
+
   When "the user enters the invalid order id" do
     selects 'with ID', :from => 'filter'
     fills_in 'query', :with => 0

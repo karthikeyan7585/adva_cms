@@ -124,6 +124,11 @@ steps_for :checkout do
     response.should have_tag("input[type=?][name=?][value=?][checked=?]", "radio", "selected_billing_address", "#{@user.addresses.first.id}", "checked")
   end
   
+  Then "each of the addresses has a delete link for deleting the address" do
+    link = find_link "Delete"
+    link.should_not be_nil
+  end
+  
   Then "the page has a radio button \"Use a different billing address\" which unveils the billing address form when selected" do
     response.should have_tag("input[type=?][name=?][value=?]", "radio", "selected_billing_address", "new")
   end

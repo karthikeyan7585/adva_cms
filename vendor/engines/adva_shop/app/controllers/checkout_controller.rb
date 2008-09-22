@@ -1,7 +1,7 @@
 class CheckoutController < BaseController  
 
   prepend_before_filter :find_order, :only => [:add_billing_details]
-  prepend_before_filter :set_order, :only => [:proceed_to_payment, :process_payment, :confirm_external_payment, :complete_external_payment]
+  prepend_before_filter :set_order, :only => [:proceed_to_payment, :process_payment, :confirm_external_payment, :complete_external_payment,:add_billing_details]
   
   prepend_before_filter :set_section
   
@@ -89,6 +89,10 @@ class CheckoutController < BaseController
     session[:order_id] = nil
   end
   
+  def remove_address
+    Address.destroy(params[:address_id])
+    redirect_to add_billing_details_path
+  end
   
   private
   
@@ -97,16 +101,18 @@ class CheckoutController < BaseController
     end
     
     def set_order
-      @order = Order.find(session[:order_id])
+      @order = Order.find(session[:order_id]) unless session[:order_id].blank?
     end
     
     def find_order
-      @order = Order.new
-      @order.shop = @section
-      @order.order_lines = Cart.find(session[:cart_id]).cart_items.collect{|item| OrderLine.new(:product_id => item.product_id, :quantity => item.quantity )}
-      Cart.destroy(session[:cart_id]) if @order.save
-      session[:cart_id] = nil
-      session[:order_id] = @order.id unless @order.new_record?
+       unless session[:order_id] 
+          @order = Order.new
+          @order.shop = @section
+          @order.order_lines = Cart.find(session[:cart_id]).cart_items.collect{|item| OrderLine.new(:product_id => item.product_id, :quantity => item.quantity )}
+          Cart.destroy(session[:cart_id]) if @order.save
+          session[:cart_id] = nil
+          session[:order_id] = @order.id unless @order.new_record?
+       end
     end
     
     def set_addresses
