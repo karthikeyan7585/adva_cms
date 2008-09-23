@@ -1,6 +1,6 @@
 Story: Create a shop in a web presence
   As an admin
-  I want to create a shop section for my site on a backend 
+  I want to create a shop section for my site on a backend
   So that I have a working webshop on my site
 
   Scenario: An admin creates a shop

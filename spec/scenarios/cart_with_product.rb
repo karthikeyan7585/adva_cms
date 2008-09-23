@@ -1,5 +1,7 @@
 scenario :section_with_active_product do
   
+  scenario :empty_site
+
   @section = stub_section
   @order = stub_order
   @cart = stub_cart

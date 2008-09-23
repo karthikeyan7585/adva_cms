@@ -1,5 +1,4 @@
-factories :products, :orders, :addresses
-
+factories :products, :orders
 
 steps_for :order do 
   
@@ -7,21 +6,22 @@ steps_for :order do
     @product = create_active_product
     @shop = @product.section
     @order = create_order   
+    @order.order_lines = [create_order_line]
   end
  
- Given 'a processed order' do
+  Given 'a processed order' do
     @order ||= create_order   
- end
+  end
  
   When "the user visits the 'Orders' tab in the admin shop section" do
     raise "step expects the variable @shop to be set" unless @shop
     raise "step expects the variable @order to be set" unless @order
-     get admin_orders_path(@shop.site, @shop)
+    get admin_orders_path(@shop.site, @shop)
   end
   
   When "the user clicks on the order link" do
-     get edit_admin_order_path(@site, @shop, @order)
-     response.should render_template('admin/orders/edit')
+    get edit_admin_order_path(@site, @shop, @order)
+    response.should render_template('admin/orders/edit')
   end
   
   When "user filters the order list by an id" do
@@ -32,12 +32,12 @@ steps_for :order do
 
   When "user filters the order list by an product_id" do
     selects 'whose product ID is', :from => 'filter'
-    fills_in 'query', :with => '1'
+    fills_in 'query', :with => @order.order_lines.first.product_id
     clicks_button 'Go'
   end
   
   Then "the order list shows orders matching the product_id" do
-#    response.should have_tag('table.list')
+    response.should have_tag('table.list')
   end
   
   When "the user enters the invalid product_id" do
@@ -52,24 +52,27 @@ steps_for :order do
  
   When "user filters the order list by an user_id"  do
     selects 'whose user ID is', :from => 'filter'
-    fills_in 'query', :with =>'1'
+    fills_in 'query', :with => @order.billing_address.addressable_id
     clicks_button 'Go'
-    end
-    Then "the order list shows orders matching the user_id"  do
-#       response.should have_tag('table.list')
-    end
-    When "the user enters the invalid user_id"  do
+  end
+    
+  Then "the order list shows orders matching the user_id"  do
+    response.should have_tag('table.list')
+  end
+  
+  When "the user enters the invalid user_id"  do
     selects 'whose user ID is', :from => 'filter'
     fills_in 'query', :with => 0
     clicks_button 'Go'
-    end
-    Then "the order list does not show orders not matching the user_id"  do
-       response.should have_tag("div.empty")
-   end
+  end
+  
+  Then "the order list does not show orders not matching the user_id"  do
+    response.should have_tag("div.empty")
+  end
    
   When "user filters the order list by an keyword" do
     selects 'whose product name contains', :from => 'filter'
-    fills_in 'query', :with => 'the product name'
+    fills_in 'query', :with => @order.order_lines.first.product.name
     clicks_button 'Go'
   end 
   
@@ -126,7 +129,6 @@ steps_for :order do
   Then "the page has an order tracking form" do
     action = fetch_order_status_path(@shop)
     response.should have_form_posting_to(action)
-   
   end
   
   Then "the page shows the order status page" do
@@ -138,10 +140,10 @@ steps_for :order do
   end
   
   When "the user goes to the shop order tracking page" do
-     get "/#{@shop.permalink}"
-     response.should render_template('shop/index')
-     response.should have_tag("div#view_widget")
-     response.should have_tag("div#view_widget1")
+    get "/#{@shop.permalink}"
+    response.should render_template('shop/index')
+    response.should have_tag("div#view_widget")
+    response.should have_tag("div#view_widget1")
   end
   
   When "the user enters in the order tracking form with a valid order tracking number"  do
@@ -163,7 +165,7 @@ steps_for :order do
   end
 
   Then "the order list shows orders matching the id" do
-     response.should have_tag('table.list')
+    response.should have_tag('table.list')
   end
   
   Then "the order list does not show orders not matching the id" do
@@ -181,7 +183,7 @@ steps_for :order do
   Then "the user sees the admin orders list page" do
     raise "step expects the variable @shop to be set" unless @shop
     raise "step expects the variable @order to be set" unless @order
-      response.should render_template('admin/orders/index')
+    response.should render_template('admin/orders/index')
   end
   
   Then "the page shows the order details" do
@@ -192,8 +194,7 @@ steps_for :order do
   end
   
   Then "the page shows a history order changes" do
-     response.should have_tag("div#order_version_info")
-     
+    response.should have_tag("div#order_version_info")
   end
   
   Then "the page lists all orders that are not completed" do
@@ -201,13 +202,13 @@ steps_for :order do
   end
   
   Then "the listed order has a 'Receive Payment' button" do
-     get edit_admin_order_path(@site, @shop, @order)
-     response.should have_tag("input[type=?][value=?]", "submit", "Receive Payment")
+    get edit_admin_order_path(@site, @shop, @order)
+    response.should have_tag("input[type=?][value=?]", "submit", "Receive Payment")
   end
   
-   Then "the listed order has a 'Ship Items' button" do
-     get edit_admin_order_path(@site, @shop, @order)
-     response.should have_tag("input[type=?][value=?]", "submit", "Ship Items")
+  Then "the listed order has a 'Ship Items' button" do
+    get edit_admin_order_path(@site, @shop, @order)
+    response.should have_tag("input[type=?][value=?]", "submit", "Ship Items")
   end 
   
   Then "a payment receivement email is sent to the user" do
@@ -229,7 +230,7 @@ steps_for :order do
   end
   
   Then "the order's 'Receive Payment' button is removed" do
-     response.should_not have_tag("input[type=?][value=?]", "submit", "Receive Payment")
+    response.should_not have_tag("input[type=?][value=?]", "submit", "Receive Payment")
   end
   
   Then "the listed order has a 'Shipping Paper' link" do

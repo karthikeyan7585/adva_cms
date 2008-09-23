@@ -26,6 +26,7 @@ module Stubby
           key ||= :first
         end
         method = :find_all if key == :all
+        method = :find_one if key == :first     # Added by Aspire Systems
 
         definition = Stubby.base_definition(klass.classify) or raise "could not find base_definition for #{klass.classify}"
         send(method, definition, key)

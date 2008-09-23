@@ -1,4 +1,4 @@
-define Addresss do
+define Address do
   belongs_to :addressable, :polymorphic => true
   
   methods    :id => 1,

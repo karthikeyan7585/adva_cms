@@ -45,8 +45,29 @@ describe "Shop:" do
       assigns[:product] = stub_product
     end
     
-    it "should display a product information " do
-      template.stub_render :partial => 'view_product', :collection => stub_products
+    it "should display a product information" do
+      template.stub_render :partial => 'product_description', :object => stub_product
+    end
+  end
+  
+  describe "the product search" do
+    before :each do
+      assigns[:products] = stub_products
+    end
+    
+    it "should display a list of products matching the keyword" do
+      template.stub_render :partial => 'product', :collection => stub_products
+    end
+  end
+  
+  describe "the order status tracking" do
+    before :each do
+      assigns[:order] = stub_order
+      assigns[:order_versions] = stub_order_versions
+    end
+    
+    it "should display a list of products matching the keyword" do
+      template.stub_render :template => 'fetch_order_status', :collection => stub_order_versions
     end
   end
   

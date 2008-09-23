@@ -25,7 +25,7 @@ Story: Paying the order
     And the page displays the cart contents including detailed price information
     And the page displays the shipping and billing address information
     And the page has a payment information form
-    When the user selects a payment option 
+    When the user selects a payment option
     And the user fills in the payment information form with valid data
     When the user clicks the 'Pay order' button
     Then the payment is processed

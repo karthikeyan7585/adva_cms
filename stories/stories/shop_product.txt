@@ -16,24 +16,22 @@ Story: View all products in the catalogue.
     When the user clicks the 'Add to cart' button
     Then the product is added to the cart with a quantity of 1
     And the cart info widget displays the cart contents
-    And the cart info widget is requested through an Ajax request and displayed in the page 
+    And the cart info widget is requested through an Ajax request and displayed in the page
     And the user is returned to the product list
-    
 
 Story: Browse certain products in the catalogue/category.
   As a user
   I want to search, filter, sort and tag products in the shop
   So I can find the products I am interested in
 
-  Scenario: A user sorts a shop product listing 
+  Scenario: A user sorts a shop product listing
 	Given a shop with products
 	And the user visits the shop section
 	Then the page has a list of products in catalogue
 	And the page is paginated
 	When the user clicks sortable table column header
 	Then the products will be sorted by the table column header
-	And the table indicates the sorting column and direction (using CSS)  
-
+	And the table indicates the sorting column and direction (using CSS)
   
   Scenario: A user filters a shop product listing for one category
   	Given a shop with products
@@ -44,10 +42,9 @@ Story: Browse certain products in the catalogue/category.
     When the user clicks on 'a category'
     Then the page has a list of products filtered by category
 
-
 Story: View products comments.
   As a user
-  I want to view all comments regarding a product in the shop 
+  I want to view all comments regarding a product in the shop
   So I can perform an informed purchase
 
   Scenario: User views the product that has comments
@@ -73,7 +70,6 @@ Story: View products comments.
     And the user clicks the 'Submit Comment' button
     Then a new comment is created
     And the product has one unapproved comment more
-    
 
 Story: User adds comments to a product.
   As a user
@@ -110,5 +106,4 @@ Story: User adds comments to a product.
     When the user fills in the form with a comment
     And the user clicks the 'Submit Comment' button
     Then a new comment is created
-    And the product has one approved comment more    
-
+    And the product has one approved comment more

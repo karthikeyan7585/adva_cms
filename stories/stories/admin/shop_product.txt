@@ -20,7 +20,7 @@ Story: Adding a product to product catalogue.
     Given a shop with one product
     And the user is logged in as admin
     When the user clicks on "Products"
-    Then the page has a list of products 
+    Then the page has a list of products
     When the user clicks on 'Add a product'
     Then the page has a product creation form
     When the user fills in the admin product creation form with valid values
@@ -29,22 +29,17 @@ Story: Adding a product to product catalogue.
     Then a new product is saved
     And the user is redirected to the admin shop products list page
 
-
-# 2.2 View Products for maintenance
-
 Story: View all products in the catalogue.
   As an admin
   I want to view all products in the shop
   So that I can get a quick overview of products
 
-  Scenario: An admin views the products index page 
+  Scenario: An admin views the products index page
     Given a shop with one product
     And the user is logged in as admin
     When the user clicks on "Products"
     Then the page has a list of products
     And each product has an edit link
-
-# 2.3 Search Product
 
 Story: An admin filters the product catalogue.
   As an admin
@@ -62,8 +57,6 @@ Story: An admin filters the product catalogue.
     Then the page has a lists of filtered products
     And each product has an edit link
 
-# 2.4 Edit Product
-
 Story: Updating a detail information of the product.
   As an admin
   I want to update detailed information of a product
@@ -73,13 +66,13 @@ Story: Updating a detail information of the product.
     Given a shop with one product
     And the user is logged in as admin
     When the user clicks on "Products"
-    Then the page has a list of products 
+    Then the page has a list of products
     When the user clicks on 'the product name'
     Then the page has an edit product form
     When the user fills in the product edit form with valid values
     And the user clicks the 'Apply changes' button
     Then the product is updated
-    And the user is redirected to the product listing page  
+    And the user is redirected to the product listing page
 
   Scenario: An admin activates a deactivated product
     Given a shop with one deactivated product
@@ -87,7 +80,7 @@ Story: Updating a detail information of the product.
     When the user goes to the shop products list page on the frontend
     Then the product is not displayed on the frontend
     When the user goes to the products list on backend
-    Then the page has a list of products 
+    Then the page has a list of products
     When the user clicks on 'the product name'
     Then the page has an edit product form
     When the user checks 'Active'
@@ -96,12 +89,10 @@ Story: Updating a detail information of the product.
     When the user goes to the shop products list page on the frontend
     Then the product is displayed on the frontend
 
-# 2.5 Delete Product
-
 Story: Removing a product from the shop
   As an admin
   I want to remove a product from the shop
-  So that the product is removed from the frontend 
+  So that the product is removed from the frontend
 
   Scenario: An admin removes a product from the shop
     Given a shop with one product

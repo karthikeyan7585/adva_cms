@@ -69,6 +69,7 @@ describe "Admin::Products:" do
   describe "the form partial" do
     before :each do
       assigns[:product] = @product
+      template.stub!(:f).and_return ActionView::Base.default_form_builder.new(:product, @product, template, {}, nil)
     end
     
     it "should render the product form fields" do

@@ -1,4 +1,4 @@
-factories :shop,:sections,:addresses
+factories :shop,:sections,:products
 
 factory :payment_method,
         :section_id => lambda{ (Shop.find(:first) || create_shop).id },

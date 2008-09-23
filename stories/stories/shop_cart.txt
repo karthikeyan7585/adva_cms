@@ -3,28 +3,27 @@ Story: Adding a product to the cart.
   I want to add a product to the cart
   So I can purchase it
   
-  Scenario: A user adds a product to the cart 
+  Scenario: A user adds a product to the cart
     Given a shop with products
     And the user visits the shop section
     When the user goes to the shop products list page
     Then the cart info widget displays no cart contents
     And the cart info widget does not display a link to "View Cart"
-    And each product has a form field for specifying the product quantity 
+    And each product has a form field for specifying the product quantity
     And the product quantity is set to 1 by default
     And each product has a "Add to cart" button
     When the user fills in a product quantity with 2
     And the user clicks the 'Add to cart' button
     Then the product is added to the cart with a quantity of 2
     And the cart info widget displays the cart contents
-    And the cart info widget is requested through an Ajax request and displayed in the page    
-
+    And the cart info widget is requested through an Ajax request and displayed in the page
 
 Story: Viewing the shopping cart
   As a user
   I want to review the products in my shopping cart
   So I can edit it or proceed to checkout
   
-  Scenario: A user reviews the products in his shopping cart 
+  Scenario: A user reviews the products in his shopping cart
     Given a shop with products
     Given a user has added a product to the shopping cart
     When the user goes to the shop products list page
@@ -33,14 +32,13 @@ Story: Viewing the shopping cart
     When the user clicks on the "View Cart" link
     Then the page has a list of the shopping cart contents
     And the page shows the summary of order costs and totals
-    
 
 Story: Edit quantities in the shopping cart
   As a user
   I want to edit the quantity of products in the cart
   So I can proceed to checkout with the right amount
   
-  Scenario: A user edits the quantity of a product in the shopping cart 
+  Scenario: A user edits the quantity of a product in the shopping cart
     Given a shop with products
     Given a user has added a product with a quantity of 1 to the shopping cart
     When the user goes to the view cart page
@@ -50,7 +48,6 @@ Story: Edit quantities in the shopping cart
     And the user clicks the 'Update' button
     Then the quantity is updated in the cart
     And the summary of order costs and totals shows the updated values
-
 
 Story: Remove a product from the shopping cart
   As a user

@@ -1,8 +1,8 @@
-factories :products,:shop,:addresses
+factories :products,:shop
 
 factory :order,
-        :billing_address => lambda{ Address.find(:first) || create_addresss },
-        :shipping_address =>  lambda{ Address.find(:first) || create_addresss },
+        :billing_address => lambda{ Address.find(:first) || create_user_address },
+        :shipping_address =>  lambda{ Address.find(:first) || create_user_address },
         :payment_method => 'PaymentMethod::ExternalPayment',
         :section_id => lambda{ (Shop.find(:first) || create_shop).id },
         :status => 1,

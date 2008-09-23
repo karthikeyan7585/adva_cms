@@ -18,7 +18,6 @@
 	  	<li><%= link_to 'Shop Setup', admin_section_path(@site, @section) %></li>
 		<li><%= link_to 'Payment Setup', admin_shop_path(@site, @section, @section) %></li>
 	  <% else %>
-	  	<% puts admin_section_path(@site, @section)%>
       	<li><%= link_to 'Settings', admin_section_path(@site, @section) %></li>
 	  <% end %>
     </ul>

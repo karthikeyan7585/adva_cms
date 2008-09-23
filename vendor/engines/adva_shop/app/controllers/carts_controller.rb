@@ -7,6 +7,7 @@ class CartsController < BaseController
  
   authenticates_anonymous_user
   
+  # Finds the cart and list the items in the cart
   def show
   end
   
@@ -21,6 +22,7 @@ class CartsController < BaseController
     redirect_to shop_path(@section)
   end
   
+  # Updates the cart item with the new quantity. If the quantity is 0, then remove the cart item from the cart
   def update
     quantity = params["product_quantity_#{params[:product_id]}".to_sym].to_i
 
@@ -33,6 +35,7 @@ class CartsController < BaseController
     redirect_to cart_path(@section, @cart)
   end
   
+  # Remove the cart item from the cart
   def destroy
     @cart_item.destroy
     redirect_to cart_path(@section, @cart)
@@ -41,18 +44,18 @@ class CartsController < BaseController
 
   private
   
-  #Action to return a product based on the product_id
+  # Sets the product based on the product_id
   def set_product
     @product = @section.products.find_by_permalink params[:permalink] unless params[:permalink].blank?
     @product ||= @section.products.find_by_id params[:product_id]
   end
   
-  #Action to return the section based on the section_id
+  # Sets the section based on the section_id
   def set_section
     super Shop
   end
   
-  #Action to create/return the cart object based on the availability of the session[:cart_id] params
+  # create/return the cart object based on the availability of the session[:cart_id] params
   def find_cart
     id = session[:cart_id]    
     unless id.blank?
@@ -63,7 +66,7 @@ class CartsController < BaseController
     end
   end
   
-  #Action to return the cart_item object basesd on the params[:product_id]
+  # Set the cart item based on the product id
   def set_cart_item
     @cart_item = @cart.cart_items.select{|cart_item| cart_item.product_id == params[:product_id].to_i }.first
   end
