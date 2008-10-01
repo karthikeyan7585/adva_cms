@@ -91,9 +91,9 @@ ActionMailer::Base.delivery_method = :smtp
 #ActionMailer::Base.raise_delivery_errors = true
 
 ActionMailer::Base.smtp_settings = {
-   :address => "mail.aspiresys.com",
+   :address => "address.yourdomain.com",
    :port => 25,
-   :domain => "aspiresys.com",
+   :domain => "yourdomain.com",
    :authentication => nil,
    :user_name => nil,
    :password =>nil
